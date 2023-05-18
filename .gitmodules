@@ -1,0 +1,3 @@
+[submodule "app/src/main/cpp/ThirdPart/mlt"]
+	path = app/src/main/cpp/ThirdPart/mlt
+	url = git@github.com:ab503044120/mlt.git
