@@ -2,3 +2,7 @@
 	path = app/src/main/cpp/ThirdPart/mlt
 	url = git@github.com:ab503044120/mlt.git
 	branch = android
+[submodule "app/src/main/cpp/ThirdPart/FFmpeg"]
+	path = app/src/main/cpp/ThirdPart/FFmpeg
+	url = git@github.com:FFmpeg/FFmpeg.git
+	tag = n6.0
