@@ -2,7 +2,7 @@
 set -o errexit
 ndk=~/Android-env/android_sdk/ndk/23.1.7779620
 pwd=$PWD
-prefix=$pwd/prebuild/mlt
+prefix=$pwd/prebuild/mlt/arm64-v8a
 #export PKG_CONFIG_PATH=$pwd/prebuild/ffmpeg/arm64-v8a/lib/pkgconfig
 export PKG_CONFIG_LIBDIR=$pwd/prebuild/ffmpeg/arm64-v8a/lib/pkgconfig
 echo $PKG_CONFIG_LIBDIR
@@ -65,6 +65,7 @@ cmake	-DANDROID_ABI=arm64-v8a \
 		-B build
 cd build
 cmake --build .
+cmake --install .
 
 exit 1
 
