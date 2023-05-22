@@ -1,0 +1,16 @@
+// {
+//     "cmake.environment": {
+// 		"PKG_CONFIG_LIBDIR": "/root/code/FFmpeg/out/lib/pkgconfig",
+// 	}
+// }
+{"cmake.environment": {
+    "PKG_CONFIG_LIBDIR": "../../prebuild/ffmpeg/arm64-v8a/lib/pkgconfig",
+},
+"cmake.configureArgs": [
+    "-DANDROID_ABI=arm64-v8a ",
+    "-DCMAKE_TOOLCHAIN_FILE=~/Android-env/android_sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake ",
+    "-DANDROID_PLATFORM=android-30 ",
+    "-DCMAKE_BUILD_TYPE=DEBUG ",
+    "-GNinja",
+]
+}
