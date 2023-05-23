@@ -261,7 +261,7 @@ static int init_packet(AVPacket **packet)
 
 /**
  * Initialize one audio frame for reading from the input file.
- * @param[out] frame Frame to be initialized
+ * @param[out] frame org.huihui.videoedit.mlt.Frame to be initialized
  * @return Error code (0 if successful)
  */
 static int init_input_frame(AVFrame **frame)
@@ -610,7 +610,7 @@ cleanup:
 /**
  * Initialize one input frame for writing to the output file.
  * The frame will be exactly frame_size samples large.
- * @param[out] frame                Frame to be initialized
+ * @param[out] frame                org.huihui.videoedit.mlt.Frame to be initialized
  * @param      output_codec_context Codec context of the output file
  * @param      frame_size           Size of the frame
  * @return Error code (0 if successful)

@@ -1533,7 +1533,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1producer_1_1SWIG_10(JNIEnv *jenv, 
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -1565,7 +1565,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1producer_1_1SWIG_11(JNIEnv *jenv, 
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -1592,7 +1592,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1filter_1_1SWIG_10(JNIEnv *jenv, jc
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -1624,7 +1624,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1filter_1_1SWIG_11(JNIEnv *jenv, jc
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -1651,7 +1651,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1transition_1_1SWIG_10(JNIEnv *jenv
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -1683,7 +1683,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1transition_1_1SWIG_11(JNIEnv *jenv
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -1710,7 +1710,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1consumer_1_1SWIG_10(JNIEnv *jenv, 
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -1742,7 +1742,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1consumer_1_1SWIG_11(JNIEnv *jenv, 
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -1873,7 +1873,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Repository_1create(JNIEnv *jenv, jclass jcl
   arg1 = *(Mlt::Repository **)&jarg1; 
   arg2 = *(Mlt::Profile **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg3 = (mlt_service_type)jarg3; 
@@ -2070,7 +2070,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Event_1_1SWIG_11(JNIEnv *jenv, jclass 
   (void)jarg1_;
   arg1 = *(Mlt::Event **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Event & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Event & reference is null");
     return 0;
   } 
   result = (Mlt::Event *)new Mlt::Event(*arg1);
@@ -2171,7 +2171,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1EventData_1_1SWIG_11(JNIEnv *jenv, jcl
   (void)jarg1_;
   arg1 = *(Mlt::EventData **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::EventData & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.EventData & reference is null");
     return 0;
   } 
   result = (Mlt::EventData *)new Mlt::EventData(*arg1);
@@ -2301,7 +2301,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Properties_1_1SWIG_12(JNIEnv *jenv, jc
   (void)jarg1_;
   arg1 = *(Mlt::Properties **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Properties & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
     return 0;
   } 
   result = (Mlt::Properties *)new Mlt::Properties(*arg1);
@@ -2921,7 +2921,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1copy(JNIEnv *jenv, jclass jcls, 
   arg1 = *(Mlt::Properties **)&jarg1; 
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Properties & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
     return 0;
   } 
   arg3 = 0;
@@ -2948,7 +2948,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Properties_1pass_1property(JNIEnv *jenv, jcl
   arg1 = *(Mlt::Properties **)&jarg1; 
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Properties & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
     return ;
   } 
   arg3 = 0;
@@ -2975,7 +2975,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1pass_1values(JNIEnv *jenv, jclas
   arg1 = *(Mlt::Properties **)&jarg1; 
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Properties & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
     return 0;
   } 
   arg3 = 0;
@@ -3004,7 +3004,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1pass_1list(JNIEnv *jenv, jclass 
   arg1 = *(Mlt::Properties **)&jarg1; 
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Properties & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
     return 0;
   } 
   arg3 = 0;
@@ -3128,7 +3128,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Properties_1mirror(JNIEnv *jenv, jclass jcls
   arg1 = *(Mlt::Properties **)&jarg1; 
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Properties & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
     return ;
   } 
   (arg1)->mirror(*arg2);
@@ -3148,7 +3148,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1inherit(JNIEnv *jenv, jclass jcl
   arg1 = *(Mlt::Properties **)&jarg1; 
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Properties & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
     return 0;
   } 
   result = (int)(arg1)->inherit(*arg2);
@@ -3706,7 +3706,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_17(JNIEnv *jenv, jcl
   }
   argp3 = *(mlt_color **)&jarg3; 
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_color");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
     return 0;
   }
   arg3 = *argp3; 
@@ -3790,7 +3790,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_10(JNIEnv *jen
   }
   argp3 = *(mlt_color **)&jarg3; 
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_color");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
     return 0;
   }
   arg3 = *argp3; 
@@ -3826,7 +3826,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_11(JNIEnv *jen
   }
   argp3 = *(mlt_color **)&jarg3; 
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_color");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
     return 0;
   }
   arg3 = *argp3; 
@@ -3860,7 +3860,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_12(JNIEnv *jen
   }
   argp3 = *(mlt_color **)&jarg3; 
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_color");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
     return 0;
   }
   arg3 = *argp3; 
@@ -4274,7 +4274,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_18(JNIEnv *jenv, jcl
   }
   argp3 = *(mlt_rect **)&jarg3; 
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_rect");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
     return 0;
   }
   arg3 = *argp3; 
@@ -4392,7 +4392,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_111(JNIEnv *je
   }
   argp3 = *(mlt_rect **)&jarg3; 
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_rect");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
     return 0;
   }
   arg3 = *argp3; 
@@ -4428,7 +4428,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_112(JNIEnv *je
   }
   argp3 = *(mlt_rect **)&jarg3; 
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_rect");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
     return 0;
   }
   arg3 = *argp3; 
@@ -4462,7 +4462,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_113(JNIEnv *je
   }
   argp3 = *(mlt_rect **)&jarg3; 
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_rect");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
     return 0;
   }
   arg3 = *argp3; 
@@ -4609,7 +4609,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_111(JNIEnv *jenv, jc
   }
   arg3 = *(Mlt::Properties **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Properties & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
     return 0;
   } 
   result = (int)(arg1)->set((char const *)arg2,*arg3);
@@ -4694,7 +4694,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Frame_1_1SWIG_12(JNIEnv *jenv, jclass 
   (void)jarg1_;
   arg1 = *(Mlt::Frame **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Frame & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
     return 0;
   } 
   result = (Mlt::Frame *)new Mlt::Frame(*arg1);
@@ -4726,7 +4726,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1_1_1assign_1_1(JNIEnv *jenv, jclass 
   arg1 = *(Mlt::Frame **)&jarg1; 
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Frame const & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame const & reference is null");
     return 0;
   } 
   result = (Mlt::Frame *) &(arg1)->operator =((Mlt::Frame const &)*arg2);
@@ -4780,7 +4780,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1image_1_1SWIG_10(JNIEnv *jenv, 
   arg1 = *(Mlt::Frame **)&jarg1; 
   arg2 = *(mlt_image_format **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "mlt_image_format & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "org.huihui.videoedit.mlt.mlt_image_format & reference is null");
     return 0;
   } 
   arg3 = *(int **)&jarg3;
@@ -4814,7 +4814,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1image_1_1SWIG_11(JNIEnv *jenv, 
   arg1 = *(Mlt::Frame **)&jarg1; 
   arg2 = *(mlt_image_format **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "mlt_image_format & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "org.huihui.videoedit.mlt.mlt_image_format & reference is null");
     return 0;
   } 
   arg3 = *(int **)&jarg3;
@@ -4892,7 +4892,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1audio(JNIEnv *jenv, jclass jcls
   arg1 = *(Mlt::Frame **)&jarg1; 
   arg2 = *(mlt_audio_format **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "mlt_audio_format & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "org.huihui.videoedit.mlt.mlt_audio_format & reference is null");
     return 0;
   } 
   arg3 = *(int **)&jarg3;
@@ -4978,7 +4978,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1unique_1properties(JNIEnv *jenv
   arg1 = *(Mlt::Frame **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (mlt_properties)(arg1)->get_unique_properties(*arg2);
@@ -5051,7 +5051,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Service_1_1SWIG_11(JNIEnv *jenv, jclas
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (Mlt::Service *)new Mlt::Service(*arg1);
@@ -5150,7 +5150,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Service_1connect_1producer_1_1SWIG_10(JNIEnv
   arg1 = *(Mlt::Service **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -5173,7 +5173,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Service_1connect_1producer_1_1SWIG_11(JNIEnv
   arg1 = *(Mlt::Service **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (int)(arg1)->connect_producer(*arg2);
@@ -5196,7 +5196,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Service_1insert_1producer_1_1SWIG_10(JNIEnv 
   arg1 = *(Mlt::Service **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -5219,7 +5219,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Service_1insert_1producer_1_1SWIG_11(JNIEnv 
   arg1 = *(Mlt::Service **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (int)(arg1)->insert_producer(*arg2);
@@ -5395,7 +5395,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Service_1attach(JNIEnv *jenv, jclass jcls, j
   arg1 = *(Mlt::Service **)&jarg1; 
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Filter & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
     return 0;
   } 
   result = (int)(arg1)->attach(*arg2);
@@ -5417,7 +5417,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Service_1detach(JNIEnv *jenv, jclass jcls, j
   arg1 = *(Mlt::Service **)&jarg1; 
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Filter & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
     return 0;
   } 
   result = (int)(arg1)->detach(*arg2);
@@ -5501,7 +5501,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Service_1set_1profile_1_1SWIG_11(JNIEnv *jen
   arg1 = *(Mlt::Service **)&jarg1; 
   arg2 = *(Mlt::Profile **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return ;
   } 
   (arg1)->set_profile(*arg2);
@@ -5532,7 +5532,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_11(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -5564,7 +5564,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_12(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -5638,7 +5638,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_15(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (Mlt::Producer *)new Mlt::Producer(*arg1);
@@ -5671,7 +5671,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_17(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Producer **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   result = (Mlt::Producer *)new Mlt::Producer(*arg1);
@@ -6118,7 +6118,7 @@ SWIGEXPORT jboolean JNICALL Java_mltJNI_Producer_1same_1clip(JNIEnv *jenv, jclas
   arg1 = *(Mlt::Producer **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   result = (bool)(arg1)->same_clip(*arg2);
@@ -6140,7 +6140,7 @@ SWIGEXPORT jboolean JNICALL Java_mltJNI_Producer_1runs_1into(JNIEnv *jenv, jclas
   arg1 = *(Mlt::Producer **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   result = (bool)(arg1)->runs_into(*arg2);
@@ -6265,7 +6265,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Profile_1_1SWIG_12(JNIEnv *jenv, jclas
   (void)jarg1_;
   arg1 = *(Mlt::Properties **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Properties & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
     return 0;
   } 
   result = (Mlt::Profile *)new Mlt::Profile(*arg1);
@@ -6576,7 +6576,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Profile_1from_1producer(JNIEnv *jenv, jclass
   arg1 = *(Mlt::Profile **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return ;
   } 
   (arg1)->from_producer(*arg2);
@@ -7121,7 +7121,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Playlist_1_1SWIG_11(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   result = (Mlt::Playlist *)new Mlt::Playlist(*arg1);
@@ -7140,7 +7140,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Playlist_1_1SWIG_12(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (Mlt::Playlist *)new Mlt::Playlist(*arg1);
@@ -7159,7 +7159,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Playlist_1_1SWIG_13(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Playlist **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Playlist & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Playlist & reference is null");
     return 0;
   } 
   result = (Mlt::Playlist *)new Mlt::Playlist(*arg1);
@@ -7267,7 +7267,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1append_1_1SWIG_10(JNIEnv *jenv, jc
   arg1 = *(Mlt::Playlist **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -7292,7 +7292,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1append_1_1SWIG_11(JNIEnv *jenv, jc
   arg1 = *(Mlt::Playlist **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -7315,7 +7315,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1append_1_1SWIG_12(JNIEnv *jenv, jc
   arg1 = *(Mlt::Playlist **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   result = (int)(arg1)->append(*arg2);
@@ -7476,7 +7476,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1insert_1_1SWIG_10(JNIEnv *jenv, jc
   arg1 = *(Mlt::Playlist **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -7503,7 +7503,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1insert_1_1SWIG_11(JNIEnv *jenv, jc
   arg1 = *(Mlt::Playlist **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -7528,7 +7528,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1insert_1_1SWIG_12(JNIEnv *jenv, jc
   arg1 = *(Mlt::Playlist **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -8185,7 +8185,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_11(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   result = (Mlt::Consumer *)new Mlt::Consumer(*arg1);
@@ -8206,7 +8206,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_12(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -8238,7 +8238,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_13(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -8312,7 +8312,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_16(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (Mlt::Consumer *)new Mlt::Consumer(*arg1);
@@ -8331,7 +8331,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_17(JNIEnv *jenv, jcla
   (void)jarg1_;
   arg1 = *(Mlt::Consumer **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Consumer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Consumer & reference is null");
     return 0;
   } 
   result = (Mlt::Consumer *)new Mlt::Consumer(*arg1);
@@ -8407,7 +8407,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Consumer_1connect(JNIEnv *jenv, jclass jcls,
   arg1 = *(Mlt::Consumer **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (int)(arg1)->connect(*arg2);
@@ -8526,7 +8526,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_11(JNIEnv *jenv, jclass
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -8558,7 +8558,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_12(JNIEnv *jenv, jclass
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -8632,7 +8632,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_15(JNIEnv *jenv, jclass
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (Mlt::Filter *)new Mlt::Filter(*arg1);
@@ -8651,7 +8651,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_16(JNIEnv *jenv, jclass
   (void)jarg1_;
   arg1 = *(Mlt::Filter **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Filter & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
     return 0;
   } 
   result = (Mlt::Filter *)new Mlt::Filter(*arg1);
@@ -8728,7 +8728,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1connect_1_1SWIG_10(JNIEnv *jenv, jcl
   arg1 = *(Mlt::Filter **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -8751,7 +8751,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1connect_1_1SWIG_11(JNIEnv *jenv, jcl
   arg1 = *(Mlt::Filter **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (int)(arg1)->connect(*arg2);
@@ -8833,7 +8833,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1get_1length2(JNIEnv *jenv, jclass jc
   arg1 = *(Mlt::Filter **)&jarg1; 
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Frame & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
     return 0;
   } 
   result = (int)(arg1)->get_length2(*arg2);
@@ -8870,7 +8870,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1get_1position(JNIEnv *jenv, jclass j
   arg1 = *(Mlt::Filter **)&jarg1; 
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Frame & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
     return 0;
   } 
   result = (int)(arg1)->get_position(*arg2);
@@ -8892,7 +8892,7 @@ SWIGEXPORT jdouble JNICALL Java_mltJNI_Filter_1get_1progress(JNIEnv *jenv, jclas
   arg1 = *(Mlt::Filter **)&jarg1; 
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Frame & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
     return 0;
   } 
   result = (double)(arg1)->get_progress(*arg2);
@@ -8912,7 +8912,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Filter_1process(JNIEnv *jenv, jclass jcls, j
   arg1 = *(Mlt::Filter **)&jarg1; 
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Frame & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
     return ;
   } 
   (arg1)->process(*arg2);
@@ -8943,7 +8943,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_11(JNIEnv *jenv, jc
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -8975,7 +8975,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_12(JNIEnv *jenv, jc
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -9049,7 +9049,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_15(JNIEnv *jenv, jc
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (Mlt::Transition *)new Mlt::Transition(*arg1);
@@ -9068,7 +9068,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_16(JNIEnv *jenv, jc
   (void)jarg1_;
   arg1 = *(Mlt::Transition **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Transition & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
     return 0;
   } 
   result = (Mlt::Transition *)new Mlt::Transition(*arg1);
@@ -9176,7 +9176,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1connect_1_1SWIG_10(JNIEnv *jenv,
   arg1 = *(Mlt::Transition **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -9202,7 +9202,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1connect_1_1SWIG_11(JNIEnv *jenv,
   arg1 = *(Mlt::Transition **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -9301,7 +9301,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1get_1position(JNIEnv *jenv, jcla
   arg1 = *(Mlt::Transition **)&jarg1; 
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Frame & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
     return 0;
   } 
   result = (int)(arg1)->get_position(*arg2);
@@ -9323,7 +9323,7 @@ SWIGEXPORT jdouble JNICALL Java_mltJNI_Transition_1get_1progress(JNIEnv *jenv, j
   arg1 = *(Mlt::Transition **)&jarg1; 
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Frame & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
     return 0;
   } 
   result = (double)(arg1)->get_progress(*arg2);
@@ -9345,7 +9345,7 @@ SWIGEXPORT jdouble JNICALL Java_mltJNI_Transition_1get_1progress_1delta(JNIEnv *
   arg1 = *(Mlt::Transition **)&jarg1; 
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Frame & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
     return 0;
   } 
   result = (double)(arg1)->get_progress_delta(*arg2);
@@ -9378,7 +9378,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Multitrack_1_1SWIG_11(JNIEnv *jenv, jc
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (Mlt::Multitrack *)new Mlt::Multitrack(*arg1);
@@ -9397,7 +9397,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Multitrack_1_1SWIG_12(JNIEnv *jenv, jc
   (void)jarg1_;
   arg1 = *(Mlt::Multitrack **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Multitrack & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Multitrack & reference is null");
     return 0;
   } 
   result = (Mlt::Multitrack *)new Mlt::Multitrack(*arg1);
@@ -9460,7 +9460,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Multitrack_1connect(JNIEnv *jenv, jclass jcl
   arg1 = *(Mlt::Multitrack **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -9484,7 +9484,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Multitrack_1insert(JNIEnv *jenv, jclass jcls
   arg1 = *(Mlt::Multitrack **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -9597,7 +9597,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Field_1_1SWIG_11(JNIEnv *jenv, jclass 
   (void)jarg1_;
   arg1 = *(Mlt::Field **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Field & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Field & reference is null");
     return 0;
   } 
   result = (Mlt::Field *)new Mlt::Field(*arg1);
@@ -9660,7 +9660,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Field_1plant_1filter_1_1SWIG_10(JNIEnv *jenv
   arg1 = *(Mlt::Field **)&jarg1; 
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Filter & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -9683,7 +9683,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Field_1plant_1filter_1_1SWIG_11(JNIEnv *jenv
   arg1 = *(Mlt::Field **)&jarg1; 
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Filter & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
     return 0;
   } 
   result = (int)(arg1)->plant_filter(*arg2);
@@ -9707,7 +9707,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Field_1plant_1transition_1_1SWIG_10(JNIEnv *
   arg1 = *(Mlt::Field **)&jarg1; 
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Transition & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -9732,7 +9732,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Field_1plant_1transition_1_1SWIG_11(JNIEnv *
   arg1 = *(Mlt::Field **)&jarg1; 
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Transition & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -9755,7 +9755,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Field_1plant_1transition_1_1SWIG_12(JNIEnv *
   arg1 = *(Mlt::Field **)&jarg1; 
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Transition & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
     return 0;
   } 
   result = (int)(arg1)->plant_transition(*arg2);
@@ -9775,7 +9775,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Field_1disconnect_1service(JNIEnv *jenv, jcl
   arg1 = *(Mlt::Field **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return ;
   } 
   (arg1)->disconnect_service(*arg2);
@@ -9804,7 +9804,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_11(JNIEnv *jenv, jclas
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   result = (Mlt::Tractor *)new Mlt::Tractor(*arg1);
@@ -9823,7 +9823,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_12(JNIEnv *jenv, jclas
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (Mlt::Tractor *)new Mlt::Tractor(*arg1);
@@ -9856,7 +9856,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_14(JNIEnv *jenv, jclas
   (void)jarg1_;
   arg1 = *(Mlt::Tractor **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Tractor & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Tractor & reference is null");
     return 0;
   } 
   result = (Mlt::Tractor *)new Mlt::Tractor(*arg1);
@@ -9877,7 +9877,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_15(JNIEnv *jenv, jclas
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -9909,7 +9909,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_16(JNIEnv *jenv, jclas
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -10068,7 +10068,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Tractor_1set_1track(JNIEnv *jenv, jclass jcl
   arg1 = *(Mlt::Tractor **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -10092,7 +10092,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Tractor_1insert_1track(JNIEnv *jenv, jclass 
   arg1 = *(Mlt::Tractor **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   arg3 = (int)jarg3; 
@@ -10164,7 +10164,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1plant_1transition_1_1SWIG_10(JNIEnv
   arg1 = *(Mlt::Tractor **)&jarg1; 
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Transition & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
     return ;
   } 
   arg3 = (int)jarg3; 
@@ -10185,7 +10185,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1plant_1transition_1_1SWIG_11(JNIEnv
   arg1 = *(Mlt::Tractor **)&jarg1; 
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Transition & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
     return ;
   } 
   arg3 = (int)jarg3; 
@@ -10204,7 +10204,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1plant_1transition_1_1SWIG_12(JNIEnv
   arg1 = *(Mlt::Tractor **)&jarg1; 
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Transition & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
     return ;
   } 
   (arg1)->plant_transition(*arg2);
@@ -10223,7 +10223,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1plant_1filter_1_1SWIG_10(JNIEnv *je
   arg1 = *(Mlt::Tractor **)&jarg1; 
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Filter & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
     return ;
   } 
   arg3 = (int)jarg3; 
@@ -10242,7 +10242,7 @@ SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1plant_1filter_1_1SWIG_11(JNIEnv *je
   arg1 = *(Mlt::Tractor **)&jarg1; 
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Filter & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
     return ;
   } 
   (arg1)->plant_filter(*arg2);
@@ -10292,7 +10292,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Tractor_1connect(JNIEnv *jenv, jclass jcls, 
   arg1 = *(Mlt::Tractor **)&jarg1; 
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Producer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
     return 0;
   } 
   result = (int)(arg1)->connect(*arg2);
@@ -10336,7 +10336,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1start(JNIEnv *jenv, jclass jcls, jlo
   arg1 = *(Mlt::Parser **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (int)(arg1)->start(*arg2);
@@ -10722,7 +10722,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1FilteredConsumer_1_1SWIG_10(JNIEnv *je
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -10754,7 +10754,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1FilteredConsumer_1_1SWIG_11(JNIEnv *je
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Profile & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
     return 0;
   } 
   arg2 = 0;
@@ -10779,7 +10779,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1FilteredConsumer_1_1SWIG_12(JNIEnv *je
   (void)jarg1_;
   arg1 = *(Mlt::Consumer **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Consumer & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Consumer & reference is null");
     return 0;
   } 
   result = (Mlt::FilteredConsumer *)new Mlt::FilteredConsumer(*arg1);
@@ -10811,7 +10811,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_FilteredConsumer_1connect(JNIEnv *jenv, jcla
   arg1 = *(Mlt::FilteredConsumer **)&jarg1; 
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Service & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
     return 0;
   } 
   result = (int)(arg1)->connect(*arg2);
@@ -10833,7 +10833,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_FilteredConsumer_1attach(JNIEnv *jenv, jclas
   arg1 = *(Mlt::FilteredConsumer **)&jarg1; 
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Filter & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
     return 0;
   } 
   result = (int)(arg1)->attach(*arg2);
@@ -10855,7 +10855,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_FilteredConsumer_1last(JNIEnv *jenv, jclass 
   arg1 = *(Mlt::FilteredConsumer **)&jarg1; 
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Filter & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
     return 0;
   } 
   result = (int)(arg1)->last(*arg2);
@@ -10877,7 +10877,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_FilteredConsumer_1detach(JNIEnv *jenv, jclas
   arg1 = *(Mlt::FilteredConsumer **)&jarg1; 
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Filter & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
     return 0;
   } 
   result = (int)(arg1)->detach(*arg2);
@@ -10922,7 +10922,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Animation_1_1SWIG_12(JNIEnv *jenv, jcl
   (void)jarg1_;
   arg1 = *(Mlt::Animation **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Animation const & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Animation const & reference is null");
     return 0;
   } 
   result = (Mlt::Animation *)new Mlt::Animation((Mlt::Animation const &)*arg1);
@@ -10984,7 +10984,7 @@ SWIGEXPORT jlong JNICALL Java_mltJNI_Animation_1_1_1assign_1_1(JNIEnv *jenv, jcl
   arg1 = *(Mlt::Animation **)&jarg1; 
   arg2 = *(Mlt::Animation **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::Animation const & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Animation const & reference is null");
     return 0;
   } 
   result = (Mlt::Animation *) &(arg1)->operator =((Mlt::Animation const &)*arg2);
@@ -11028,7 +11028,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1get_1item(JNIEnv *jenv, jclass jc
   } 
   arg4 = *(mlt_keyframe_type **)&jarg4;
   if (!arg4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "mlt_keyframe_type & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "org.huihui.videoedit.mlt.mlt_keyframe_type & reference is null");
     return 0;
   } 
   result = (int)(arg1)->get_item(arg2,*arg3,*arg4);
@@ -11186,7 +11186,7 @@ SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1key_1get(JNIEnv *jenv, jclass jcl
   } 
   arg4 = *(mlt_keyframe_type **)&jarg4;
   if (!arg4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "mlt_keyframe_type & reference is null");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "org.huihui.videoedit.mlt.mlt_keyframe_type & reference is null");
     return 0;
   } 
   result = (int)(arg1)->key_get(arg2,*arg3,*arg4);

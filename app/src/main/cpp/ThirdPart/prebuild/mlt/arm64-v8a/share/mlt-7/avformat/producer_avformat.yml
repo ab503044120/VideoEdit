@@ -102,7 +102,7 @@ parameters:
     # no default property means it should be blank in the UI and not applied unless provided
 
   - identifier: source_fps
-    title: Frame rate
+    title: org.huihui.videoedit.mlt.Frame rate
     type: float
     scale: 2 # scale is the number of digits to display after the decimal point
     description: the framerate of the resource

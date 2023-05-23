@@ -25,7 +25,7 @@
 
 #include "mlt_service.h"
 
-/** \brief Filter abstract service class
+/** \brief org.huihui.videoedit.mlt.Filter abstract service class
  *
  * A filter is a service that may modify the output of a single producer.
  *

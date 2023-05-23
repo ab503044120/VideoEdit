@@ -30,7 +30,7 @@ parameters:
     argument: yes
 
   - identifier: factory
-    title: Factory
+    title: org.huihui.videoedit.mlt.Factory
     type: string
     description: >
       The name of a factory service used as a non-PGM producer loader.
@@ -53,7 +53,7 @@ parameters:
     default: 0
 
   - identifier: producer.*
-    title: Producer
+    title: org.huihui.videoedit.mlt.Producer
     mutable: yes
     description: >
       Properties may be set on the encapsulated producer. Any property starting 

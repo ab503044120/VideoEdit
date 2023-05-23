@@ -11,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'videoedit' library on application startup.
     static {
+        System.loadLibrary("mlt-7");
+        System.loadLibrary("org.huihui.videoedit.mlt.mlt++-7");
         System.loadLibrary("videoedit");
     }
 

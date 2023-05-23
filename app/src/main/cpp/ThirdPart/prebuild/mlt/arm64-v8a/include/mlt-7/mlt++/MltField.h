@@ -1,5 +1,5 @@
 /**
- * MltField.h - Field wrapper
+ * MltField.h - org.huihui.videoedit.mlt.Field wrapper
  * Copyright (C) 2004-2015 Meltytech, LLC
  * Author: Charles Yates <charles.yates@gmail.com>
  *

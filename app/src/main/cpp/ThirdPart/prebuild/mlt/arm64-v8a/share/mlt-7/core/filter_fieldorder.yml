@@ -1,7 +1,7 @@
 schema_version: 0.1
 type: filter
 identifier: fieldorder
-title: Field order
+title: org.huihui.videoedit.mlt.Field order
 description: Correct the field order of interlaced video.
 version: 1
 copyright: Meltytech, LLC

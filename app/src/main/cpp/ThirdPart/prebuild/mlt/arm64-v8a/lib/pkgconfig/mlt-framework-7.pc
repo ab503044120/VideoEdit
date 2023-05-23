@@ -1,15 +1,15 @@
-prefix=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/arm64-v8a
-exec_prefix=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/arm64-v8a
-libdir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/arm64-v8a/lib
-includedir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/arm64-v8a/include
-datadir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/arm64-v8a/share
+prefix=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/org.huihui.videoedit.mlt.mlt/arm64-v8a
+exec_prefix=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/org.huihui.videoedit.mlt.mlt/arm64-v8a
+libdir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/org.huihui.videoedit.mlt.mlt/arm64-v8a/lib
+includedir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/org.huihui.videoedit.mlt.mlt/arm64-v8a/include
+datadir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/org.huihui.videoedit.mlt.mlt/arm64-v8a/share
 
-moduledir=${prefix}/lib/mlt-7
-mltdatadir=${datadir}/mlt-7
+moduledir=${prefix}/lib/org.huihui.videoedit.mlt.mlt-7
+mltdatadir=${datadir}/org.huihui.videoedit.mlt.mlt-7
 
-Name: mlt-framework
+Name: org.huihui.videoedit.mlt.mlt-framework
 Description: MLT multimedia framework
 Version: 7.16.0
 Requires:
 Libs: -L${libdir} -lmlt-7
-Cflags: -I${includedir}/mlt-7
+Cflags: -I${includedir}/org.huihui.videoedit.mlt.mlt-7

@@ -38,25 +38,25 @@
  * \envvar \em MLT_REPOSITORY_DENY colon separated list of modules to skip. Example: libmltplus:libmltavformat:libmltfrei0r
  * In case both qt5 and qt6 modules are found and none of both is blocked by MLT_REPOSITORY_DENY, qt6 will be blocked
  * \event \em producer-create-request fired when mlt_factory_producer is called;
- *   the event data is a pointer to mlt_factory_event_data
+ *   the event data is a pointer to org.huihui.videoedit.mlt.mlt_factory_event_data
  * \event \em producer-create-done fired when a producer registers itself;
- *	 the event data is a pointer to mlt_factory_event_data
+ *	 the event data is a pointer to org.huihui.videoedit.mlt.mlt_factory_event_data
  * \event \em filter-create-request fired when mlt_factory_filter is called;
- *   the event data is a pointer to mlt_factory_event_data
+ *   the event data is a pointer to org.huihui.videoedit.mlt.mlt_factory_event_data
  * \event \em filter-create-done fired when a filter registers itself;
- *   the event data is a pointer to mlt_factory_event_data
+ *   the event data is a pointer to org.huihui.videoedit.mlt.mlt_factory_event_data
  * \event \em transition-create-request fired when mlt_factory_transition is called;
- *   the event data is a pointer to mlt_factory_event_data
+ *   the event data is a pointer to org.huihui.videoedit.mlt.mlt_factory_event_data
  * \event \em transition-create-done fired when a transition registers itself;
- *   the event data is a pointer to mlt_factory_event_data
+ *   the event data is a pointer to org.huihui.videoedit.mlt.mlt_factory_event_data
  * \event \em consumer-create-request fired when mlt_factory_consumer is called;
- *   the event data is a pointer to mlt_factory_event_data
+ *   the event data is a pointer to org.huihui.videoedit.mlt.mlt_factory_event_data
  * \event \em consumer-create-done fired when a consumer registers itself;
- *   the event data is a pointer to mlt_factory_event_data
+ *   the event data is a pointer to org.huihui.videoedit.mlt.mlt_factory_event_data
  * \event \em link-create-request fired when mlt_factory_link is called;
- *   the event data is a pointer to mlt_factory_event_data
+ *   the event data is a pointer to org.huihui.videoedit.mlt.mlt_factory_event_data
  * \event \em link-create-done fired when a link registers itself;
- *   the event data is a pointer to mlt_factory_event_data
+ *   the event data is a pointer to org.huihui.videoedit.mlt.mlt_factory_event_data
  */
 
 extern mlt_repository mlt_factory_init(const char *directory);

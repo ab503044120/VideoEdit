@@ -9,5 +9,5 @@ qscale=75
 preset=default
 
 meta.preset.extension=webp
-meta.preset.name=WebP Animation
+meta.preset.name=WebP org.huihui.videoedit.mlt.Animation
 meta.preset.note=Change preset to photo, picture, drawing, icon, or text as needed.

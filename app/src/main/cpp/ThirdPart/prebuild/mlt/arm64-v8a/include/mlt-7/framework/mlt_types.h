@@ -160,14 +160,14 @@ typedef enum {
 typedef enum {
     mlt_service_invalid_type = 0, /**< invalid service */
     mlt_service_unknown_type,     /**< unknown class */
-    mlt_service_producer_type,    /**< Producer class */
-    mlt_service_tractor_type,     /**< Tractor class */
-    mlt_service_playlist_type,    /**< Playlist class */
-    mlt_service_multitrack_type,  /**< Multitrack class */
-    mlt_service_filter_type,      /**< Filter class */
-    mlt_service_transition_type,  /**< Transition class */
-    mlt_service_consumer_type,    /**< Consumer class */
-    mlt_service_field_type,       /**< Field class */
+    mlt_service_producer_type,    /**< org.huihui.videoedit.mlt.Producer class */
+    mlt_service_tractor_type,     /**< org.huihui.videoedit.mlt.Tractor class */
+    mlt_service_playlist_type,    /**< org.huihui.videoedit.mlt.Playlist class */
+    mlt_service_multitrack_type,  /**< org.huihui.videoedit.mlt.Multitrack class */
+    mlt_service_filter_type,      /**< org.huihui.videoedit.mlt.Filter class */
+    mlt_service_transition_type,  /**< org.huihui.videoedit.mlt.Transition class */
+    mlt_service_consumer_type,    /**< org.huihui.videoedit.mlt.Consumer class */
+    mlt_service_field_type,       /**< org.huihui.videoedit.mlt.Field class */
     mlt_service_link_type,        /**< Link class */
     mlt_service_chain_type        /**< Chain class */
 } mlt_service_type;
@@ -206,28 +206,28 @@ typedef struct
 
 typedef struct mlt_audio_s *mlt_audio;                  /**< pointer to Audio object */
 typedef struct mlt_image_s *mlt_image;                  /**< pointer to Image object */
-typedef struct mlt_frame_s *mlt_frame, **mlt_frame_ptr; /**< pointer to Frame object */
+typedef struct mlt_frame_s *mlt_frame, **mlt_frame_ptr; /**< pointer to org.huihui.videoedit.mlt.Frame object */
 typedef struct mlt_property_s *mlt_property;            /**< pointer to Property object */
-typedef struct mlt_properties_s *mlt_properties;        /**< pointer to Properties object */
-typedef struct mlt_event_struct *mlt_event;             /**< pointer to Event object */
-typedef struct mlt_service_s *mlt_service;              /**< pointer to Service object */
-typedef struct mlt_producer_s *mlt_producer;            /**< pointer to Producer object */
-typedef struct mlt_playlist_s *mlt_playlist;            /**< pointer to Playlist object */
-typedef struct mlt_multitrack_s *mlt_multitrack;        /**< pointer to Multitrack object */
-typedef struct mlt_filter_s *mlt_filter;                /**< pointer to Filter object */
-typedef struct mlt_transition_s *mlt_transition;        /**< pointer to Transition object */
-typedef struct mlt_tractor_s *mlt_tractor;              /**< pointer to Tractor object */
-typedef struct mlt_field_s *mlt_field;                  /**< pointer to Field object */
-typedef struct mlt_consumer_s *mlt_consumer;            /**< pointer to Consumer object */
-typedef struct mlt_parser_s *mlt_parser;                /**< pointer to Properties object */
+typedef struct mlt_properties_s *mlt_properties;        /**< pointer to org.huihui.videoedit.mlt.Properties object */
+typedef struct mlt_event_struct *mlt_event;             /**< pointer to org.huihui.videoedit.mlt.Event object */
+typedef struct mlt_service_s *mlt_service;              /**< pointer to org.huihui.videoedit.mlt.Service object */
+typedef struct mlt_producer_s *mlt_producer;            /**< pointer to org.huihui.videoedit.mlt.Producer object */
+typedef struct mlt_playlist_s *mlt_playlist;            /**< pointer to org.huihui.videoedit.mlt.Playlist object */
+typedef struct mlt_multitrack_s *mlt_multitrack;        /**< pointer to org.huihui.videoedit.mlt.Multitrack object */
+typedef struct mlt_filter_s *mlt_filter;                /**< pointer to org.huihui.videoedit.mlt.Filter object */
+typedef struct mlt_transition_s *mlt_transition;        /**< pointer to org.huihui.videoedit.mlt.Transition object */
+typedef struct mlt_tractor_s *mlt_tractor;              /**< pointer to org.huihui.videoedit.mlt.Tractor object */
+typedef struct mlt_field_s *mlt_field;                  /**< pointer to org.huihui.videoedit.mlt.Field object */
+typedef struct mlt_consumer_s *mlt_consumer;            /**< pointer to org.huihui.videoedit.mlt.Consumer object */
+typedef struct mlt_parser_s *mlt_parser;                /**< pointer to org.huihui.videoedit.mlt.Properties object */
 typedef struct mlt_deque_s *mlt_deque;                  /**< pointer to Deque object */
 typedef struct mlt_geometry_s *mlt_geometry;            /**< pointer to Geometry object */
 typedef struct mlt_geometry_item_s *mlt_geometry_item;  /**< pointer to Geometry Item object */
-typedef struct mlt_profile_s *mlt_profile;              /**< pointer to Profile object */
-typedef struct mlt_repository_s *mlt_repository;        /**< pointer to Repository object */
+typedef struct mlt_profile_s *mlt_profile;              /**< pointer to org.huihui.videoedit.mlt.Profile object */
+typedef struct mlt_repository_s *mlt_repository;        /**< pointer to org.huihui.videoedit.mlt.Repository object */
 typedef struct mlt_cache_s *mlt_cache;                  /**< pointer to Cache object */
 typedef struct mlt_cache_item_s *mlt_cache_item;        /**< pointer to CacheItem object */
-typedef struct mlt_animation_s *mlt_animation;          /**< pointer to Property Animation object */
+typedef struct mlt_animation_s *mlt_animation;          /**< pointer to Property org.huihui.videoedit.mlt.Animation object */
 typedef struct mlt_slices_s *mlt_slices; /**< pointer to Sliced processing context object */
 typedef struct mlt_link_s *mlt_link;     /**< pointer to Link object */
 typedef struct mlt_chain_s *mlt_chain;   /**< pointer to Chain object */
@@ -236,15 +236,15 @@ typedef void (*mlt_destructor)(void *);              /**< pointer to destructor 
 typedef char *(*mlt_serialiser)(void *, int length); /**< pointer to serialization function */
 typedef void *(*mlt_thread_function_t)(void *);      /**< generic thread function pointer */
 
-#define MLT_SERVICE(x) ((mlt_service) (x))       /**< Cast to a Service pointer */
-#define MLT_PRODUCER(x) ((mlt_producer) (x))     /**< Cast to a Producer pointer */
-#define MLT_MULTITRACK(x) ((mlt_multitrack) (x)) /**< Cast to a Multitrack pointer */
-#define MLT_PLAYLIST(x) ((mlt_playlist) (x))     /**< Cast to a Playlist pointer */
-#define MLT_TRACTOR(x) ((mlt_tractor) (x))       /**< Cast to a Tractor pointer */
-#define MLT_FILTER(x) ((mlt_filter) (x))         /**< Cast to a Filter pointer */
-#define MLT_TRANSITION(x) ((mlt_transition) (x)) /**< Cast to a Transition pointer */
-#define MLT_CONSUMER(x) ((mlt_consumer) (x))     /**< Cast to a Consumer pointer */
-#define MLT_FRAME(x) ((mlt_frame) (x))           /**< Cast to a Frame pointer */
+#define MLT_SERVICE(x) ((mlt_service) (x))       /**< Cast to a org.huihui.videoedit.mlt.Service pointer */
+#define MLT_PRODUCER(x) ((mlt_producer) (x))     /**< Cast to a org.huihui.videoedit.mlt.Producer pointer */
+#define MLT_MULTITRACK(x) ((mlt_multitrack) (x)) /**< Cast to a org.huihui.videoedit.mlt.Multitrack pointer */
+#define MLT_PLAYLIST(x) ((mlt_playlist) (x))     /**< Cast to a org.huihui.videoedit.mlt.Playlist pointer */
+#define MLT_TRACTOR(x) ((mlt_tractor) (x))       /**< Cast to a org.huihui.videoedit.mlt.Tractor pointer */
+#define MLT_FILTER(x) ((mlt_filter) (x))         /**< Cast to a org.huihui.videoedit.mlt.Filter pointer */
+#define MLT_TRANSITION(x) ((mlt_transition) (x)) /**< Cast to a org.huihui.videoedit.mlt.Transition pointer */
+#define MLT_CONSUMER(x) ((mlt_consumer) (x))     /**< Cast to a org.huihui.videoedit.mlt.Consumer pointer */
+#define MLT_FRAME(x) ((mlt_frame) (x))           /**< Cast to a org.huihui.videoedit.mlt.Frame pointer */
 #define MLT_LINK(x) ((mlt_link) (x))             /**< Cast to a Link pointer */
 #define MLT_CHAIN(x) ((mlt_chain) (x))           /**< Cast to a Chain pointer */
 

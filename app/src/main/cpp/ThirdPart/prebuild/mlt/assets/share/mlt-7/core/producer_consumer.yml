@@ -1,7 +1,7 @@
 schema_version: 7.0
 type: producer
 identifier: consumer
-title: Consumer as Producer
+title: org.huihui.videoedit.mlt.Consumer as org.huihui.videoedit.mlt.Producer
 version: 2
 copyright: Meltytech, LLC
 creator: Dan Dennedy
@@ -19,7 +19,7 @@ parameters:
     required: yes
 
   - identifier: profile
-    title: Profile
+    title: org.huihui.videoedit.mlt.Profile
     type: string
     description: >
       The name of a MLT profile with which to load the resource. This defaults
@@ -35,13 +35,13 @@ parameters:
     default: 0
 
   - identifier: producer.*
-    title: Producer properties
+    title: org.huihui.videoedit.mlt.Producer properties
     description: A property and its value to apply to the encapsulated producer.
     type: properties
     mutable: yes
 
   - identifier: consumer.*
-    title: Consumer properties
+    title: org.huihui.videoedit.mlt.Consumer properties
     description: A property and its value to apply to the encapsulated consumer.
     type: properties
     mutable: yes

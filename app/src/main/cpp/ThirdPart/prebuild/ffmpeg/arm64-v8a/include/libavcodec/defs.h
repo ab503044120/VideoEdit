@@ -169,7 +169,7 @@ AVCPBProperties *av_cpb_properties_alloc(size_t *size);
 
 /**
  * This structure supplies correlation between a packet timestamp and a wall clock
- * production time. The definition follows the Producer Reference Time ('prft')
+ * production time. The definition follows the org.huihui.videoedit.mlt.Producer Reference Time ('prft')
  * as defined in ISO/IEC 14496-12
  */
 typedef struct AVProducerReferenceTime {

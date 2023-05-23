@@ -1,5 +1,5 @@
 /**
- * MltTractor.h - Tractor wrapper
+ * MltTractor.h - org.huihui.videoedit.mlt.Tractor wrapper
  * Copyright (C) 2004-2015 Meltytech, LLC
  * Author: Charles Yates <charles.yates@gmail.com>
  *

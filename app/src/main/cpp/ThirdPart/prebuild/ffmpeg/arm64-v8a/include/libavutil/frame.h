@@ -580,7 +580,7 @@ typedef struct AVFrame {
  */
 
     /**
-     * Frame flags, a combination of @ref lavu_frame_flags
+     * org.huihui.videoedit.mlt.Frame flags, a combination of @ref lavu_frame_flags
      */
     int flags;
 

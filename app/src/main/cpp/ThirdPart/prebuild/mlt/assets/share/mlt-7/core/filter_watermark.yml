@@ -47,7 +47,7 @@ parameters:
     widget: checkbox
     
   - identifier: producer.*
-    title: Producer
+    title: org.huihui.videoedit.mlt.Producer
     description: |
       Properties may be set on the encapsulated producer.
       e.g.: producer.align=centre

@@ -27,7 +27,7 @@
 #include "mlt_profile.h"
 #include "mlt_service.h"
 
-/** \brief Producer abstract service class
+/** \brief org.huihui.videoedit.mlt.Producer abstract service class
  *
  * A producer is a service that generates audio, video, and metadata.
  * Some day it may also generate text (subtitles). This is not to say

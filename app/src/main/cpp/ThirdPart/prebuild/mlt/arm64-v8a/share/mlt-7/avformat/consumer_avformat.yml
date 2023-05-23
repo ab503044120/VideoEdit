@@ -44,7 +44,7 @@ parameters:
     widget: filesave
 
   - identifier: mlt_profile
-    title: MLT Profile
+    title: MLT org.huihui.videoedit.mlt.Profile
     type: string
     description: >
       Choose a MLT basic video settings preset.
@@ -117,19 +117,19 @@ parameters:
       - 709 # ITU-R BT.709
 
   - identifier: frame_rate_num
-    title: Frame rate numerator
+    title: org.huihui.videoedit.mlt.Frame rate numerator
     type: integer
     minimum: 0
     unit: frames/second
 
   - identifier: frame_rate_den
-    title: Frame rate denominator
+    title: org.huihui.videoedit.mlt.Frame rate denominator
     type: integer
     minimum: 1
     unit: frames/second
 
   - identifier: fps
-    title: Frame rate
+    title: org.huihui.videoedit.mlt.Frame rate
     readonly: yes
     unit: frames/second
 
@@ -301,7 +301,7 @@ parameters:
     maximum: 1
 
   - identifier: r
-    title: Frame rate
+    title: org.huihui.videoedit.mlt.Frame rate
     type: float
     description: >
       This is a ffmpeg-compatible equivalent to the MLT profile and frame rate parameters.

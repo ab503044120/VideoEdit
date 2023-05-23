@@ -143,17 +143,17 @@ enum AVStereo3DType {
  */
 enum AVStereo3DView {
     /**
-     * Frame contains two packed views.
+     * org.huihui.videoedit.mlt.Frame contains two packed views.
      */
     AV_STEREO3D_VIEW_PACKED,
 
     /**
-     * Frame contains only the left view.
+     * org.huihui.videoedit.mlt.Frame contains only the left view.
      */
     AV_STEREO3D_VIEW_LEFT,
 
     /**
-     * Frame contains only the right view.
+     * org.huihui.videoedit.mlt.Frame contains only the right view.
      */
     AV_STEREO3D_VIEW_RIGHT,
 };

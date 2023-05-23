@@ -17,5 +17,5 @@ flags=+mv4+aic+qpel
 movflags=+faststart
 
 meta.preset.extension=mp4
-meta.preset.note=Part 2 Advanced Simple Profile
+meta.preset.note=Part 2 Advanced Simple org.huihui.videoedit.mlt.Profile
 meta.preset.name=legacy/MPEG-4 Part 2 ASP

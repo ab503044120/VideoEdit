@@ -21,7 +21,7 @@ parameters:
 
   - identifier: frame
     type: integer
-    title: Frame number
+    title: org.huihui.videoedit.mlt.Frame number
     description: The frame number of the frame to repeat
     default: 0
     minimum: 0

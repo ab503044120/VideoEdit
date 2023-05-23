@@ -23,7 +23,7 @@ add_library( # Sets the name of the library.
 
         # Provides a relative path to your source file(s).
         native-lib.cpp
-#        mltJAVA_wrap.cpp
+        mltJAVA_wrap.cpp
         )
 
 message(WARNING hahha${Mlt7_FOUND})

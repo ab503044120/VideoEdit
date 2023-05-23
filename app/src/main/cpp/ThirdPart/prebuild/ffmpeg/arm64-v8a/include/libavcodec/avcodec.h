@@ -384,7 +384,7 @@ typedef struct RcOverride{
  */
 #define AV_CODEC_EXPORT_DATA_MVS         (1 << 0)
 /**
- * Export encoder Producer Reference Time through packet side data
+ * Export encoder org.huihui.videoedit.mlt.Producer Reference Time through packet side data
  */
 #define AV_CODEC_EXPORT_DATA_PRFT        (1 << 1)
 /**
@@ -1024,7 +1024,7 @@ typedef struct AVCodecContext {
      */
     int slices;
 
-    /** Field order
+    /** org.huihui.videoedit.mlt.Field order
      * - encoding: set by libavcodec
      * - decoding: Set by user.
      */
@@ -1063,7 +1063,7 @@ typedef struct AVCodecContext {
 
 #if FF_API_AVCTX_FRAME_NUMBER
     /**
-     * Frame counter, set by libavcodec.
+     * org.huihui.videoedit.mlt.Frame counter, set by libavcodec.
      *
      * - decoding: total number of frames returned from the decoder so far.
      * - encoding: total number of frames passed to the encoder so far.
@@ -1844,7 +1844,7 @@ typedef struct AVCodecContext {
     char *codec_whitelist;
 
     /**
-     * Properties of the stream that gets decoded
+     * org.huihui.videoedit.mlt.Properties of the stream that gets decoded
      * - encoding: unused
      * - decoding: set by libavcodec
      */
@@ -2054,7 +2054,7 @@ typedef struct AVCodecContext {
     AVChannelLayout ch_layout;
 
     /**
-     * Frame counter, set by libavcodec.
+     * org.huihui.videoedit.mlt.Frame counter, set by libavcodec.
      *
      * - decoding: total number of frames returned from the decoder so far.
      * - encoding: total number of frames passed to the encoder so far.
@@ -2798,7 +2798,7 @@ int avcodec_get_hw_frames_parameters(AVCodecContext *avctx,
 
 
 /**
- * @defgroup lavc_parsing Frame parsing
+ * @defgroup lavc_parsing org.huihui.videoedit.mlt.Frame parsing
  * @{
  */
 

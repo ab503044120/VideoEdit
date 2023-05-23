@@ -155,12 +155,12 @@ enum AVMediaType avfilter_pad_get_type(const AVFilterPad *pads, int pad_idx);
 #define AVFILTER_FLAG_SUPPORT_TIMELINE (AVFILTER_FLAG_SUPPORT_TIMELINE_GENERIC | AVFILTER_FLAG_SUPPORT_TIMELINE_INTERNAL)
 
 /**
- * Filter definition. This defines the pads a filter contains, and all the
+ * org.huihui.videoedit.mlt.Filter definition. This defines the pads a filter contains, and all the
  * callback functions used to interact with the filter.
  */
 typedef struct AVFilter {
     /**
-     * Filter name. Must be non-NULL and unique among filters.
+     * org.huihui.videoedit.mlt.Filter name. Must be non-NULL and unique among filters.
      */
     const char *name;
 
@@ -229,7 +229,7 @@ typedef struct AVFilter {
     uint8_t formats_state;
 
     /**
-     * Filter pre-initialization function
+     * org.huihui.videoedit.mlt.Filter pre-initialization function
      *
      * This callback will be called immediately after the filter context is
      * allocated, to allow allocating and initing sub-objects.
@@ -244,7 +244,7 @@ typedef struct AVFilter {
     int (*preinit)(AVFilterContext *ctx);
 
     /**
-     * Filter initialization function.
+     * org.huihui.videoedit.mlt.Filter initialization function.
      *
      * This callback will be called only once during the filter lifetime, after
      * all the options have been set, but before links between filters are
@@ -267,7 +267,7 @@ typedef struct AVFilter {
     int (*init)(AVFilterContext *ctx);
 
     /**
-     * Filter uninitialization function.
+     * org.huihui.videoedit.mlt.Filter uninitialization function.
      *
      * Called only once right before the filter is freed. Should deallocate any
      * memory held by the filter, release any buffer references, etc. It does
@@ -362,7 +362,7 @@ typedef struct AVFilter {
     int (*process_command)(AVFilterContext *, const char *cmd, const char *arg, char *res, int res_len, int flags);
 
     /**
-     * Filter activation function.
+     * org.huihui.videoedit.mlt.Filter activation function.
      *
      * Called when any processing is needed from the filter, instead of any
      * filter_frame and request_frame on pads.
@@ -604,7 +604,7 @@ struct AVFilterLink {
     int age_index;
 
     /**
-     * Frame rate of the stream on the link, or 1/0 if unknown or variable;
+     * org.huihui.videoedit.mlt.Frame rate of the stream on the link, or 1/0 if unknown or variable;
      * if left to 0/0, will be automatically copied from the first input
      * of the source filter if it exists.
      *
@@ -1247,7 +1247,7 @@ typedef struct AVFilterGraphSegment {
  * avfilter_graph_segment_apply() for the canonical way to apply
  * AVFilterGraphSegment.
  *
- * @param graph Filter graph the parsed segment is associated with. Will only be
+ * @param graph org.huihui.videoedit.mlt.Filter graph the parsed segment is associated with. Will only be
  *              used for logging and similar auxiliary purposes. The graph will
  *              not be actually modified by this function - the parsing results
  *              are instead stored in seg for further processing.

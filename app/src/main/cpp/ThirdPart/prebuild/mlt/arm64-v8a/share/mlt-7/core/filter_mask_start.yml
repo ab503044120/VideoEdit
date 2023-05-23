@@ -19,7 +19,7 @@ description: >
 
 parameters:
   - identifier: filter
-    title: Filter
+    title: org.huihui.videoedit.mlt.Filter
     description: The name of a filter
     type: string
     argument: yes

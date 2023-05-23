@@ -1,6 +1,6 @@
 /**
  * \file mlt_properties.h
- * \brief Properties class declaration
+ * \brief org.huihui.videoedit.mlt.Properties class declaration
  * \see mlt_properties_s
  *
  * Copyright (C) 2003-2022 Meltytech, LLC
@@ -27,9 +27,9 @@
 #include "mlt_types.h"
 #include <stdio.h>
 
-/** \brief Properties class
+/** \brief org.huihui.videoedit.mlt.Properties class
  *
- * Properties is a combination list/dictionary of name/::mlt_property pairs.
+ * org.huihui.videoedit.mlt.Properties is a combination list/dictionary of name/::mlt_property pairs.
  * It is also a base class for many of the other MLT classes.
  *
  * \event \em property-changed a property's value changed;

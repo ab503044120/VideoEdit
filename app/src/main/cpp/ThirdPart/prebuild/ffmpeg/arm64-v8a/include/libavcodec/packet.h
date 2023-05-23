@@ -262,7 +262,7 @@ enum AVPacketSideDataType {
     AV_PKT_DATA_AFD,
 
     /**
-     * Producer Reference Time data corresponding to the AVProducerReferenceTime struct,
+     * org.huihui.videoedit.mlt.Producer Reference Time data corresponding to the AVProducerReferenceTime struct,
      * usually exported by some encoders (on demand through the prft flag set in the
      * AVCodecContext export_side_data field).
      */
@@ -674,7 +674,7 @@ void av_packet_move_ref(AVPacket *dst, AVPacket *src);
 /**
  * Copy only "properties" fields from src to dst.
  *
- * Properties for the purpose of this function are all the fields
+ * org.huihui.videoedit.mlt.Properties for the purpose of this function are all the fields
  * beside those related to the packet data (buf, data, size)
  *
  * @param dst Destination packet

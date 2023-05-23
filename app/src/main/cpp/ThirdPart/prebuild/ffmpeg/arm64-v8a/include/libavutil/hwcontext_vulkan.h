@@ -198,7 +198,7 @@ typedef struct AVVulkanFramesContext {
 } AVVulkanFramesContext;
 
 /*
- * Frame structure, the VkFormat of the image will always match
+ * org.huihui.videoedit.mlt.Frame structure, the VkFormat of the image will always match
  * the pool's sw_format.
  * All frames, imported or allocated, will be created with the
  * VK_IMAGE_CREATE_ALIAS_BIT flag set, so the memory may be aliased if needed.

@@ -27,7 +27,7 @@
 #include "mlt_service.h"
 #include <pthread.h>
 
-/** \brief Consumer abstract service class
+/** \brief org.huihui.videoedit.mlt.Consumer abstract service class
  *
  * A consumer is a service that pulls audio and video from the connected
  * producers, filters, and transitions. Typically a consumer is used to
@@ -80,8 +80,8 @@
  * \properties \em priority the OS scheduling priority for the render threads when real_time is not 0.
  * \properties \em top_field_first when not progressive, whether interlace field order is top-field-first, defaults to 0.
  *   Set this to -1 if the consumer does not care about the field order.
- * \properties \em mlt_image_format the image format to request in rendering threads, defaults to yuv422
- * \properties \em mlt_audio_format the audio format to request in rendering threads, defaults to S16
+ * \properties \em org.huihui.videoedit.mlt.mlt_image_format the image format to request in rendering threads, defaults to yuv422
+ * \properties \em org.huihui.videoedit.mlt.mlt_audio_format the audio format to request in rendering threads, defaults to S16
  * \properties \em audio_off set non-zero to disable audio processing
  * \properties \em video_off set non-zero to disable video processing
  * \properties \em drop_count the number of video frames not rendered since starting consumer

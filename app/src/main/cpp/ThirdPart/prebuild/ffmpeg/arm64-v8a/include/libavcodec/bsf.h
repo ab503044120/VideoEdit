@@ -266,7 +266,7 @@ void av_bsf_list_free(AVBSFList **lst);
  * Append bitstream filter to the list of bitstream filters.
  *
  * @param lst List to append to
- * @param bsf Filter context to be appended
+ * @param bsf org.huihui.videoedit.mlt.Filter context to be appended
  *
  * @return >=0 on success, negative AVERROR in case of failure
  */
@@ -293,7 +293,7 @@ int av_bsf_list_append2(AVBSFList *lst, const char * bsf_name, AVDictionary **op
  * will be set to NULL. In case of failure, caller is responsible for
  * freeing the structure by av_bsf_list_free()
  *
- * @param      lst Filter list structure to be transformed
+ * @param      lst org.huihui.videoedit.mlt.Filter list structure to be transformed
  * @param[out] bsf Pointer to be set to newly created @ref AVBSFContext structure
  *                 representing the chain of bitstream filters
  *

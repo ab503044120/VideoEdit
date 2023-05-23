@@ -138,7 +138,7 @@ int main(int argc, char **argv)
 
     parser = av_parser_init(codec->id);
     if (!parser) {
-        fprintf(stderr, "Parser not found\n");
+        fprintf(stderr, "org.huihui.videoedit.mlt.Parser not found\n");
         exit(1);
     }
 

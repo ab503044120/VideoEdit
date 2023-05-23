@@ -43,12 +43,12 @@ typedef struct
     int repeat;               /**< the number of times the clip is repeated */
 } mlt_playlist_clip_info;
 
-/** Playlist Entry
+/** org.huihui.videoedit.mlt.Playlist Entry
 */
 
 typedef struct playlist_entry_s playlist_entry;
 
-/** \brief Playlist class
+/** \brief org.huihui.videoedit.mlt.Playlist class
  *
  * A playlist is a sequential container of producers and blank spaces. The class provides all
  * sorts of playlist assembly and manipulation routines. A playlist is also a producer within
