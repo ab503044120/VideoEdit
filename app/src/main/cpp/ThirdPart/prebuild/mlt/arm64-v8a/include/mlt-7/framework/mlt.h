@@ -1,5 +1,5 @@
 /**
- * \file org.huihui.videoedit.mlt.mlt.h
+ * \file mlt.h
  * \brief header file for lazy client and implementation code :-)
  *
  * Copyright (C) 2003-2021 Meltytech, LLC

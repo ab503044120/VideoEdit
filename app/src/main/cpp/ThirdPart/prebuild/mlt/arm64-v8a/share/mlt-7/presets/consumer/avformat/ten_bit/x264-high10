@@ -12,4 +12,4 @@ pix_fmt=yuv420p10le
 movflags=+faststart
 
 meta.preset.extension=mp4
-meta.preset.name=ten_bit/H.264 High 10 org.huihui.videoedit.mlt.Profile
+meta.preset.name=ten_bit/H.264 High 10 Profile

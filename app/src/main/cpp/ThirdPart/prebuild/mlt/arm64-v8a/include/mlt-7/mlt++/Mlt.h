@@ -1,5 +1,5 @@
 /**
- * Mlt.h - Convenience header file for all org.huihui.videoedit.mlt.mlt++ objects
+ * Mlt.h - Convenience header file for all mlt++ objects
  * Copyright (C) 2004-2015 Meltytech, LLC
  * Author: Charles Yates <charles.yates@gmail.com>
  *

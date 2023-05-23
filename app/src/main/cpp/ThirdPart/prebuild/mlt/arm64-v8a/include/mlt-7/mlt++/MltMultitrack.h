@@ -1,5 +1,5 @@
 /**
- * MltMultitrack.h - org.huihui.videoedit.mlt.Multitrack wrapper
+ * MltMultitrack.h - Multitrack wrapper
  * Copyright (C) 2004-2015 Meltytech, LLC
  * Author: Charles Yates <charles.yates@gmail.com>
  *

@@ -1,6 +1,6 @@
 f=avi
 vcodec=utvideo
-org.huihui.videoedit.mlt.mlt_image_format=rgba
+mlt_image_format=rgba
 pix_fmt=gbrap
 g=1
 bf=0

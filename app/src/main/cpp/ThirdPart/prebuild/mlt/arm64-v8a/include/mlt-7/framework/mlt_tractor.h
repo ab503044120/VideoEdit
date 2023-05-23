@@ -25,7 +25,7 @@
 
 #include "mlt_producer.h"
 
-/** \brief org.huihui.videoedit.mlt.Tractor class
+/** \brief Tractor class
  *
  * The tractor is a convenience class that works with the field class
  * to manage a multitrack, track filters, and transitions.

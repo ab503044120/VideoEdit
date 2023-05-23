@@ -26,7 +26,7 @@
 #include "mlt_properties.h"
 #include "mlt_types.h"
 
-/** \brief org.huihui.videoedit.mlt.Service abstract base class
+/** \brief Service abstract base class
  *
  * \extends mlt_properties
  * The service is the base class for all of the interesting classes and

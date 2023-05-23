@@ -7,6 +7,8 @@ outdir=$prefix/arm64-v8a
 #export PKG_CONFIG_PATH=$pwd/prebuild/ffmpeg/arm64-v8a/lib/pkgconfig
 export PKG_CONFIG_LIBDIR=$pwd/prebuild/ffmpeg/arm64-v8a/lib/pkgconfig
 echo $PKG_CONFIG_LIBDIR
+rm -rf $outdir
+
 cd mlt
 
 # 读取输入架构

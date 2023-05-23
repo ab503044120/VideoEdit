@@ -25,7 +25,7 @@
 
 #include "mlt_types.h"
 
-/** \brief org.huihui.videoedit.mlt.Parser class
+/** \brief Parser class
  *
  * \extends mlt_properties_s
  */

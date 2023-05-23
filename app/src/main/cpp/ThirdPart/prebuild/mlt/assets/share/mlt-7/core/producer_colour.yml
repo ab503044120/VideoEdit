@@ -24,7 +24,7 @@ parameters:
     default: black
     widget: color
 
-  - identifier: org.huihui.videoedit.mlt.mlt_image_format
+  - identifier: mlt_image_format
     title: MLT image format
     type: string
     description: >

@@ -16,7 +16,7 @@ description: >
 
 parameters:
   - identifier: transition
-    title: org.huihui.videoedit.mlt.Transition
+    title: Transition
     description: The name of a compositing or blending transition
     type: string
     argument: yes
@@ -28,7 +28,7 @@ parameters:
     description: >
       Properties to set on the encapsulated transition
 
-  - identifier: org.huihui.videoedit.mlt.mlt_image_format
+  - identifier: mlt_image_format
     title: MLT image format
     type: string
     description: Set to the same image format that the transition needs.

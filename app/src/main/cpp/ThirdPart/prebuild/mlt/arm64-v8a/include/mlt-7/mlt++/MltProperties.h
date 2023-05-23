@@ -29,7 +29,7 @@ namespace Mlt {
 class Event;
 class Animation;
 
-/** Abstract org.huihui.videoedit.mlt.Properties class.
+/** Abstract Properties class.
 	 */
 
 class MLTPP_DECLSPEC Properties

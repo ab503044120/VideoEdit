@@ -17,5 +17,5 @@ progressive=1
 movflags=+faststart
 
 meta.preset.extension=mp4
-meta.preset.note=Part 2 Simple org.huihui.videoedit.mlt.Profile
+meta.preset.note=Part 2 Simple Profile
 meta.preset.name=legacy/MPEG-4 Part 2 SP

@@ -15,7 +15,7 @@ description: >
 parameters:
   - identifier: argument
     argument: yes
-    title: org.huihui.videoedit.mlt.Factory org.huihui.videoedit.mlt.Producer Name
+    title: Factory Producer Name
     description: >
       This is not a saved property with a name. This optional argument tells
       the count producer which loader producer to use, if any, when it creates
@@ -82,7 +82,7 @@ parameters:
     mutable: yes
     widget: combo
   - identifier: drop
-    title: Drop org.huihui.videoedit.mlt.Frame
+    title: Drop Frame
     description:  |
       Use SMPTE style drop-frame counting for non-integer frame rates.
       The clock and timecode will advance two frames every minute if necessary

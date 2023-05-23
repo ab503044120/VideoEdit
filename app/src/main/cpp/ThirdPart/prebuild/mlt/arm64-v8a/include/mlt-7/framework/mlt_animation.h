@@ -1,6 +1,6 @@
 /**
  * \file mlt_animation.h
- * \brief Property org.huihui.videoedit.mlt.Animation class declaration
+ * \brief Property Animation class declaration
  * \see mlt_animation_s
  *
  * Copyright (C) 2004-2018 Meltytech, LLC
@@ -26,14 +26,14 @@
 #include "mlt_property.h"
 #include "mlt_types.h"
 
-/** \brief org.huihui.videoedit.mlt.Animation class
+/** \brief Animation class
  *
  * Once an animation has been constructed using mlt_properties_s, this interface
  * provides a to query and manipulate the animation except for values. One must
  * use mlt_properties_s still to get, set, and change values.
  *
  * \envvar \em MLT_ANIMATION_TIME_FORMAT the time value string format to use,
- * defaults to mlt_time_frames. Use the numeric value of org.huihui.videoedit.mlt.mlt_time_format as
+ * defaults to mlt_time_frames. Use the numeric value of mlt_time_format as
  * the value of this variable.
  */
 

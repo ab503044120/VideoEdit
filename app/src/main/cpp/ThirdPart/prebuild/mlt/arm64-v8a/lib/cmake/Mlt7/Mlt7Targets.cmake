@@ -55,14 +55,14 @@ if(_IMPORT_PREFIX STREQUAL "/")
   set(_IMPORT_PREFIX "")
 endif()
 
-# Create imported target Mlt7::org.huihui.videoedit.mlt.mlt
+# Create imported target Mlt7::mlt
 add_library(Mlt7::mlt SHARED IMPORTED)
 
 set_target_properties(Mlt7::mlt PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/mlt-7"
 )
 
-# Create imported target Mlt7::org.huihui.videoedit.mlt.mlt++
+# Create imported target Mlt7::mlt++
 add_library(Mlt7::mlt++ SHARED IMPORTED)
 
 set_target_properties(Mlt7::mlt++ PROPERTIES

@@ -51,7 +51,7 @@ typedef int (*mlt_get_audio)(mlt_frame self,
                              int *channels,
                              int *samples);
 
-/** \brief org.huihui.videoedit.mlt.Frame class
+/** \brief Frame class
  *
  * The frame is the primary data object that gets passed around to and through services.
  *
@@ -74,8 +74,8 @@ typedef int (*mlt_get_audio)(mlt_frame self,
  * \properties \em audio_frequency the sample rate of the audio
  * \properties \em audio_channels the number of audio channels
  * \properties \em audio_samples the number of audio samples
- * \properties \em audio_format the org.huihui.videoedit.mlt.mlt_audio_format for the audio on this frame
- * \properties \em format the org.huihui.videoedit.mlt.mlt_image_format of the image on this frame
+ * \properties \em audio_format the mlt_audio_format for the audio on this frame
+ * \properties \em format the mlt_image_format of the image on this frame
  * \properties \em width the horizontal resolution of the image
  * \properties \em height the vertical resolution of the image
  * \properties \em aspect_ratio the sample aspect ratio of the image

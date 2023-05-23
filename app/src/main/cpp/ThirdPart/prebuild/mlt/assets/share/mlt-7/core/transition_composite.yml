@@ -24,7 +24,7 @@ bugs:
   - Assumes lower field first during field rendering.
 parameters:
   - identifier: factory
-    title: org.huihui.videoedit.mlt.Factory
+    title: Factory
     type: string
     description: >
       The name of a factory service used as a non-PGM producer loader.

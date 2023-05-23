@@ -26,7 +26,7 @@
 #include "mlt_service.h"
 #include <pthread.h>
 
-/** \brief org.huihui.videoedit.mlt.Transition abstract service class
+/** \brief Transition abstract service class
  *
  * A transition may modify the output of a producer based on the output of a second producer.
  *

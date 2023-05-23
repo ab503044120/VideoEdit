@@ -10,4 +10,4 @@ preset=medium
 movflags=+faststart
 
 meta.preset.extension=mp4
-meta.preset.name=HEVC Main org.huihui.videoedit.mlt.Profile
+meta.preset.name=HEVC Main Profile

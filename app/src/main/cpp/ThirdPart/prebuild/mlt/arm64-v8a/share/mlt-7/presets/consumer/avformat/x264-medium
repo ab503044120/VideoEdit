@@ -11,4 +11,4 @@ vprofile=high
 movflags=+faststart
 
 meta.preset.extension=mp4
-meta.preset.name=H.264 High org.huihui.videoedit.mlt.Profile
+meta.preset.name=H.264 High Profile

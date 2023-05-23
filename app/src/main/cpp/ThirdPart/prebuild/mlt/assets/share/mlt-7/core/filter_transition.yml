@@ -1,7 +1,7 @@
 schema_version: 0.2
 type: filter
 identifier: transition
-title: org.huihui.videoedit.mlt.Transition as org.huihui.videoedit.mlt.Filter (*DEPRECATED*)
+title: Transition as Filter (*DEPRECATED*)
 version: 1
 copyright: Meltytech, LLC
 creator: Charles Yates
@@ -18,7 +18,7 @@ parameters:
   - identifier: transition
     argument: yes
     type: string
-    title: org.huihui.videoedit.mlt.Transition
+    title: Transition
     description: The MLT name of a transition.
     required: yes
 

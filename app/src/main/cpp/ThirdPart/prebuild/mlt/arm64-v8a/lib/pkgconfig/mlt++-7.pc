@@ -1,12 +1,12 @@
-prefix=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/org.huihui.videoedit.mlt.mlt/arm64-v8a
-exec_prefix=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/org.huihui.videoedit.mlt.mlt/arm64-v8a
-libdir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/org.huihui.videoedit.mlt.mlt/arm64-v8a/lib
-includedir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/org.huihui.videoedit.mlt.mlt/arm64-v8a/include
-datadir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/org.huihui.videoedit.mlt.mlt/arm64-v8a/share
+prefix=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/arm64-v8a
+exec_prefix=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/arm64-v8a
+libdir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/arm64-v8a/lib
+includedir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/arm64-v8a/include
+datadir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/arm64-v8a/share
 
-Name: org.huihui.videoedit.mlt.mlt++
+Name: mlt++
 Description: C++ API for MLT multimedia framework
 Version: 7.16.0
-Requires: org.huihui.videoedit.mlt.mlt-framework-7
+Requires: mlt-framework-7
 Libs: -L${libdir} -lmlt++-7
-Cflags: -I${includedir}/org.huihui.videoedit.mlt.mlt-7/org.huihui.videoedit.mlt.mlt++
+Cflags: -I${includedir}/mlt-7/mlt++

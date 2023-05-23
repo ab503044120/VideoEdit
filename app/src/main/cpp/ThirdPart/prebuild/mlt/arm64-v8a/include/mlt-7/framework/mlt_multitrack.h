@@ -36,7 +36,7 @@ struct mlt_track_s
 
 typedef struct mlt_track_s *mlt_track;
 
-/** \brief org.huihui.videoedit.mlt.Multitrack class
+/** \brief Multitrack class
  *
  * A multitrack is a parallel container of producers that acts a single producer.
  *

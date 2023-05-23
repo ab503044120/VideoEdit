@@ -68,7 +68,7 @@ parameters:
     readonly: yes
 
   - identifier: warp_resource
-    title: Warp org.huihui.videoedit.mlt.Producer
+    title: Warp Producer
     type: string
     description: >
       A convenience parameter to access the resource that was passed as part of
