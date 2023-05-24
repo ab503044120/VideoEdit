@@ -1,0 +1,15 @@
+prefix=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt
+exec_prefix=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt
+libdir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/lib
+includedir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/include
+datadir=/mnt/e/code/git/VideoEdit/app/src/main/cpp/ThirdPart/prebuild/mlt/share
+
+moduledir=${prefix}/lib/mlt-7
+mltdatadir=${datadir}/mlt-7
+
+Name: mlt-framework
+Description: MLT multimedia framework
+Version: 7.16.0
+Requires:
+Libs: -L${libdir} -lmlt-7
+Cflags: -I${includedir}/mlt-7

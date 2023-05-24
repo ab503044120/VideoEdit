@@ -43,18 +43,12 @@ android {
     buildFeatures {
         viewBinding true
     }
-//    sourceSets {
-//        main {
-//            assets {
-//                srcDirs 'src/main/assets', 'src/main/cpp/assets'
-//            }
-//        }
-//    }
     sourceSets {
         main {
             assets {
-                srcDirs'src/main/assets' , 'src/main/cpp/ThirdPart/prebuild/mlt/assets/share' ,
-                        'src/main/cpp/ThirdPart/prebuild/mlt/assets/lib'
+                srcDirs = ['src/main/assets',
+                           'src/main/cpp/ThirdPart/prebuild/mlt/assets/share',
+                           'src/main/cpp/ThirdPart/prebuild/mlt/assets/lib']
             }
         }
     }

@@ -13,27 +13,38 @@
 #define SWIGJAVA
 #endif
 
-
-
 #ifdef __cplusplus
 /* SwigValueWrapper is described in swig.swg */
-template<typename T> class SwigValueWrapper {
+template<typename T>
+class SwigValueWrapper {
   struct SwigMovePointer {
-    T *ptr;
-    SwigMovePointer(T *p) : ptr(p) { }
-    ~SwigMovePointer() { delete ptr; }
-    SwigMovePointer& operator=(SwigMovePointer& rhs) { T* oldptr = ptr; ptr = 0; delete oldptr; ptr = rhs.ptr; rhs.ptr = 0; return *this; }
+	T *ptr;
+	SwigMovePointer(T *p) : ptr(p) {}
+	~SwigMovePointer() { delete ptr; }
+	SwigMovePointer &operator=(SwigMovePointer &rhs) {
+	  T *oldptr = ptr;
+	  ptr = 0;
+	  delete oldptr;
+	  ptr = rhs.ptr;
+	  rhs.ptr = 0;
+	  return *this;
+	}
   } pointer;
-  SwigValueWrapper& operator=(const SwigValueWrapper<T>& rhs);
-  SwigValueWrapper(const SwigValueWrapper<T>& rhs);
-public:
-  SwigValueWrapper() : pointer(0) { }
-  SwigValueWrapper& operator=(const T& t) { SwigMovePointer tmp(new T(t)); pointer = tmp; return *this; }
-  operator T&() const { return *pointer.ptr; }
+  SwigValueWrapper &operator=(const SwigValueWrapper<T> &rhs);
+  SwigValueWrapper(const SwigValueWrapper<T> &rhs);
+ public:
+  SwigValueWrapper() : pointer(0) {}
+  SwigValueWrapper &operator=(const T &t) {
+	SwigMovePointer tmp(new T(t));
+	pointer = tmp;
+	return *this;
+  }
+  operator T &() const { return *pointer.ptr; }
   T *operator&() { return pointer.ptr; }
 };
 
-template <typename T> T SwigValueInit() {
+template<typename T>
+T SwigValueInit() {
   return T();
 }
 #endif
@@ -48,7 +59,7 @@ template <typename T> T SwigValueInit() {
 # if defined(__SUNPRO_CC) && (__SUNPRO_CC <= 0x560)
 #  define SWIGTEMPLATEDISAMBIGUATOR template
 # elif defined(__HP_aCC)
-/* Needed even with `aCC -AA' when `aCC -V' reports HP ANSI C++ B3910B A.03.55 */
+																														/* Needed even with `aCC -AA' when `aCC -V' reports HP ANSI C++ B3910B A.03.55 */
 /* If we find a maximum version that requires this, the test would be __HP_aCC <= 35500 for A.03.55 */
 #  define SWIGTEMPLATEDISAMBIGUATOR template
 # else
@@ -74,7 +85,7 @@ template <typename T> T SwigValueInit() {
 #     define SWIGUNUSED
 #   endif
 # elif defined(__ICC)
-#   define SWIGUNUSED __attribute__ ((__unused__))
+																														#   define SWIGUNUSED __attribute__ ((__unused__))
 # else
 #   define SWIGUNUSED
 # endif
@@ -115,7 +126,7 @@ template <typename T> T SwigValueInit() {
 
 #ifndef SWIGEXPORT
 # if defined(_WIN32) || defined(__WIN32__) || defined(__CYGWIN__)
-#   if defined(STATIC_LINKED)
+																														#   if defined(STATIC_LINKED)
 #     define SWIGEXPORT
 #   else
 #     define SWIGEXPORT __declspec(dllexport)
@@ -165,12 +176,12 @@ template <typename T> T SwigValueInit() {
 
 /* Fix for jlong on some versions of gcc on Windows */
 #if defined(__GNUC__) && !defined(__INTEL_COMPILER)
-  typedef long long __int64;
+typedef long long __int64;
 #endif
 
 /* Fix for jlong on 64-bit x86 Solaris */
 #if defined(__x86_64)
-# ifdef _LP64
+																														# ifdef _LP64
 #   undef _LP64
 # endif
 #endif
@@ -179,12 +190,11 @@ template <typename T> T SwigValueInit() {
 #include <stdlib.h>
 #include <string.h>
 
-
 /* Support for throwing Java exceptions */
 typedef enum {
-  SWIG_JavaOutOfMemoryError = 1, 
-  SWIG_JavaIOException, 
-  SWIG_JavaRuntimeException, 
+  SWIG_JavaOutOfMemoryError = 1,
+  SWIG_JavaIOException,
+  SWIG_JavaRuntimeException,
   SWIG_JavaIndexOutOfBoundsException,
   SWIG_JavaArithmeticException,
   SWIG_JavaIllegalArgumentException,
@@ -195,33 +205,32 @@ typedef enum {
 
 typedef struct {
   SWIG_JavaExceptionCodes code;
-  const char *java_exception;
+  const char *Java_org_huihui_videoedit_mlt_exception;
 } SWIG_JavaExceptions_t;
-
 
 static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionCodes code, const char *msg) {
   jclass excep;
-  static const SWIG_JavaExceptions_t java_exceptions[] = {
-    { SWIG_JavaOutOfMemoryError, "java/lang/OutOfMemoryError" },
-    { SWIG_JavaIOException, "java/io/IOException" },
-    { SWIG_JavaRuntimeException, "java/lang/RuntimeException" },
-    { SWIG_JavaIndexOutOfBoundsException, "java/lang/IndexOutOfBoundsException" },
-    { SWIG_JavaArithmeticException, "java/lang/ArithmeticException" },
-    { SWIG_JavaIllegalArgumentException, "java/lang/IllegalArgumentException" },
-    { SWIG_JavaNullPointerException, "java/lang/NullPointerException" },
-    { SWIG_JavaDirectorPureVirtual, "java/lang/RuntimeException" },
-    { SWIG_JavaUnknownError,  "java/lang/UnknownError" },
-    { (SWIG_JavaExceptionCodes)0,  "java/lang/UnknownError" }
+  static const SWIG_JavaExceptions_t Java_org_huihui_videoedit_mlt_exceptions[] = {
+	  {SWIG_JavaOutOfMemoryError, "java/lang/OutOfMemoryError"},
+	  {SWIG_JavaIOException, "java/io/IOException"},
+	  {SWIG_JavaRuntimeException, "java/lang/RuntimeException"},
+	  {SWIG_JavaIndexOutOfBoundsException, "java/lang/IndexOutOfBoundsException"},
+	  {SWIG_JavaArithmeticException, "java/lang/ArithmeticException"},
+	  {SWIG_JavaIllegalArgumentException, "java/lang/IllegalArgumentException"},
+	  {SWIG_JavaNullPointerException, "java/lang/NullPointerException"},
+	  {SWIG_JavaDirectorPureVirtual, "java/lang/RuntimeException"},
+	  {SWIG_JavaUnknownError, "java/lang/UnknownError"},
+	  {(SWIG_JavaExceptionCodes)0, "java/lang/UnknownError"}
   };
-  const SWIG_JavaExceptions_t *except_ptr = java_exceptions;
+  const SWIG_JavaExceptions_t *except_ptr = Java_org_huihui_videoedit_mlt_exceptions;
 
   while (except_ptr->code != code && except_ptr->code)
-    except_ptr++;
+	except_ptr++;
 
   jenv->ExceptionClear();
-  excep = jenv->FindClass(except_ptr->java_exception);
+  excep = jenv->FindClass(except_ptr->Java_org_huihui_videoedit_mlt_exception);
   if (excep)
-    jenv->ThrowNew(excep, msg);
+	jenv->ThrowNew(excep, msg);
 }
 
 
@@ -229,378 +238,434 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 
 #define SWIG_contract_assert(nullreturn, expr, msg) if (!(expr)) {SWIG_JavaThrowException(jenv, SWIG_JavaIllegalArgumentException, msg); return nullreturn; } else
 
-
 typedef unsigned char UnsignedCharArray;
 
-SWIGINTERN UnsignedCharArray *new_UnsignedCharArray(int nelements){
+SWIGINTERN UnsignedCharArray *new_UnsignedCharArray(int nelements) {
   return new unsigned char[nelements]();
 }
-SWIGINTERN void delete_UnsignedCharArray(UnsignedCharArray *self){
-  delete [] self;
+SWIGINTERN void delete_UnsignedCharArray(UnsignedCharArray *self) {
+  delete[] self;
 }
-SWIGINTERN unsigned char UnsignedCharArray_getitem(UnsignedCharArray *self,int index){
+SWIGINTERN unsigned char UnsignedCharArray_getitem(UnsignedCharArray *self, int index) {
   return self[index];
 }
-SWIGINTERN void UnsignedCharArray_setitem(UnsignedCharArray *self,int index,unsigned char value){
+SWIGINTERN void UnsignedCharArray_setitem(UnsignedCharArray *self, int index, unsigned char value) {
   self[index] = value;
 }
-SWIGINTERN unsigned char *UnsignedCharArray_cast(UnsignedCharArray *self){
+SWIGINTERN unsigned char *UnsignedCharArray_cast(UnsignedCharArray *self) {
   return self;
 }
-SWIGINTERN UnsignedCharArray *UnsignedCharArray_frompointer(unsigned char *t){
-  return (UnsignedCharArray *) t;
+SWIGINTERN UnsignedCharArray *UnsignedCharArray_frompointer(unsigned char *t) {
+  return (UnsignedCharArray *)t;
 }
 
 #include <mlt++/Mlt.h>
-int mlt_log_get_level( void );
-void mlt_log_set_level( int );
+#include "Log.h"
+static int32_t mlt_log_level = MLT_LOG_DEBUG;
 
+static void mlt_log_callback(void *service, int level, const char *fmt, va_list vl) {
+  if(level > mlt_log_level){
+	return;
+  }
+  int32_t l = ANDROID_LOG_VERBOSE;
+  switch (level) {
+	case MLT_LOG_DEBUG   : l = ANDROID_LOG_VERBOSE;
+	  break;
+	case MLT_LOG_VERBOSE :
+	case MLT_LOG_TIMINGS :
+	  l = ANDROID_LOG_DEBUG;
+	  break;
+	case MLT_LOG_INFO    : l = ANDROID_LOG_INFO;
+	  break;
+	case MLT_LOG_WARNING : l = ANDROID_LOG_WARN;
+	  break;
+	case MLT_LOG_ERROR   : l = ANDROID_LOG_ERROR;
+	  break;
+	case MLT_LOG_FATAL   :
+	default: l = ANDROID_LOG_FATAL;
+  }
+
+  mlt_properties properties = service ? MLT_SERVICE_PROPERTIES((mlt_service)service) : nullptr;
+  char service_str[100]{};
+  if (properties != nullptr) {
+	const char *mlt_type = mlt_properties_get(properties, "mlt_type");
+	if (mlt_type == nullptr) {
+	  mlt_type = "mlt_type_unknown";
+	}
+	const char *mlt_service = mlt_properties_get(properties, "mlt_service");
+	if (mlt_service == nullptr) {
+	  mlt_service = "mlt_service_unknown";
+	}
+	const char *resource = mlt_properties_get(properties, "resource");
+	if (resource == nullptr) {
+	  resource = "resource_unknown";
+	}
+	snprintf(service_str, 100, "%s:%s:%s", mlt_type, mlt_service, resource);
+  } else {
+	strncpy(service_str, "null", 5);
+  }
+  char str[1024]{};
+  vsnprintf(str, 1024, fmt, vl);
+  Logger::log(l, "mlt_internal", "%s:%s", service_str, str);
+
+}
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1UnsignedCharArray(JNIEnv *jenv, jclass jcls, jint jarg1) {
-  jlong jresult = 0 ;
-  int arg1 ;
-  UnsignedCharArray *result = 0 ;
-  
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1UnsignedCharArray(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jint jarg1) {
+  jlong jresult = 0;
+  int arg1;
+  UnsignedCharArray *result = 0;
+
   (void)jenv;
   (void)jcls;
-  arg1 = (int)jarg1; 
+  arg1 = (int)jarg1;
   result = (UnsignedCharArray *)new_UnsignedCharArray(arg1);
-  *(UnsignedCharArray **)&jresult = result; 
+  *(UnsignedCharArray **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1UnsignedCharArray(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1) {
+  UnsignedCharArray *arg1 = (UnsignedCharArray *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1UnsignedCharArray(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  UnsignedCharArray *arg1 = (UnsignedCharArray *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(UnsignedCharArray **)&jarg1; 
+  arg1 = *(UnsignedCharArray **)&jarg1;
   delete_UnsignedCharArray(arg1);
 }
 
-
-SWIGEXPORT jshort JNICALL Java_mltJNI_UnsignedCharArray_1getitem(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jshort jresult = 0 ;
-  UnsignedCharArray *arg1 = (UnsignedCharArray *) 0 ;
-  int arg2 ;
+SWIGEXPORT jshort JNICALL Java_org_huihui_videoedit_mlt_mltJNI_UnsignedCharArray_1getitem(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_,
+																						  jint jarg2) {
+  jshort jresult = 0;
+  UnsignedCharArray *arg1 = (UnsignedCharArray *)0;
+  int arg2;
   unsigned char result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(UnsignedCharArray **)&jarg1; 
-  arg2 = (int)jarg2; 
-  result = (unsigned char)UnsignedCharArray_getitem(arg1,arg2);
-  jresult = (jshort)result; 
+  arg1 = *(UnsignedCharArray **)&jarg1;
+  arg2 = (int)jarg2;
+  result = (unsigned char)UnsignedCharArray_getitem(arg1, arg2);
+  jresult = (jshort)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_UnsignedCharArray_1setitem(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jint jarg2,
+																						jshort jarg3) {
+  UnsignedCharArray *arg1 = (UnsignedCharArray *)0;
+  int arg2;
+  unsigned char arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_UnsignedCharArray_1setitem(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jshort jarg3) {
-  UnsignedCharArray *arg1 = (UnsignedCharArray *) 0 ;
-  int arg2 ;
-  unsigned char arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(UnsignedCharArray **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (unsigned char)jarg3; 
-  UnsignedCharArray_setitem(arg1,arg2,arg3);
+  arg1 = *(UnsignedCharArray **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (unsigned char)jarg3;
+  UnsignedCharArray_setitem(arg1, arg2, arg3);
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_UnsignedCharArray_1cast(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  UnsignedCharArray *arg1 = (UnsignedCharArray *)0;
+  unsigned char *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_UnsignedCharArray_1cast(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  UnsignedCharArray *arg1 = (UnsignedCharArray *) 0 ;
-  unsigned char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(UnsignedCharArray **)&jarg1; 
+  arg1 = *(UnsignedCharArray **)&jarg1;
   result = (unsigned char *)UnsignedCharArray_cast(arg1);
-  *(unsigned char **)&jresult = result; 
+  *(unsigned char **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_UnsignedCharArray_1frompointer(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1) {
+  jlong jresult = 0;
+  unsigned char *arg1 = (unsigned char *)0;
+  UnsignedCharArray *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_UnsignedCharArray_1frompointer(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  unsigned char *arg1 = (unsigned char *) 0 ;
-  UnsignedCharArray *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(unsigned char **)&jarg1; 
+  arg1 = *(unsigned char **)&jarg1;
   result = (UnsignedCharArray *)UnsignedCharArray_frompointer(arg1);
-  *(UnsignedCharArray **)&jresult = result; 
+  *(UnsignedCharArray **)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_PATH_1MAX_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_PATH_1MAX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (int)(4096);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1image_1none_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1image_1none_1get(JNIEnv *jenv,
+																				   jclass jcls) {
+  jint jresult = 0;
   mlt_image_format result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_image_format)mlt_image_none;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1audio_1none_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1audio_1none_1get(JNIEnv *jenv,
+																				   jclass jcls) {
+  jint jresult = 0;
   mlt_audio_format result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_audio_format)mlt_audio_none;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1audio_1s16_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1audio_1s16_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0;
   mlt_audio_format result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_audio_format)mlt_audio_s16;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1channel_1auto_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1channel_1auto_1get(JNIEnv *jenv,
+																					 jclass jcls) {
+  jint jresult = 0;
   mlt_channel_layout result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_channel_layout)mlt_channel_auto;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1rgb_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1rgb_1get(JNIEnv *jenv,
+																					   jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_rgb;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1bt709_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1bt709_1get(JNIEnv *jenv,
+																						 jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_bt709;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1unspecified_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1unspecified_1get(JNIEnv *jenv,
+																							   jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_unspecified;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1reserved_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1reserved_1get(JNIEnv *jenv,
+																							jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_reserved;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1fcc_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1fcc_1get(JNIEnv *jenv,
+																					   jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_fcc;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1bt470bg_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1bt470bg_1get(JNIEnv *jenv,
+																						   jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_bt470bg;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1smpte170m_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1smpte170m_1get(JNIEnv *jenv,
+																							 jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_smpte170m;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1smpte240m_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1smpte240m_1get(JNIEnv *jenv,
+																							 jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_smpte240m;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1ycgco_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1ycgco_1get(JNIEnv *jenv,
+																						 jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_ycgco;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1bt2020_1ncl_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1bt2020_1ncl_1get(JNIEnv *jenv,
+																							   jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_bt2020_ncl;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1bt2020_1cl_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1bt2020_1cl_1get(JNIEnv *jenv,
+																							  jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_bt2020_cl;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1colorspace_1smpte2085_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1colorspace_1smpte2085_1get(JNIEnv *jenv,
+																							 jclass jcls) {
+  jint jresult = 0;
   mlt_colorspace result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_colorspace)mlt_colorspace_smpte2085;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1time_1frames_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1time_1frames_1get(JNIEnv *jenv,
+																					jclass jcls) {
+  jint jresult = 0;
   mlt_time_format result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_time_format)mlt_time_frames;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1keyframe_1discrete_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1keyframe_1discrete_1get(JNIEnv *jenv,
+																						  jclass jcls) {
+  jint jresult = 0;
   mlt_keyframe_type result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_keyframe_type)mlt_keyframe_discrete;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1whence_1relative_1start_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1whence_1relative_1start_1get(JNIEnv *jenv,
+																							   jclass jcls) {
+  jint jresult = 0;
   mlt_whence result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_whence)mlt_whence_relative_start;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1service_1invalid_1type_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1service_1invalid_1type_1get(JNIEnv *jenv,
+																							  jclass jcls) {
+  jint jresult = 0;
   mlt_service_type result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_service_type)mlt_service_invalid_type;
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_MLT_1POSITION_1FMT_1get(JNIEnv *jenv,
+																						jclass jcls) {
+  jstring jresult = 0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_MLT_1POSITION_1FMT_1get(JNIEnv *jenv, jclass jcls) {
-  jstring jresult = 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (char *)("%d");
@@ -608,331 +673,376 @@ SWIGEXPORT jstring JNICALL Java_mltJNI_MLT_1POSITION_1FMT_1get(JNIEnv *jenv, jcl
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1rect_1x_1set(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jdouble jarg2) {
+  mlt_rect *arg1 = (mlt_rect *)0;
+  double arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1rect_1x_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
-  double arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_rect **)&jarg1; 
-  arg2 = (double)jarg2; 
+  arg1 = *(mlt_rect **)&jarg1;
+  arg2 = (double)jarg2;
   if (arg1) (arg1)->x = arg2;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_mlt_1rect_1x_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jdouble jresult = 0 ;
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1rect_1x_1get(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jdouble jresult = 0;
+  mlt_rect *arg1 = (mlt_rect *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_rect **)&jarg1; 
-  result = (double) ((arg1)->x);
-  jresult = (jdouble)result; 
+  arg1 = *(mlt_rect **)&jarg1;
+  result = (double)((arg1)->x);
+  jresult = (jdouble)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1rect_1y_1set(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jdouble jarg2) {
+  mlt_rect *arg1 = (mlt_rect *)0;
+  double arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1rect_1y_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
-  double arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_rect **)&jarg1; 
-  arg2 = (double)jarg2; 
+  arg1 = *(mlt_rect **)&jarg1;
+  arg2 = (double)jarg2;
   if (arg1) (arg1)->y = arg2;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_mlt_1rect_1y_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jdouble jresult = 0 ;
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1rect_1y_1get(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jdouble jresult = 0;
+  mlt_rect *arg1 = (mlt_rect *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_rect **)&jarg1; 
-  result = (double) ((arg1)->y);
-  jresult = (jdouble)result; 
+  arg1 = *(mlt_rect **)&jarg1;
+  result = (double)((arg1)->y);
+  jresult = (jdouble)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1rect_1w_1set(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jdouble jarg2) {
+  mlt_rect *arg1 = (mlt_rect *)0;
+  double arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1rect_1w_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
-  double arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_rect **)&jarg1; 
-  arg2 = (double)jarg2; 
+  arg1 = *(mlt_rect **)&jarg1;
+  arg2 = (double)jarg2;
   if (arg1) (arg1)->w = arg2;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_mlt_1rect_1w_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jdouble jresult = 0 ;
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1rect_1w_1get(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jdouble jresult = 0;
+  mlt_rect *arg1 = (mlt_rect *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_rect **)&jarg1; 
-  result = (double) ((arg1)->w);
-  jresult = (jdouble)result; 
+  arg1 = *(mlt_rect **)&jarg1;
+  result = (double)((arg1)->w);
+  jresult = (jdouble)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1rect_1h_1set(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jdouble jarg2) {
+  mlt_rect *arg1 = (mlt_rect *)0;
+  double arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1rect_1h_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
-  double arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_rect **)&jarg1; 
-  arg2 = (double)jarg2; 
+  arg1 = *(mlt_rect **)&jarg1;
+  arg2 = (double)jarg2;
   if (arg1) (arg1)->h = arg2;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_mlt_1rect_1h_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jdouble jresult = 0 ;
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1rect_1h_1get(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jdouble jresult = 0;
+  mlt_rect *arg1 = (mlt_rect *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_rect **)&jarg1; 
-  result = (double) ((arg1)->h);
-  jresult = (jdouble)result; 
+  arg1 = *(mlt_rect **)&jarg1;
+  result = (double)((arg1)->h);
+  jresult = (jdouble)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1rect_1o_1set(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jdouble jarg2) {
+  mlt_rect *arg1 = (mlt_rect *)0;
+  double arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1rect_1o_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
-  double arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_rect **)&jarg1; 
-  arg2 = (double)jarg2; 
+  arg1 = *(mlt_rect **)&jarg1;
+  arg2 = (double)jarg2;
   if (arg1) (arg1)->o = arg2;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_mlt_1rect_1o_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jdouble jresult = 0 ;
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1rect_1o_1get(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jdouble jresult = 0;
+  mlt_rect *arg1 = (mlt_rect *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_rect **)&jarg1; 
-  result = (double) ((arg1)->o);
-  jresult = (jdouble)result; 
+  arg1 = *(mlt_rect **)&jarg1;
+  result = (double)((arg1)->o);
+  jresult = (jdouble)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1mlt_1rect(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0;
+  mlt_rect *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1mlt_1rect(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mlt_rect *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (mlt_rect *)new mlt_rect();
-  *(mlt_rect **)&jresult = result; 
+  *(mlt_rect **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1mlt_1rect(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1) {
+  mlt_rect *arg1 = (mlt_rect *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1mlt_1rect(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mlt_rect *arg1 = (mlt_rect *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_rect **)&jarg1; 
+  arg1 = *(mlt_rect **)&jarg1;
   delete arg1;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1color_1r_1set(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jlong jarg2) {
+  mlt_color *arg1 = (mlt_color *)0;
+  uint8_t arg2;
+  uint8_t *argp2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1color_1r_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  mlt_color *arg1 = (mlt_color *) 0 ;
-  uint8_t arg2 ;
-  uint8_t *argp2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_color **)&jarg1; 
-  argp2 = *(uint8_t **)&jarg2; 
+  arg1 = *(mlt_color **)&jarg1;
+  argp2 = *(uint8_t **)&jarg2;
   if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null uint8_t");
-    return ;
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null uint8_t");
+	return;
   }
-  arg2 = *argp2; 
+  arg2 = *argp2;
   if (arg1) (arg1)->r = arg2;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1color_1r_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mlt_color *arg1 = (mlt_color *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1color_1r_1get(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  jlong jresult = 0;
+  mlt_color *arg1 = (mlt_color *)0;
   uint8_t result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_color **)&jarg1; 
-  result =  ((arg1)->r);
-  *(uint8_t **)&jresult = new uint8_t((const uint8_t &)result); 
+  arg1 = *(mlt_color **)&jarg1;
+  result = ((arg1)->r);
+  *(uint8_t **)&jresult = new uint8_t((const uint8_t &)result);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1color_1g_1set(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jlong jarg2) {
+  mlt_color *arg1 = (mlt_color *)0;
+  uint8_t arg2;
+  uint8_t *argp2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1color_1g_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  mlt_color *arg1 = (mlt_color *) 0 ;
-  uint8_t arg2 ;
-  uint8_t *argp2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_color **)&jarg1; 
-  argp2 = *(uint8_t **)&jarg2; 
+  arg1 = *(mlt_color **)&jarg1;
+  argp2 = *(uint8_t **)&jarg2;
   if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null uint8_t");
-    return ;
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null uint8_t");
+	return;
   }
-  arg2 = *argp2; 
+  arg2 = *argp2;
   if (arg1) (arg1)->g = arg2;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1color_1g_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mlt_color *arg1 = (mlt_color *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1color_1g_1get(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  jlong jresult = 0;
+  mlt_color *arg1 = (mlt_color *)0;
   uint8_t result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_color **)&jarg1; 
-  result =  ((arg1)->g);
-  *(uint8_t **)&jresult = new uint8_t((const uint8_t &)result); 
+  arg1 = *(mlt_color **)&jarg1;
+  result = ((arg1)->g);
+  *(uint8_t **)&jresult = new uint8_t((const uint8_t &)result);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1color_1b_1set(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jlong jarg2) {
+  mlt_color *arg1 = (mlt_color *)0;
+  uint8_t arg2;
+  uint8_t *argp2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1color_1b_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  mlt_color *arg1 = (mlt_color *) 0 ;
-  uint8_t arg2 ;
-  uint8_t *argp2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_color **)&jarg1; 
-  argp2 = *(uint8_t **)&jarg2; 
+  arg1 = *(mlt_color **)&jarg1;
+  argp2 = *(uint8_t **)&jarg2;
   if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null uint8_t");
-    return ;
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null uint8_t");
+	return;
   }
-  arg2 = *argp2; 
+  arg2 = *argp2;
   if (arg1) (arg1)->b = arg2;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1color_1b_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mlt_color *arg1 = (mlt_color *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1color_1b_1get(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  jlong jresult = 0;
+  mlt_color *arg1 = (mlt_color *)0;
   uint8_t result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_color **)&jarg1; 
-  result =  ((arg1)->b);
-  *(uint8_t **)&jresult = new uint8_t((const uint8_t &)result); 
+  arg1 = *(mlt_color **)&jarg1;
+  result = ((arg1)->b);
+  *(uint8_t **)&jresult = new uint8_t((const uint8_t &)result);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1color_1a_1set(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jlong jarg2) {
+  mlt_color *arg1 = (mlt_color *)0;
+  uint8_t arg2;
+  uint8_t *argp2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1color_1a_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  mlt_color *arg1 = (mlt_color *) 0 ;
-  uint8_t arg2 ;
-  uint8_t *argp2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_color **)&jarg1; 
-  argp2 = *(uint8_t **)&jarg2; 
+  arg1 = *(mlt_color **)&jarg1;
+  argp2 = *(uint8_t **)&jarg2;
   if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null uint8_t");
-    return ;
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null uint8_t");
+	return;
   }
-  arg2 = *argp2; 
+  arg2 = *argp2;
   if (arg1) (arg1)->a = arg2;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1color_1a_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mlt_color *arg1 = (mlt_color *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1color_1a_1get(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  jlong jresult = 0;
+  mlt_color *arg1 = (mlt_color *)0;
   uint8_t result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_color **)&jarg1; 
-  result =  ((arg1)->a);
-  *(uint8_t **)&jresult = new uint8_t((const uint8_t &)result); 
+  arg1 = *(mlt_color **)&jarg1;
+  result = ((arg1)->a);
+  *(uint8_t **)&jresult = new uint8_t((const uint8_t &)result);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1mlt_1color(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0;
+  mlt_color *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1mlt_1color(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mlt_color *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (mlt_color *)new mlt_color();
-  *(mlt_color **)&jresult = result; 
+  *(mlt_color **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1mlt_1color(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1) {
+  mlt_color *arg1 = (mlt_color *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1mlt_1color(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mlt_color *arg1 = (mlt_color *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_color **)&jarg1; 
+  arg1 = *(mlt_color **)&jarg1;
   delete arg1;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_MLT_1DIRLIST_1DELIMITER_1get(JNIEnv *jenv,
+																							 jclass jcls) {
+  jstring jresult = 0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_MLT_1DIRLIST_1DELIMITER_1get(JNIEnv *jenv, jclass jcls) {
-  jstring jresult = 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (char *)(":");
@@ -940,75 +1050,78 @@ SWIGEXPORT jstring JNICALL Java_mltJNI_MLT_1DIRLIST_1DELIMITER_1get(JNIEnv *jenv
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1deinterlacer_1name(JNIEnv *jenv,
+																						jclass jcls,
+																						jint jarg1) {
+  jstring jresult = 0;
+  mlt_deinterlacer arg1;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_mlt_1deinterlacer_1name(JNIEnv *jenv, jclass jcls, jint jarg1) {
-  jstring jresult = 0 ;
-  mlt_deinterlacer arg1 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = (mlt_deinterlacer)jarg1; 
+  arg1 = (mlt_deinterlacer)jarg1;
   result = (char *)mlt_deinterlacer_name(arg1);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1deinterlacer_1id(JNIEnv *jenv, jclass jcls, jstring jarg1) {
-  jint jresult = 0 ;
-  char *arg1 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1deinterlacer_1id(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jstring jarg1) {
+  jint jresult = 0;
+  char *arg1 = (char *)0;
   mlt_deinterlacer result;
-  
+
   (void)jenv;
   (void)jcls;
   arg1 = 0;
   if (jarg1) {
-    arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
-    if (!arg1) return 0;
+	arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
+	if (!arg1) return 0;
   }
   result = (mlt_deinterlacer)mlt_deinterlacer_id((char const *)arg1);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   if (arg1) jenv->ReleaseStringUTFChars(jarg1, (const char *)arg1);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1factory_1init(JNIEnv *jenv, jclass jcls, jstring jarg1) {
-  jlong jresult = 0 ;
-  char *arg1 = (char *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1init(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jstring jarg1) {
+  jlong jresult = 0;
+  char *arg1 = (char *)0;
   mlt_repository result;
-  
+
   (void)jenv;
   (void)jcls;
   arg1 = 0;
   if (jarg1) {
-    arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
-    if (!arg1) return 0;
+	arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
+	if (!arg1) return 0;
   }
   result = (mlt_repository)mlt_factory_init((char const *)arg1);
-  *(mlt_repository *)&jresult = result; 
+  *(mlt_repository *)&jresult = result;
   if (arg1) jenv->ReleaseStringUTFChars(jarg1, (const char *)arg1);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1factory_1repository(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1repository(JNIEnv *jenv,
+																					   jclass jcls) {
+  jlong jresult = 0;
   mlt_repository result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_repository)mlt_factory_repository();
-  *(mlt_repository *)&jresult = result; 
+  *(mlt_repository *)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1directory(JNIEnv *jenv,
+																						jclass jcls) {
+  jstring jresult = 0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_mlt_1factory_1directory(JNIEnv *jenv, jclass jcls) {
-  jstring jresult = 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (char *)mlt_factory_directory();
@@ -1016,18 +1129,19 @@ SWIGEXPORT jstring JNICALL Java_mltJNI_mlt_1factory_1directory(JNIEnv *jenv, jcl
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1environment(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jstring jarg1) {
+  jstring jresult = 0;
+  char *arg1 = (char *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_mlt_1environment(JNIEnv *jenv, jclass jcls, jstring jarg1) {
-  jstring jresult = 0 ;
-  char *arg1 = (char *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   arg1 = 0;
   if (jarg1) {
-    arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
-    if (!arg1) return 0;
+	arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
+	if (!arg1) return 0;
   }
   result = (char *)mlt_environment((char const *)arg1);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
@@ -1035,359 +1149,392 @@ SWIGEXPORT jstring JNICALL Java_mltJNI_mlt_1environment(JNIEnv *jenv, jclass jcl
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1environment_1set(JNIEnv *jenv, jclass jcls, jstring jarg1, jstring jarg2) {
-  jint jresult = 0 ;
-  char *arg1 = (char *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1environment_1set(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jstring jarg1,
+																				   jstring jarg2) {
+  jint jresult = 0;
+  char *arg1 = (char *)0;
+  char *arg2 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   arg1 = 0;
   if (jarg1) {
-    arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
-    if (!arg1) return 0;
+	arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
+	if (!arg1) return 0;
   }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (int)mlt_environment_set((char const *)arg1,(char const *)arg2);
-  jresult = (jint)result; 
+  result = (int)mlt_environment_set((char const *)arg1, (char const *)arg2);
+  jresult = (jint)result;
   if (arg1) jenv->ReleaseStringUTFChars(jarg1, (const char *)arg1);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1factory_1event_1object(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1event_1object(JNIEnv *jenv,
+																						  jclass jcls) {
+  jlong jresult = 0;
   mlt_properties result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_properties)mlt_factory_event_object();
-  *(mlt_properties *)&jresult = result; 
+  *(mlt_properties *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1factory_1producer(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2, jlong jarg3) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  void *arg3 = (void *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1producer(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jstring jarg2,
+																					 jlong jarg3) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  void *arg3 = (void *)0;
   mlt_producer result;
-  
+
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = *(void **)&jarg3; 
-  result = (mlt_producer)mlt_factory_producer(arg1,(char const *)arg2,(void const *)arg3);
-  *(mlt_producer *)&jresult = result; 
+  arg3 = *(void **)&jarg3;
+  result = (mlt_producer)mlt_factory_producer(arg1, (char const *)arg2, (void const *)arg3);
+  *(mlt_producer *)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1factory_1filter(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2, jlong jarg3) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  void *arg3 = (void *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1filter(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jstring jarg2,
+																				   jlong jarg3) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  void *arg3 = (void *)0;
   mlt_filter result;
-  
+
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = *(void **)&jarg3; 
-  result = (mlt_filter)mlt_factory_filter(arg1,(char const *)arg2,(void const *)arg3);
-  *(mlt_filter *)&jresult = result; 
+  arg3 = *(void **)&jarg3;
+  result = (mlt_filter)mlt_factory_filter(arg1, (char const *)arg2, (void const *)arg3);
+  *(mlt_filter *)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1factory_1link(JNIEnv *jenv, jclass jcls, jstring jarg1, jlong jarg2) {
-  jlong jresult = 0 ;
-  char *arg1 = (char *) 0 ;
-  void *arg2 = (void *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1link(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jstring jarg1,
+																				 jlong jarg2) {
+  jlong jresult = 0;
+  char *arg1 = (char *)0;
+  void *arg2 = (void *)0;
   mlt_link result;
-  
+
   (void)jenv;
   (void)jcls;
   arg1 = 0;
   if (jarg1) {
-    arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
-    if (!arg1) return 0;
+	arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
+	if (!arg1) return 0;
   }
-  arg2 = *(void **)&jarg2; 
-  result = (mlt_link)mlt_factory_link((char const *)arg1,(void const *)arg2);
-  *(mlt_link *)&jresult = result; 
+  arg2 = *(void **)&jarg2;
+  result = (mlt_link)mlt_factory_link((char const *)arg1, (void const *)arg2);
+  *(mlt_link *)&jresult = result;
   if (arg1) jenv->ReleaseStringUTFChars(jarg1, (const char *)arg1);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1factory_1transition(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2, jlong jarg3) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  void *arg3 = (void *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1transition(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jstring jarg2,
+																					   jlong jarg3) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  void *arg3 = (void *)0;
   mlt_transition result;
-  
+
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = *(void **)&jarg3; 
-  result = (mlt_transition)mlt_factory_transition(arg1,(char const *)arg2,(void const *)arg3);
-  *(mlt_transition *)&jresult = result; 
+  arg3 = *(void **)&jarg3;
+  result = (mlt_transition)mlt_factory_transition(arg1, (char const *)arg2, (void const *)arg3);
+  *(mlt_transition *)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1factory_1consumer(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2, jlong jarg3) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  void *arg3 = (void *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1consumer(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jstring jarg2,
+																					 jlong jarg3) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  void *arg3 = (void *)0;
   mlt_consumer result;
-  
+
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = *(void **)&jarg3; 
-  result = (mlt_consumer)mlt_factory_consumer(arg1,(char const *)arg2,(void const *)arg3);
-  *(mlt_consumer *)&jresult = result; 
+  arg3 = *(void **)&jarg3;
+  result = (mlt_consumer)mlt_factory_consumer(arg1, (char const *)arg2, (void const *)arg3);
+  *(mlt_consumer *)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1register_1for_1clean_1up(JNIEnv *jenv,
+																									jclass jcls,
+																									jlong jarg1,
+																									jlong jarg2) {
+  void *arg1 = (void *)0;
+  mlt_destructor arg2 = (mlt_destructor)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1factory_1register_1for_1clean_1up(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2) {
-  void *arg1 = (void *) 0 ;
-  mlt_destructor arg2 = (mlt_destructor) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(void **)&jarg1; 
-  arg2 = *(mlt_destructor *)&jarg2; 
-  mlt_factory_register_for_clean_up(arg1,arg2);
+  arg1 = *(void **)&jarg1;
+  arg2 = *(mlt_destructor *)&jarg2;
+  mlt_factory_register_for_clean_up(arg1, arg2);
 }
 
-
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1factory_1close(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1close(JNIEnv *jenv, jclass jcls) {
   (void)jenv;
   (void)jcls;
   mlt_factory_close();
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1global_1properties(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1global_1properties(JNIEnv *jenv,
+																					  jclass jcls) {
+  jlong jresult = 0;
   mlt_properties result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (mlt_properties)mlt_global_properties();
-  *(mlt_properties *)&jresult = result; 
+  *(mlt_properties *)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1event_1data_1name_1set(JNIEnv *jenv,
+																								  jclass jcls,
+																								  jlong jarg1,
+																								  jobject jarg1_,
+																								  jstring jarg2) {
+  mlt_factory_event_data *arg1 = (mlt_factory_event_data *)0;
+  char *arg2 = (char *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1factory_1event_1data_1name_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  mlt_factory_event_data *arg1 = (mlt_factory_event_data *) 0 ;
-  char *arg2 = (char *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_factory_event_data **)&jarg1; 
+  arg1 = *(mlt_factory_event_data **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return ;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return;
   }
   {
-    if (arg2) {
-      arg1->name = (char const *) (new char[strlen((const char *)arg2)+1]);
-      strcpy((char *)arg1->name, (const char *)arg2);
-    } else {
-      arg1->name = 0;
-    }
+	if (arg2) {
+	  arg1->name = (char const *)(new char[strlen((const char *)arg2) + 1]);
+	  strcpy((char *)arg1->name, (const char *)arg2);
+	} else {
+	  arg1->name = 0;
+	}
   }
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1event_1data_1name_1get(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_) {
+  jstring jresult = 0;
+  mlt_factory_event_data *arg1 = (mlt_factory_event_data *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_mlt_1factory_1event_1data_1name_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  mlt_factory_event_data *arg1 = (mlt_factory_event_data *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_factory_event_data **)&jarg1; 
-  result = (char *) ((arg1)->name);
+  arg1 = *(mlt_factory_event_data **)&jarg1;
+  result = (char *)((arg1)->name);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1event_1data_1input_1set(JNIEnv *jenv,
+																								   jclass jcls,
+																								   jlong jarg1,
+																								   jobject jarg1_,
+																								   jlong jarg2) {
+  mlt_factory_event_data *arg1 = (mlt_factory_event_data *)0;
+  void *arg2 = (void *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1factory_1event_1data_1input_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  mlt_factory_event_data *arg1 = (mlt_factory_event_data *) 0 ;
-  void *arg2 = (void *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_factory_event_data **)&jarg1; 
-  arg2 = *(void **)&jarg2; 
+  arg1 = *(mlt_factory_event_data **)&jarg1;
+  arg2 = *(void **)&jarg2;
   if (arg1) (arg1)->input = (void const *)arg2;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1event_1data_1input_1get(JNIEnv *jenv,
+																									jclass jcls,
+																									jlong jarg1,
+																									jobject jarg1_) {
+  jlong jresult = 0;
+  mlt_factory_event_data *arg1 = (mlt_factory_event_data *)0;
+  void *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1factory_1event_1data_1input_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mlt_factory_event_data *arg1 = (mlt_factory_event_data *) 0 ;
-  void *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_factory_event_data **)&jarg1; 
-  result = (void *) ((arg1)->input);
-  *(void **)&jresult = result; 
+  arg1 = *(mlt_factory_event_data **)&jarg1;
+  result = (void *)((arg1)->input);
+  *(void **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1event_1data_1service_1set(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_,
+																									 jlong jarg2) {
+  mlt_factory_event_data *arg1 = (mlt_factory_event_data *)0;
+  void *arg2 = (void *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1factory_1event_1data_1service_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  mlt_factory_event_data *arg1 = (mlt_factory_event_data *) 0 ;
-  void *arg2 = (void *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_factory_event_data **)&jarg1; 
-  arg2 = *(void **)&jarg2; 
+  arg1 = *(mlt_factory_event_data **)&jarg1;
+  arg2 = *(void **)&jarg2;
   if (arg1) (arg1)->service = arg2;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1factory_1event_1data_1service_1get(JNIEnv *jenv,
+																									  jclass jcls,
+																									  jlong jarg1,
+																									  jobject jarg1_) {
+  jlong jresult = 0;
+  mlt_factory_event_data *arg1 = (mlt_factory_event_data *)0;
+  void *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_mlt_1factory_1event_1data_1service_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mlt_factory_event_data *arg1 = (mlt_factory_event_data *) 0 ;
-  void *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mlt_factory_event_data **)&jarg1; 
-  result = (void *) ((arg1)->service);
-  *(void **)&jresult = result; 
+  arg1 = *(mlt_factory_event_data **)&jarg1;
+  result = (void *)((arg1)->service);
+  *(void **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1mlt_1factory_1event_1data(JNIEnv *jenv,
+																							 jclass jcls) {
+  jlong jresult = 0;
+  mlt_factory_event_data *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1mlt_1factory_1event_1data(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mlt_factory_event_data *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (mlt_factory_event_data *)new mlt_factory_event_data();
-  *(mlt_factory_event_data **)&jresult = result; 
+  *(mlt_factory_event_data **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1mlt_1factory_1event_1data(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1) {
+  mlt_factory_event_data *arg1 = (mlt_factory_event_data *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1mlt_1factory_1event_1data(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mlt_factory_event_data *arg1 = (mlt_factory_event_data *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_factory_event_data **)&jarg1; 
+  arg1 = *(mlt_factory_event_data **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_LIBMLT_1VERSION_1MAJOR_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_LIBMLT_1VERSION_1MAJOR_1get(JNIEnv *jenv,
+																						 jclass jcls) {
+  jint jresult = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (int)(7);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_LIBMLT_1VERSION_1MINOR_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_LIBMLT_1VERSION_1MINOR_1get(JNIEnv *jenv,
+																						 jclass jcls) {
+  jint jresult = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (int)(16);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_LIBMLT_1VERSION_1REVISION_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_LIBMLT_1VERSION_1REVISION_1get(JNIEnv *jenv,
+																							jclass jcls) {
+  jint jresult = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (int)(0);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_LIBMLT_1VERSION_1INT_1get(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_LIBMLT_1VERSION_1INT_1get(JNIEnv *jenv,
+																					   jclass jcls) {
+  jint jresult = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
-  result = (int)(((7 << 16) +(16 << 8) +0));
-  jresult = (jint)result; 
+  result = (int)(((7 << 16) + (16 << 8) + 0));
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_LIBMLT_1VERSION_1get(JNIEnv *jenv,
+																					 jclass jcls) {
+  jstring jresult = 0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_LIBMLT_1VERSION_1get(JNIEnv *jenv, jclass jcls) {
-  jstring jresult = 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (char *)("7.16.0");
@@ -1395,59 +1542,59 @@ SWIGEXPORT jstring JNICALL Java_mltJNI_LIBMLT_1VERSION_1get(JNIEnv *jenv, jclass
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1version_1get_1int(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1version_1get_1int(JNIEnv *jenv,
+																					jclass jcls) {
+  jint jresult = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (int)mlt_version_get_int();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1version_1get_1major(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1version_1get_1major(JNIEnv *jenv,
+																					  jclass jcls) {
+  jint jresult = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (int)mlt_version_get_major();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1version_1get_1minor(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1version_1get_1minor(JNIEnv *jenv,
+																					  jclass jcls) {
+  jint jresult = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (int)mlt_version_get_minor();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1version_1get_1revision(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1version_1get_1revision(JNIEnv *jenv,
+																						 jclass jcls) {
+  jint jresult = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   result = (int)mlt_version_get_revision();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1version_1get_1string(JNIEnv *jenv,
+																						  jclass jcls) {
+  jstring jresult = 0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_mlt_1version_1get_1string(JNIEnv *jenv, jclass jcls) {
-  jstring jresult = 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (char *)mlt_version_get_string();
@@ -1455,1114 +1602,1279 @@ SWIGEXPORT jstring JNICALL Java_mltJNI_mlt_1version_1get_1string(JNIEnv *jenv, j
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_mlt_1log_1get_1level(JNIEnv *jenv, jclass jcls) {
-  jint jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1log_1get_1level(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
-  result = (int)mlt_log_get_level();
-  jresult = (jint)result; 
+  result = mlt_log_level;
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_mlt_1log_1set_1level(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jint jarg1) {
+  int arg1;
 
-SWIGEXPORT void JNICALL Java_mltJNI_mlt_1log_1set_1level(JNIEnv *jenv, jclass jcls, jint jarg1) {
-  int arg1 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = (int)jarg1; 
-  mlt_log_set_level(arg1);
+  arg1 = (int)jarg1;
+  mlt_log_level = arg1;
 }
 
+JNIEXPORT void JNICALL
+Java_org_huihui_videoedit_mlt_mltJNI_initLog(JNIEnv *env, jclass clazz, jint log_level) {
+  mlt_log_level = log_level;
+  mlt_log_set_callback(mlt_log_callback);
+}
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1init_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jstring jarg1) {
-  jlong jresult = 0 ;
-  char *arg1 = (char *) 0 ;
-  Mlt::Repository *result = 0 ;
-  
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1init_1_1SWIG_10(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jstring jarg1) {
+  jlong jresult = 0;
+  char *arg1 = (char *)0;
+  Mlt::Repository *result = 0;
+
   (void)jenv;
   (void)jcls;
   arg1 = 0;
   if (jarg1) {
-    arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
-    if (!arg1) return 0;
+	arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
+	if (!arg1) return 0;
   }
   result = (Mlt::Repository *)Mlt::Factory::init((char const *)arg1);
-  *(Mlt::Repository **)&jresult = result; 
+  *(Mlt::Repository **)&jresult = result;
   if (arg1) jenv->ReleaseStringUTFChars(jarg1, (const char *)arg1);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1init_1_1SWIG_11(JNIEnv *jenv,
+																					   jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Repository *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1init_1_1SWIG_11(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Repository *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Repository *)Mlt::Factory::init();
-  *(Mlt::Repository **)&jresult = result; 
+  *(Mlt::Repository **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1event_1object(JNIEnv *jenv,
+																					 jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1event_1object(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Properties *)Mlt::Factory::event_object();
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1producer_1_1SWIG_10(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jstring jarg2,
+																						   jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1producer_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Producer *)Mlt::Factory::producer(*arg1,arg2,arg3);
-  *(Mlt::Producer **)&jresult = result; 
+  result = (Mlt::Producer *)Mlt::Factory::producer(*arg1, arg2, arg3);
+  *(Mlt::Producer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1producer_1_1SWIG_11(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1producer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Producer *)Mlt::Factory::producer(*arg1,arg2);
-  *(Mlt::Producer **)&jresult = result; 
+  result = (Mlt::Producer *)Mlt::Factory::producer(*arg1, arg2);
+  *(Mlt::Producer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1filter_1_1SWIG_10(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jstring jarg2,
+																						 jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1filter_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Filter *)Mlt::Factory::filter(*arg1,arg2,arg3);
-  *(Mlt::Filter **)&jresult = result; 
+  result = (Mlt::Filter *)Mlt::Factory::filter(*arg1, arg2, arg3);
+  *(Mlt::Filter **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1filter_1_1SWIG_11(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1filter_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Filter *)Mlt::Factory::filter(*arg1,arg2);
-  *(Mlt::Filter **)&jresult = result; 
+  result = (Mlt::Filter *)Mlt::Factory::filter(*arg1, arg2);
+  *(Mlt::Filter **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1transition_1_1SWIG_10(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jstring jarg2,
+																							 jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Transition *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1transition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Transition *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Transition *)Mlt::Factory::transition(*arg1,arg2,arg3);
-  *(Mlt::Transition **)&jresult = result; 
+  result = (Mlt::Transition *)Mlt::Factory::transition(*arg1, arg2, arg3);
+  *(Mlt::Transition **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1transition_1_1SWIG_11(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  Mlt::Transition *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1transition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Transition *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Transition *)Mlt::Factory::transition(*arg1,arg2);
-  *(Mlt::Transition **)&jresult = result; 
+  result = (Mlt::Transition *)Mlt::Factory::transition(*arg1, arg2);
+  *(Mlt::Transition **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1consumer_1_1SWIG_10(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jstring jarg2,
+																						   jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1consumer_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Consumer *)Mlt::Factory::consumer(*arg1,arg2,arg3);
-  *(Mlt::Consumer **)&jresult = result; 
+  result = (Mlt::Consumer *)Mlt::Factory::consumer(*arg1, arg2, arg3);
+  *(Mlt::Consumer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1consumer_1_1SWIG_11(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Factory_1consumer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Consumer *)Mlt::Factory::consumer(*arg1,arg2);
-  *(Mlt::Consumer **)&jresult = result; 
+  result = (Mlt::Consumer *)Mlt::Factory::consumer(*arg1, arg2);
+  *(Mlt::Consumer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT void JNICALL Java_mltJNI_Factory_1close(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Factory_1close(JNIEnv *jenv, jclass jcls) {
   (void)jenv;
   (void)jcls;
   Mlt::Factory::close();
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Factory(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Factory *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Factory(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Factory *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Factory *)new Mlt::Factory();
-  *(Mlt::Factory **)&jresult = result; 
+  *(Mlt::Factory **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Factory(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1) {
+  Mlt::Factory *arg1 = (Mlt::Factory *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Factory(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Factory *arg1 = (Mlt::Factory *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Factory **)&jarg1; 
+  arg1 = *(Mlt::Factory **)&jarg1;
   delete arg1;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Repository_1_1SWIG_10(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jstring jarg1) {
+  jlong jresult = 0;
+  char *arg1 = (char *)0;
+  Mlt::Repository *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Repository_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jstring jarg1) {
-  jlong jresult = 0 ;
-  char *arg1 = (char *) 0 ;
-  Mlt::Repository *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   arg1 = 0;
   if (jarg1) {
-    arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
-    if (!arg1) return 0;
+	arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
+	if (!arg1) return 0;
   }
   result = (Mlt::Repository *)new Mlt::Repository((char const *)arg1);
-  *(Mlt::Repository **)&jresult = result; 
+  *(Mlt::Repository **)&jresult = result;
   if (arg1) jenv->ReleaseStringUTFChars(jarg1, (const char *)arg1);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Repository_1_1SWIG_11(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1) {
+  jlong jresult = 0;
+  mlt_repository arg1 = (mlt_repository)0;
+  Mlt::Repository *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Repository_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_repository arg1 = (mlt_repository) 0 ;
-  Mlt::Repository *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_repository *)&jarg1; 
+  arg1 = *(mlt_repository *)&jarg1;
   result = (Mlt::Repository *)new Mlt::Repository(arg1);
-  *(Mlt::Repository **)&jresult = result; 
+  *(Mlt::Repository **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Repository(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1) {
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Repository(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Repository **)&jarg1; 
+  arg1 = *(Mlt::Repository **)&jarg1;
   delete arg1;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1register_1service(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jint jarg2,
+																						   jstring jarg3,
+																						   jlong jarg4) {
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
+  mlt_service_type arg2;
+  char *arg3 = (char *)0;
+  mlt_register_callback arg4;
+  mlt_register_callback *argp4;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Repository_1register_1service(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jstring jarg3, jlong jarg4) {
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  mlt_service_type arg2 ;
-  char *arg3 = (char *) 0 ;
-  mlt_register_callback arg4 ;
-  mlt_register_callback *argp4 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Repository **)&jarg1; 
-  arg2 = (mlt_service_type)jarg2; 
+  arg1 = *(Mlt::Repository **)&jarg1;
+  arg2 = (mlt_service_type)jarg2;
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return ;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return;
   }
-  argp4 = *(mlt_register_callback **)&jarg4; 
+  argp4 = *(mlt_register_callback **)&jarg4;
   if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_register_callback");
-    return ;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null mlt_register_callback");
+	return;
   }
-  arg4 = *argp4; 
-  (arg1)->register_service(arg2,(char const *)arg3,arg4);
+  arg4 = *argp4;
+  (arg1)->register_service(arg2, (char const *)arg3, arg4);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1create(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_,
+																				 jlong jarg2,
+																				 jobject jarg2_,
+																				 jint jarg3,
+																				 jstring jarg4,
+																				 jlong jarg5) {
+  jlong jresult = 0;
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
+  Mlt::Profile *arg2 = 0;
+  mlt_service_type arg3;
+  char *arg4 = (char *)0;
+  void *arg5 = (void *)0;
+  void *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Repository_1create(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3, jstring jarg4, jlong jarg5) {
-  jlong jresult = 0 ;
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  Mlt::Profile *arg2 = 0 ;
-  mlt_service_type arg3 ;
-  char *arg4 = (char *) 0 ;
-  void *arg5 = (void *) 0 ;
-  void *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Repository **)&jarg1; 
+  arg1 = *(Mlt::Repository **)&jarg1;
   arg2 = *(Mlt::Profile **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
-  arg3 = (mlt_service_type)jarg3; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
+  arg3 = (mlt_service_type)jarg3;
   arg4 = 0;
   if (jarg4) {
-    arg4 = (char *)jenv->GetStringUTFChars(jarg4, 0);
-    if (!arg4) return 0;
+	arg4 = (char *)jenv->GetStringUTFChars(jarg4, 0);
+	if (!arg4) return 0;
   }
-  arg5 = *(void **)&jarg5; 
-  result = (void *)(arg1)->create(*arg2,arg3,(char const *)arg4,arg5);
-  *(void **)&jresult = result; 
+  arg5 = *(void **)&jarg5;
+  result = (void *)(arg1)->create(*arg2, arg3, (char const *)arg4, arg5);
+  *(void **)&jresult = result;
   if (arg4) jenv->ReleaseStringUTFChars(jarg4, (const char *)arg4);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1consumers(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Repository_1consumers(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Repository **)&jarg1; 
+  arg1 = *(Mlt::Repository **)&jarg1;
   result = (Mlt::Properties *)((Mlt::Repository const *)arg1)->consumers();
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1filters(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Repository_1filters(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Repository **)&jarg1; 
+  arg1 = *(Mlt::Repository **)&jarg1;
   result = (Mlt::Properties *)((Mlt::Repository const *)arg1)->filters();
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1links(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Repository_1links(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Repository **)&jarg1; 
+  arg1 = *(Mlt::Repository **)&jarg1;
   result = (Mlt::Properties *)((Mlt::Repository const *)arg1)->links();
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1producers(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Repository_1producers(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Repository **)&jarg1; 
+  arg1 = *(Mlt::Repository **)&jarg1;
   result = (Mlt::Properties *)((Mlt::Repository const *)arg1)->producers();
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1transitions(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Repository_1transitions(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Repository **)&jarg1; 
+  arg1 = *(Mlt::Repository **)&jarg1;
   result = (Mlt::Properties *)((Mlt::Repository const *)arg1)->transitions();
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1register_1metadata(JNIEnv *jenv,
+																							jclass jcls,
+																							jlong jarg1,
+																							jobject jarg1_,
+																							jint jarg2,
+																							jstring jarg3,
+																							jlong jarg4,
+																							jlong jarg5) {
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
+  mlt_service_type arg2;
+  char *arg3 = (char *)0;
+  mlt_metadata_callback arg4;
+  void *arg5 = (void *)0;
+  mlt_metadata_callback *argp4;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Repository_1register_1metadata(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jstring jarg3, jlong jarg4, jlong jarg5) {
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  mlt_service_type arg2 ;
-  char *arg3 = (char *) 0 ;
-  mlt_metadata_callback arg4 ;
-  void *arg5 = (void *) 0 ;
-  mlt_metadata_callback *argp4 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Repository **)&jarg1; 
-  arg2 = (mlt_service_type)jarg2; 
+  arg1 = *(Mlt::Repository **)&jarg1;
+  arg2 = (mlt_service_type)jarg2;
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return ;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return;
   }
-  argp4 = *(mlt_metadata_callback **)&jarg4; 
+  argp4 = *(mlt_metadata_callback **)&jarg4;
   if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_metadata_callback");
-    return ;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null mlt_metadata_callback");
+	return;
   }
-  arg4 = *argp4; 
-  arg5 = *(void **)&jarg5; 
-  (arg1)->register_metadata(arg2,(char const *)arg3,arg4,arg5);
+  arg4 = *argp4;
+  arg5 = *(void **)&jarg5;
+  (arg1)->register_metadata(arg2, (char const *)arg3, arg4, arg5);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1metadata(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_,
+																				   jint jarg2,
+																				   jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
+  mlt_service_type arg2;
+  char *arg3 = (char *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Repository_1metadata(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  mlt_service_type arg2 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Repository **)&jarg1; 
-  arg2 = (mlt_service_type)jarg2; 
+  arg1 = *(Mlt::Repository **)&jarg1;
+  arg2 = (mlt_service_type)jarg2;
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Properties *)((Mlt::Repository const *)arg1)->metadata(arg2,(char const *)arg3);
-  *(Mlt::Properties **)&jresult = result; 
+  result = (Mlt::Properties *)((Mlt::Repository const *)arg1)->metadata(arg2, (char const *)arg3);
+  *(Mlt::Properties **)&jresult = result;
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1languages(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Repository *arg1 = (Mlt::Repository *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Repository_1languages(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Repository *arg1 = (Mlt::Repository *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Repository **)&jarg1; 
+  arg1 = *(Mlt::Repository **)&jarg1;
   result = (Mlt::Properties *)((Mlt::Repository const *)arg1)->languages();
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Repository_1presets(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Repository_1presets(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Properties *)Mlt::Repository::presets();
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Event_1_1SWIG_10(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1) {
+  jlong jresult = 0;
+  mlt_event arg1 = (mlt_event)0;
+  Mlt::Event *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Event_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_event arg1 = (mlt_event) 0 ;
-  Mlt::Event *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_event *)&jarg1; 
+  arg1 = *(mlt_event *)&jarg1;
   result = (Mlt::Event *)new Mlt::Event(arg1);
-  *(Mlt::Event **)&jresult = result; 
+  *(Mlt::Event **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Event_1_1SWIG_11(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Event *arg1 = 0;
+  Mlt::Event *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Event_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Event *arg1 = 0 ;
-  Mlt::Event *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Event **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Event & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Event & reference is null");
+	return 0;
+  }
   result = (Mlt::Event *)new Mlt::Event(*arg1);
-  *(Mlt::Event **)&jresult = result; 
+  *(Mlt::Event **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Event(JNIEnv *jenv,
+																		   jclass jcls,
+																		   jlong jarg1) {
+  Mlt::Event *arg1 = (Mlt::Event *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Event(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Event *arg1 = (Mlt::Event *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Event **)&jarg1; 
+  arg1 = *(Mlt::Event **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Event_1get_1event(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Event *arg1 = (Mlt::Event *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Event_1get_1event(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Event *arg1 = (Mlt::Event *)0;
   mlt_event result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Event **)&jarg1; 
+  arg1 = *(Mlt::Event **)&jarg1;
   result = (mlt_event)(arg1)->get_event();
-  *(mlt_event *)&jresult = result; 
+  *(mlt_event *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Event_1is_1valid(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  Mlt::Event *arg1 = (Mlt::Event *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Event_1is_1valid(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jboolean jresult = 0;
+  Mlt::Event *arg1 = (Mlt::Event *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Event **)&jarg1; 
+  arg1 = *(Mlt::Event **)&jarg1;
   result = (bool)(arg1)->is_valid();
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Event_1block(JNIEnv *jenv,
+																		  jclass jcls,
+																		  jlong jarg1,
+																		  jobject jarg1_) {
+  Mlt::Event *arg1 = (Mlt::Event *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Event_1block(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Event *arg1 = (Mlt::Event *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Event **)&jarg1; 
+  arg1 = *(Mlt::Event **)&jarg1;
   (arg1)->block();
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Event_1unblock(JNIEnv *jenv,
+																			jclass jcls,
+																			jlong jarg1,
+																			jobject jarg1_) {
+  Mlt::Event *arg1 = (Mlt::Event *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Event_1unblock(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Event *arg1 = (Mlt::Event *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Event **)&jarg1; 
+  arg1 = *(Mlt::Event **)&jarg1;
   (arg1)->unblock();
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1EventData_1_1SWIG_10(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1) {
+  jlong jresult = 0;
+  mlt_event_data arg1;
+  mlt_event_data *argp1;
+  Mlt::EventData *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1EventData_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_event_data arg1 ;
-  mlt_event_data *argp1 ;
-  Mlt::EventData *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  argp1 = *(mlt_event_data **)&jarg1; 
+  argp1 = *(mlt_event_data **)&jarg1;
   if (!argp1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_event_data");
-    return 0;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null mlt_event_data");
+	return 0;
   }
-  arg1 = *argp1; 
+  arg1 = *argp1;
   result = (Mlt::EventData *)new Mlt::EventData(arg1);
-  *(Mlt::EventData **)&jresult = result; 
+  *(Mlt::EventData **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1EventData_1_1SWIG_11(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::EventData *arg1 = 0;
+  Mlt::EventData *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1EventData_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::EventData *arg1 = 0 ;
-  Mlt::EventData *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::EventData **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.EventData & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.EventData & reference is null");
+	return 0;
+  }
   result = (Mlt::EventData *)new Mlt::EventData(*arg1);
-  *(Mlt::EventData **)&jresult = result; 
+  *(Mlt::EventData **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1EventData(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1) {
+  Mlt::EventData *arg1 = (Mlt::EventData *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1EventData(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::EventData *arg1 = (Mlt::EventData *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::EventData **)&jarg1; 
+  arg1 = *(Mlt::EventData **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_EventData_1get_1event_1data(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::EventData *arg1 = (Mlt::EventData *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_EventData_1get_1event_1data(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::EventData *arg1 = (Mlt::EventData *)0;
   mlt_event_data result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::EventData **)&jarg1; 
+  arg1 = *(Mlt::EventData **)&jarg1;
   result = ((Mlt::EventData const *)arg1)->get_event_data();
-  *(mlt_event_data **)&jresult = new mlt_event_data((const mlt_event_data &)result); 
+  *(mlt_event_data **)&jresult = new mlt_event_data((const mlt_event_data &)result);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_EventData_1to_1int(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::EventData *arg1 = (Mlt::EventData *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_EventData_1to_1int(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::EventData *arg1 = (Mlt::EventData *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::EventData **)&jarg1; 
+  arg1 = *(Mlt::EventData **)&jarg1;
   result = (int)((Mlt::EventData const *)arg1)->to_int();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_EventData_1to_1string(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jstring jresult = 0;
+  Mlt::EventData *arg1 = (Mlt::EventData *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_EventData_1to_1string(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  Mlt::EventData *arg1 = (Mlt::EventData *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::EventData **)&jarg1; 
+  arg1 = *(Mlt::EventData **)&jarg1;
   result = (char *)((Mlt::EventData const *)arg1)->to_string();
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_EventData_1to_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::EventData *arg1 = (Mlt::EventData *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_EventData_1to_1frame(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::EventData *arg1 = (Mlt::EventData *)0;
   Mlt::Frame result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::EventData **)&jarg1; 
+  arg1 = *(Mlt::EventData **)&jarg1;
   result = ((Mlt::EventData const *)arg1)->to_frame();
-  *(Mlt::Frame **)&jresult = new Mlt::Frame((const Mlt::Frame &)result); 
+  *(Mlt::Frame **)&jresult = new Mlt::Frame((const Mlt::Frame &)result);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_EventData_1to_1object(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::EventData *arg1 = (Mlt::EventData *)0;
+  void *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_EventData_1to_1object(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::EventData *arg1 = (Mlt::EventData *) 0 ;
-  void *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::EventData **)&jarg1; 
+  arg1 = *(Mlt::EventData **)&jarg1;
   result = (void *)((Mlt::EventData const *)arg1)->to_object();
-  *(void **)&jresult = result; 
+  *(void **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Properties_1_1SWIG_10(JNIEnv *jenv,
+																						 jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Properties_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Properties *)new Mlt::Properties();
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Properties_1_1SWIG_11(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jboolean jarg1) {
+  jlong jresult = 0;
+  bool arg1;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Properties_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jboolean jarg1) {
-  jlong jresult = 0 ;
-  bool arg1 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = jarg1 ? true : false; 
+  arg1 = jarg1 ? true : false;
   result = (Mlt::Properties *)new Mlt::Properties(arg1);
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Properties_1_1SWIG_12(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = 0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Properties_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Properties **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
+	return 0;
+  }
   result = (Mlt::Properties *)new Mlt::Properties(*arg1);
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Properties_1_1SWIG_14(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1) {
+  jlong jresult = 0;
+  mlt_properties arg1 = (mlt_properties)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Properties_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_properties arg1 = (mlt_properties) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_properties *)&jarg1; 
+  arg1 = *(mlt_properties *)&jarg1;
   result = (Mlt::Properties *)new Mlt::Properties(arg1);
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Properties_1_1SWIG_15(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1) {
+  jlong jresult = 0;
+  void *arg1 = (void *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Properties_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  void *arg1 = (void *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(void **)&jarg1; 
+  arg1 = *(void **)&jarg1;
   result = (Mlt::Properties *)new Mlt::Properties(arg1);
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Properties_1_1SWIG_16(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jstring jarg1) {
+  jlong jresult = 0;
+  char *arg1 = (char *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Properties_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jstring jarg1) {
-  jlong jresult = 0 ;
-  char *arg1 = (char *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   arg1 = 0;
   if (jarg1) {
-    arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
-    if (!arg1) return 0;
+	arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
+	if (!arg1) return 0;
   }
   result = (Mlt::Properties *)new Mlt::Properties((char const *)arg1);
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   if (arg1) jenv->ReleaseStringUTFChars(jarg1, (const char *)arg1);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Properties(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Properties(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1properties(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1properties(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
   mlt_properties result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   result = (mlt_properties)(arg1)->get_properties();
-  *(mlt_properties *)&jresult = result; 
+  *(mlt_properties *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1inc_1ref(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1inc_1ref(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   result = (int)(arg1)->inc_ref();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1dec_1ref(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1dec_1ref(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   result = (int)(arg1)->dec_ref();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1ref_1count(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1ref_1count(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   result = (int)(arg1)->ref_count();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1lock(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1lock(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   (arg1)->lock();
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1unlock(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1unlock(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   (arg1)->unlock();
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1block_1_1SWIG_10(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_,
+																						  jlong jarg2) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  void *arg2 = (void *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1block_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  void *arg2 = (void *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = *(void **)&jarg2; 
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = *(void **)&jarg2;
   (arg1)->block(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1block_1_1SWIG_11(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1block_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   (arg1)->block();
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1unblock_1_1SWIG_10(JNIEnv *jenv,
+																							jclass jcls,
+																							jlong jarg1,
+																							jobject jarg1_,
+																							jlong jarg2) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  void *arg2 = (void *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1unblock_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  void *arg2 = (void *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = *(void **)&jarg2; 
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = *(void **)&jarg2;
   (arg1)->unblock(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1unblock_1_1SWIG_11(JNIEnv *jenv,
+																							jclass jcls,
+																							jlong jarg1,
+																							jobject jarg1_) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1unblock_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   (arg1)->unblock();
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1fire_1event(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1fire_1event(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jstring jarg2) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (int)(arg1)->fire_event((char const *)arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Properties_1is_1valid(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1is_1valid(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jboolean jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   result = (bool)(arg1)->is_valid();
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1count(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1count(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   result = (int)(arg1)->count();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1_1SWIG_10(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jstring jarg2) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1get_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (char *)(arg1)->get((char const *)arg2);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
@@ -2570,1034 +2882,1217 @@ SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1get_1_1SWIG_10(JNIEnv *jenv, 
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1get_1int(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1int(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_,
+																				  jstring jarg2) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (int)(arg1)->get_int((char const *)arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1int64(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1int64(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   int64_t result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (arg1)->get_int64((char const *)arg2);
-  *(int64_t **)&jresult = new int64_t((const int64_t &)result); 
+  *(int64_t **)&jresult = new int64_t((const int64_t &)result);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Properties_1get_1double(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jdouble jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1double(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2) {
+  jdouble jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (double)(arg1)->get_double((char const *)arg2);
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1data_1_1SWIG_10(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jstring jarg2,
+																							   jlong jarg3) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int *arg3 = 0;
+  void *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1data_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int *arg3 = 0 ;
-  void *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = *(int **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
-  result = (void *)(arg1)->get_data((char const *)arg2,*arg3);
-  *(void **)&jresult = result; 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
+  result = (void *)(arg1)->get_data((char const *)arg2, *arg3);
+  *(void **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1data_1_1SWIG_11(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  void *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1data_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  void *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (void *)(arg1)->get_data((char const *)arg2);
-  *(void **)&jresult = result; 
+  *(void **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_10(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2,
+																						jstring jarg3) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (int)(arg1)->set((char const *)arg2,(char const *)arg3);
-  jresult = (jint)result; 
+  result = (int)(arg1)->set((char const *)arg2, (char const *)arg3);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1string(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1string(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jstring jarg2,
+																					 jstring jarg3) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (int)(arg1)->set_string((char const *)arg2,(char const *)arg3);
-  jresult = (jint)result; 
+  result = (int)(arg1)->set_string((char const *)arg2, (char const *)arg3);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_11(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2,
+																						jint jarg3) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->set((char const *)arg2,arg3);
-  jresult = (jint)result; 
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->set((char const *)arg2, arg3);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int64_t arg3 ;
-  int64_t *argp3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_12(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2,
+																						jlong jarg3) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int64_t arg3;
+  int64_t *argp3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  argp3 = *(int64_t **)&jarg3; 
+  argp3 = *(int64_t **)&jarg3;
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int64_t");
-    return 0;
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int64_t");
+	return 0;
   }
-  arg3 = *argp3; 
-  result = (int)(arg1)->set((char const *)arg2,arg3);
-  jresult = (jint)result; 
+  arg3 = *argp3;
+  result = (int)(arg1)->set((char const *)arg2, arg3);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  double arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_13(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2,
+																						jdouble jarg3) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  double arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (double)jarg3; 
-  result = (int)(arg1)->set((char const *)arg2,arg3);
-  jresult = (jint)result; 
+  arg3 = (double)jarg3;
+  result = (int)(arg1)->set((char const *)arg2, arg3);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jint jarg4, jlong jarg5, jlong jarg6) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  void *arg3 = (void *) 0 ;
-  int arg4 ;
-  mlt_destructor arg5 = (mlt_destructor) 0 ;
-  mlt_serialiser arg6 = (mlt_serialiser) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_14(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2,
+																						jlong jarg3,
+																						jint jarg4,
+																						jlong jarg5,
+																						jlong jarg6) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  void *arg3 = (void *)0;
+  int arg4;
+  mlt_destructor arg5 = (mlt_destructor)0;
+  mlt_serialiser arg6 = (mlt_serialiser)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = *(void **)&jarg3; 
-  arg4 = (int)jarg4; 
-  arg5 = *(mlt_destructor *)&jarg5; 
-  arg6 = *(mlt_serialiser *)&jarg6; 
-  result = (int)(arg1)->set((char const *)arg2,arg3,arg4,arg5,arg6);
-  jresult = (jint)result; 
+  arg3 = *(void **)&jarg3;
+  arg4 = (int)jarg4;
+  arg5 = *(mlt_destructor *)&jarg5;
+  arg6 = *(mlt_serialiser *)&jarg6;
+  result = (int)(arg1)->set((char const *)arg2, arg3, arg4, arg5, arg6);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jint jarg4, jlong jarg5) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  void *arg3 = (void *) 0 ;
-  int arg4 ;
-  mlt_destructor arg5 = (mlt_destructor) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_15(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2,
+																						jlong jarg3,
+																						jint jarg4,
+																						jlong jarg5) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  void *arg3 = (void *)0;
+  int arg4;
+  mlt_destructor arg5 = (mlt_destructor)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = *(void **)&jarg3; 
-  arg4 = (int)jarg4; 
-  arg5 = *(mlt_destructor *)&jarg5; 
-  result = (int)(arg1)->set((char const *)arg2,arg3,arg4,arg5);
-  jresult = (jint)result; 
+  arg3 = *(void **)&jarg3;
+  arg4 = (int)jarg4;
+  arg5 = *(mlt_destructor *)&jarg5;
+  result = (int)(arg1)->set((char const *)arg2, arg3, arg4, arg5);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  void *arg3 = (void *) 0 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_16(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2,
+																						jlong jarg3,
+																						jint jarg4) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  void *arg3 = (void *)0;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = *(void **)&jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->set((char const *)arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg3 = *(void **)&jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->set((char const *)arg2, arg3, arg4);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1copy(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  Mlt::Properties *arg2 = 0 ;
-  char *arg3 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1copy(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_,
+																			  jlong jarg2,
+																			  jobject jarg2_,
+																			  jstring jarg3) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  Mlt::Properties *arg2 = 0;
+  char *arg3 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
+	return 0;
+  }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (int)(arg1)->copy(*arg2,(char const *)arg3);
-  jresult = (jint)result; 
+  result = (int)(arg1)->copy(*arg2, (char const *)arg3);
+  jresult = (jint)result;
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1pass_1property(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jlong jarg2,
+																						jobject jarg2_,
+																						jstring jarg3) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  Mlt::Properties *arg2 = 0;
+  char *arg3 = (char *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1pass_1property(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  Mlt::Properties *arg2 = 0 ;
-  char *arg3 = (char *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
-    return ;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
+	return;
+  }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return ;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return;
   }
-  (arg1)->pass_property(*arg2,(char const *)arg3);
+  (arg1)->pass_property(*arg2, (char const *)arg3);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1pass_1values(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  Mlt::Properties *arg2 = 0 ;
-  char *arg3 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1pass_1values(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jlong jarg2,
+																					  jobject jarg2_,
+																					  jstring jarg3) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  Mlt::Properties *arg2 = 0;
+  char *arg3 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
+	return 0;
+  }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (int)(arg1)->pass_values(*arg2,(char const *)arg3);
-  jresult = (jint)result; 
-  if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1pass_1list(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  Mlt::Properties *arg2 = 0 ;
-  char *arg3 = (char *) 0 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = *(Mlt::Properties **)&jarg2;
-  if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
-    return 0;
-  } 
-  arg3 = 0;
-  if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
-  }
-  result = (int)(arg1)->pass_list(*arg2,(char const *)arg3);
-  jresult = (jint)result; 
+  result = (int)(arg1)->pass_values(*arg2, (char const *)arg3);
+  jresult = (jint)result;
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1parse(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1pass_1list(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jlong jarg2,
+																					jobject jarg2_,
+																					jstring jarg3) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  Mlt::Properties *arg2 = 0;
+  char *arg3 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  (void)jarg2_;
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = *(Mlt::Properties **)&jarg2;
+  if (!arg2) {
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
+	return 0;
+  }
+  arg3 = 0;
+  if (jarg3) {
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
+  }
+  result = (int)(arg1)->pass_list(*arg2, (char const *)arg3);
+  jresult = (jint)result;
+  if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
+  return jresult;
+}
+
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1parse(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jstring jarg2) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int result;
+
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (int)(arg1)->parse((char const *)arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1name(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jint jarg2) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  int arg2;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1get_1name(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  int arg2 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = (int)jarg2;
   result = (char *)(arg1)->get_name(arg2);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1_1SWIG_11(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jint jarg2) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  int arg2;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1get_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  int arg2 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = (int)jarg2;
   result = (char *)(arg1)->get(arg2);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1_1SWIG_12(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jint jarg2,
+																						   jint jarg3) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  int arg2;
+  mlt_time_format arg3;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1get_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  int arg2 ;
-  mlt_time_format arg3 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (mlt_time_format)jarg3; 
-  result = (char *)(arg1)->get(arg2,arg3);
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (mlt_time_format)jarg3;
+  result = (char *)(arg1)->get(arg2, arg3);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1data_1_1SWIG_12(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jint jarg2,
+																							   jlong jarg3) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  int arg2;
+  int *arg3 = 0;
+  void *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1data_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  int arg2 ;
-  int *arg3 = 0 ;
-  void *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = (int)jarg2;
   arg3 = *(int **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
-  result = (void *)(arg1)->get_data(arg2,*arg3);
-  *(void **)&jresult = result; 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
+  result = (void *)(arg1)->get_data(arg2, *arg3);
+  *(void **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1mirror(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jlong jarg2,
+																				jobject jarg2_) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  Mlt::Properties *arg2 = 0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1mirror(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  Mlt::Properties *arg2 = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
-    return ;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
+	return;
+  }
   (arg1)->mirror(*arg2);
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1inherit(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  Mlt::Properties *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1inherit(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_,
+																				 jlong jarg2,
+																				 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  Mlt::Properties *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = *(Mlt::Properties **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->inherit(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1rename(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1rename(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jstring jarg2,
+																				jstring jarg3) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (int)(arg1)->rename((char const *)arg2,(char const *)arg3);
-  jresult = (jint)result; 
+  result = (int)(arg1)->rename((char const *)arg2, (char const *)arg3);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1dump_1_1SWIG_10(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  FILE *arg2 = (FILE *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1dump_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  FILE *arg2 = (FILE *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = *(FILE **)&jarg2; 
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = *(FILE **)&jarg2;
   (arg1)->dump(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1dump_1_1SWIG_11(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1dump_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   (arg1)->dump();
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1debug_1_1SWIG_10(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_,
+																						  jstring jarg2,
+																						  jlong jarg3) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  FILE *arg3 = (FILE *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1debug_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  FILE *arg3 = (FILE *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return ;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return;
   }
-  arg3 = *(FILE **)&jarg3; 
-  (arg1)->debug((char const *)arg2,arg3);
+  arg3 = *(FILE **)&jarg3;
+  (arg1)->debug((char const *)arg2, arg3);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1debug_1_1SWIG_11(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_,
+																						  jstring jarg2) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1debug_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return ;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return;
   }
   (arg1)->debug((char const *)arg2);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1debug_1_1SWIG_12(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1debug_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   (arg1)->debug();
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1load(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_,
+																			  jstring jarg2) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1load(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return ;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return;
   }
   (arg1)->load((char const *)arg2);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1save(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1save(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_,
+																			  jstring jarg2) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (int)(arg1)->save((char const *)arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1listen(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_,
+																				 jstring jarg2,
+																				 jlong jarg3,
+																				 jlong jarg4) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  void *arg3 = (void *)0;
+  mlt_listener arg4;
+  mlt_listener *argp4;
+  Mlt::Event *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1listen(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jlong jarg4) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  void *arg3 = (void *) 0 ;
-  mlt_listener arg4 ;
-  mlt_listener *argp4 ;
-  Mlt::Event *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = *(void **)&jarg3; 
-  argp4 = *(mlt_listener **)&jarg4; 
+  arg3 = *(void **)&jarg3;
+  argp4 = *(mlt_listener **)&jarg4;
   if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_listener");
-    return 0;
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null mlt_listener");
+	return 0;
   }
-  arg4 = *argp4; 
-  result = (Mlt::Event *)(arg1)->listen((char const *)arg2,arg3,arg4);
-  *(Mlt::Event **)&jresult = result; 
+  arg4 = *argp4;
+  result = (Mlt::Event *)(arg1)->listen((char const *)arg2, arg3, arg4);
+  *(Mlt::Event **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1delete_1event(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  Mlt::Event *arg1 = (Mlt::Event *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1delete_1event(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Event *arg1 = (Mlt::Event *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Event **)&jarg1; 
+  arg1 = *(Mlt::Event **)&jarg1;
   Mlt::Properties::delete_event(arg1);
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1setup_1wait_1for(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  Mlt::Event *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1setup_1wait_1for(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Event *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (Mlt::Event *)(arg1)->setup_wait_for((char const *)arg2);
-  *(Mlt::Event **)&jresult = result; 
+  *(Mlt::Event **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1wait_1for_1_1SWIG_10(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jlong jarg2,
+																							  jobject jarg2_,
+																							  jboolean jarg3) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  Mlt::Event *arg2 = (Mlt::Event *)0;
+  bool arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1wait_1for_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jboolean jarg3) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  Mlt::Event *arg2 = (Mlt::Event *) 0 ;
-  bool arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = *(Mlt::Event **)&jarg2; 
-  arg3 = jarg3 ? true : false; 
-  (arg1)->wait_for(arg2,arg3);
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = *(Mlt::Event **)&jarg2;
+  arg3 = jarg3 ? true : false;
+  (arg1)->wait_for(arg2, arg3);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1wait_1for_1_1SWIG_11(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jlong jarg2,
+																							  jobject jarg2_) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  Mlt::Event *arg2 = (Mlt::Event *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1wait_1for_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  Mlt::Event *arg2 = (Mlt::Event *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = *(Mlt::Event **)&jarg2; 
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = *(Mlt::Event **)&jarg2;
   (arg1)->wait_for(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1wait_1for_1_1SWIG_12(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1wait_1for_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return ;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return;
   }
   (arg1)->wait_for((char const *)arg2);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Properties_1is_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1is_1sequence(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_) {
+  jboolean jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   result = (bool)(arg1)->is_sequence();
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1parse_1yaml(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jstring jarg1) {
+  jlong jresult = 0;
+  char *arg1 = (char *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1parse_1yaml(JNIEnv *jenv, jclass jcls, jstring jarg1) {
-  jlong jresult = 0 ;
-  char *arg1 = (char *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   arg1 = 0;
   if (jarg1) {
-    arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
-    if (!arg1) return 0;
+	arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
+	if (!arg1) return 0;
   }
   result = (Mlt::Properties *)Mlt::Properties::parse_yaml((char const *)arg1);
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   if (arg1) jenv->ReleaseStringUTFChars(jarg1, (const char *)arg1);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1serialise_1yaml(JNIEnv *jenv,
+																							jclass jcls,
+																							jlong jarg1,
+																							jobject jarg1_) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1serialise_1yaml(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   result = (char *)(arg1)->serialise_yaml();
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1preset(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1preset(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jstring jarg2) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (int)(arg1)->preset((char const *)arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1lcnumeric(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1lcnumeric(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (int)(arg1)->set_lcnumeric((char const *)arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1lcnumeric(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1get_1lcnumeric(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   result = (char *)(arg1)->get_lcnumeric();
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1clear(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jstring jarg2) {
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Properties_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return ;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return;
   }
   (arg1)->clear((char const *)arg2);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Properties_1property_1exists(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jboolean jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1property_1exists(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2) {
+  jboolean jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (bool)(arg1)->property_exists((char const *)arg2);
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1time_1_1SWIG_10(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jstring jarg2,
+																								 jint jarg3) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  mlt_time_format arg3;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1get_1time_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  mlt_time_format arg3 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (mlt_time_format)jarg3; 
-  result = (char *)(arg1)->get_time((char const *)arg2,arg3);
+  arg3 = (mlt_time_format)jarg3;
+  result = (char *)(arg1)->get_time((char const *)arg2, arg3);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1time_1_1SWIG_11(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jstring jarg2) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1get_1time_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (char *)(arg1)->get_time((char const *)arg2);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
@@ -3605,7924 +4100,9436 @@ SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1get_1time_1_1SWIG_11(JNIEnv *
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1frames_1to_1time_1_1SWIG_10(JNIEnv *jenv,
+																										jclass jcls,
+																										jlong jarg1,
+																										jobject jarg1_,
+																										jint jarg2,
+																										jint jarg3) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  int arg2;
+  mlt_time_format arg3;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1frames_1to_1time_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  int arg2 ;
-  mlt_time_format arg3 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (mlt_time_format)jarg3; 
-  result = (char *)(arg1)->frames_to_time(arg2,arg3);
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (mlt_time_format)jarg3;
+  result = (char *)(arg1)->frames_to_time(arg2, arg3);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1frames_1to_1time_1_1SWIG_11(JNIEnv *jenv,
+																										jclass jcls,
+																										jlong jarg1,
+																										jobject jarg1_,
+																										jint jarg2) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  int arg2;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1frames_1to_1time_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  int arg2 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = (int)jarg2;
   result = (char *)(arg1)->frames_to_time(arg2);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1time_1to_1frames(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1time_1to_1frames(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_,
+																						  jstring jarg2) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (int)(arg1)->time_to_frames((char const *)arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1color(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1color(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   mlt_color result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (arg1)->get_color((char const *)arg2);
-  *(mlt_color **)&jresult = new mlt_color((const mlt_color &)result); 
+  *(mlt_color **)&jresult = new mlt_color((const mlt_color &)result);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  mlt_color arg3 ;
-  mlt_color *argp3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_17(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2,
+																						jlong jarg3,
+																						jobject jarg3_) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  mlt_color arg3;
+  mlt_color *argp3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  argp3 = *(mlt_color **)&jarg3; 
+  argp3 = *(mlt_color **)&jarg3;
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
-    return 0;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
+	return 0;
   }
-  arg3 = *argp3; 
-  result = (int)(arg1)->set((char const *)arg2,arg3);
-  jresult = (jint)result; 
+  arg3 = *argp3;
+  result = (int)(arg1)->set((char const *)arg2, arg3);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1anim_1get_1color_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1get_1color_1_1SWIG_10(JNIEnv *jenv,
+																									  jclass jcls,
+																									  jlong jarg1,
+																									  jobject jarg1_,
+																									  jstring jarg2,
+																									  jint jarg3,
+																									  jint jarg4) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
+  int arg4;
   mlt_color result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (arg1)->anim_get_color((char const *)arg2,arg3,arg4);
-  *(mlt_color **)&jresult = new mlt_color((const mlt_color &)result); 
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (arg1)->anim_get_color((char const *)arg2, arg3, arg4);
+  *(mlt_color **)&jresult = new mlt_color((const mlt_color &)result);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1anim_1get_1color_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1get_1color_1_1SWIG_11(JNIEnv *jenv,
+																									  jclass jcls,
+																									  jlong jarg1,
+																									  jobject jarg1_,
+																									  jstring jarg2,
+																									  jint jarg3) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
   mlt_color result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  result = (arg1)->anim_get_color((char const *)arg2,arg3);
-  *(mlt_color **)&jresult = new mlt_color((const mlt_color &)result); 
+  arg3 = (int)jarg3;
+  result = (arg1)->anim_get_color((char const *)arg2, arg3);
+  *(mlt_color **)&jresult = new mlt_color((const mlt_color &)result);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jint jarg5, jint jarg6) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  mlt_color arg3 ;
-  int arg4 ;
-  int arg5 ;
-  mlt_keyframe_type arg6 ;
-  mlt_color *argp3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_10(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2,
+																							  jlong jarg3,
+																							  jobject jarg3_,
+																							  jint jarg4,
+																							  jint jarg5,
+																							  jint jarg6) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  mlt_color arg3;
+  int arg4;
+  int arg5;
+  mlt_keyframe_type arg6;
+  mlt_color *argp3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  argp3 = *(mlt_color **)&jarg3; 
+  argp3 = *(mlt_color **)&jarg3;
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
-    return 0;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
+	return 0;
   }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  arg6 = (mlt_keyframe_type)jarg6; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4,arg5,arg6);
-  jresult = (jint)result; 
+  arg3 = *argp3;
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  arg6 = (mlt_keyframe_type)jarg6;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4, arg5, arg6);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jint jarg5) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  mlt_color arg3 ;
-  int arg4 ;
-  int arg5 ;
-  mlt_color *argp3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_11(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2,
+																							  jlong jarg3,
+																							  jobject jarg3_,
+																							  jint jarg4,
+																							  jint jarg5) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  mlt_color arg3;
+  int arg4;
+  int arg5;
+  mlt_color *argp3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  argp3 = *(mlt_color **)&jarg3; 
+  argp3 = *(mlt_color **)&jarg3;
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
-    return 0;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
+	return 0;
   }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4,arg5);
-  jresult = (jint)result; 
+  arg3 = *argp3;
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4, arg5);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  mlt_color arg3 ;
-  int arg4 ;
-  mlt_color *argp3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_12(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2,
+																							  jlong jarg3,
+																							  jobject jarg3_,
+																							  jint jarg4) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  mlt_color arg3;
+  int arg4;
+  mlt_color *argp3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  argp3 = *(mlt_color **)&jarg3; 
+  argp3 = *(mlt_color **)&jarg3;
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
-    return 0;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null org.huihui.videoedit.mlt.mlt_color");
+	return 0;
   }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg3 = *argp3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1get_1_1SWIG_10(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jstring jarg2,
+																								 jint jarg3,
+																								 jint jarg4) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
+  int arg4;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1anim_1get_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
-  int arg4 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (char *)(arg1)->anim_get((char const *)arg2,arg3,arg4);
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (char *)(arg1)->anim_get((char const *)arg2, arg3, arg4);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1get_1_1SWIG_11(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jstring jarg2,
+																								 jint jarg3) {
+  jstring jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Properties_1anim_1get_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
-  jstring jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  result = (char *)(arg1)->anim_get((char const *)arg2,arg3);
+  arg3 = (int)jarg3;
+  result = (char *)(arg1)->anim_get((char const *)arg2, arg3);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3, jint jarg4, jint jarg5) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  int arg4 ;
-  int arg5 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_13(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2,
+																							  jstring jarg3,
+																							  jint jarg4,
+																							  jint jarg5) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  int arg4;
+  int arg5;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  result = (int)(arg1)->anim_set((char const *)arg2,(char const *)arg3,arg4,arg5);
-  jresult = (jint)result; 
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  result = (int)(arg1)->anim_set((char const *)arg2, (char const *)arg3, arg4, arg5);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_14(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2,
+																							  jstring jarg3,
+																							  jint jarg4) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->anim_set((char const *)arg2,(char const *)arg3,arg4);
-  jresult = (jint)result; 
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->anim_set((char const *)arg2, (char const *)arg3, arg4);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1get_1int_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1get_1int_1_1SWIG_10(JNIEnv *jenv,
+																								   jclass jcls,
+																								   jlong jarg1,
+																								   jobject jarg1_,
+																								   jstring jarg2,
+																								   jint jarg3,
+																								   jint jarg4) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->anim_get_int((char const *)arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->anim_get_int((char const *)arg2, arg3, arg4);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1get_1int_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1get_1int_1_1SWIG_11(JNIEnv *jenv,
+																								   jclass jcls,
+																								   jlong jarg1,
+																								   jobject jarg1_,
+																								   jstring jarg2,
+																								   jint jarg3) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->anim_get_int((char const *)arg2,arg3);
-  jresult = (jint)result; 
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->anim_get_int((char const *)arg2, arg3);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
-  int arg4 ;
-  int arg5 ;
-  mlt_keyframe_type arg6 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_15(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2,
+																							  jint jarg3,
+																							  jint jarg4,
+																							  jint jarg5,
+																							  jint jarg6) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
+  int arg4;
+  int arg5;
+  mlt_keyframe_type arg6;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  arg6 = (mlt_keyframe_type)jarg6; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4,arg5,arg6);
-  jresult = (jint)result; 
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  arg6 = (mlt_keyframe_type)jarg6;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4, arg5, arg6);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
-  int arg4 ;
-  int arg5 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_16(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2,
+																							  jint jarg3,
+																							  jint jarg4,
+																							  jint jarg5) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
+  int arg4;
+  int arg5;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4,arg5);
-  jresult = (jint)result; 
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4, arg5);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_17(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2,
+																							  jint jarg3,
+																							  jint jarg4) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Properties_1anim_1get_1double_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4) {
-  jdouble jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1get_1double_1_1SWIG_10(
+	JNIEnv *jenv,
+	jclass jcls,
+	jlong jarg1,
+	jobject jarg1_,
+	jstring jarg2,
+	jint jarg3,
+	jint jarg4) {
+  jdouble jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
+  int arg4;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (double)(arg1)->anim_get_double((char const *)arg2,arg3,arg4);
-  jresult = (jdouble)result; 
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (double)(arg1)->anim_get_double((char const *)arg2, arg3, arg4);
+  jresult = (jdouble)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Properties_1anim_1get_1double_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
-  jdouble jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1get_1double_1_1SWIG_11(
+	JNIEnv *jenv,
+	jclass jcls,
+	jlong jarg1,
+	jobject jarg1_,
+	jstring jarg2,
+	jint jarg3) {
+  jdouble jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  result = (double)(arg1)->anim_get_double((char const *)arg2,arg3);
-  jresult = (jdouble)result; 
+  arg3 = (int)jarg3;
+  result = (double)(arg1)->anim_get_double((char const *)arg2, arg3);
+  jresult = (jdouble)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jint jarg4, jint jarg5, jint jarg6) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  double arg3 ;
-  int arg4 ;
-  int arg5 ;
-  mlt_keyframe_type arg6 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_18(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2,
+																							  jdouble jarg3,
+																							  jint jarg4,
+																							  jint jarg5,
+																							  jint jarg6) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  double arg3;
+  int arg4;
+  int arg5;
+  mlt_keyframe_type arg6;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (double)jarg3; 
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  arg6 = (mlt_keyframe_type)jarg6; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4,arg5,arg6);
-  jresult = (jint)result; 
+  arg3 = (double)jarg3;
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  arg6 = (mlt_keyframe_type)jarg6;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4, arg5, arg6);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_19(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jint jarg4, jint jarg5) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  double arg3 ;
-  int arg4 ;
-  int arg5 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_19(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jstring jarg2,
+																							  jdouble jarg3,
+																							  jint jarg4,
+																							  jint jarg5) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  double arg3;
+  int arg4;
+  int arg5;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (double)jarg3; 
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4,arg5);
-  jresult = (jint)result; 
+  arg3 = (double)jarg3;
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4, arg5);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_110(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  double arg3 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_110(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jstring jarg2,
+																							   jdouble jarg3,
+																							   jint jarg4) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  double arg3;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (double)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg3 = (double)jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  mlt_rect arg3 ;
-  mlt_rect *argp3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_18(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2,
+																						jlong jarg3,
+																						jobject jarg3_) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  mlt_rect arg3;
+  mlt_rect *argp3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  argp3 = *(mlt_rect **)&jarg3; 
+  argp3 = *(mlt_rect **)&jarg3;
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
-    return 0;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
+	return 0;
   }
-  arg3 = *argp3; 
-  result = (int)(arg1)->set((char const *)arg2,arg3);
-  jresult = (jint)result; 
+  arg3 = *argp3;
+  result = (int)(arg1)->set((char const *)arg2, arg3);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_19(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jdouble jarg7) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  double arg3 ;
-  double arg4 ;
-  double arg5 ;
-  double arg6 ;
-  double arg7 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_19(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2,
+																						jdouble jarg3,
+																						jdouble jarg4,
+																						jdouble jarg5,
+																						jdouble jarg6,
+																						jdouble jarg7) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  double arg3;
+  double arg4;
+  double arg5;
+  double arg6;
+  double arg7;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (double)jarg3; 
-  arg4 = (double)jarg4; 
-  arg5 = (double)jarg5; 
-  arg6 = (double)jarg6; 
-  arg7 = (double)jarg7; 
-  result = (int)(arg1)->set((char const *)arg2,arg3,arg4,arg5,arg6,arg7);
-  jresult = (jint)result; 
+  arg3 = (double)jarg3;
+  arg4 = (double)jarg4;
+  arg5 = (double)jarg5;
+  arg6 = (double)jarg6;
+  arg7 = (double)jarg7;
+  result = (int)(arg1)->set((char const *)arg2, arg3, arg4, arg5, arg6, arg7);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_110(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  double arg3 ;
-  double arg4 ;
-  double arg5 ;
-  double arg6 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_110(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jstring jarg2,
+																						 jdouble jarg3,
+																						 jdouble jarg4,
+																						 jdouble jarg5,
+																						 jdouble jarg6) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  double arg3;
+  double arg4;
+  double arg5;
+  double arg6;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (double)jarg3; 
-  arg4 = (double)jarg4; 
-  arg5 = (double)jarg5; 
-  arg6 = (double)jarg6; 
-  result = (int)(arg1)->set((char const *)arg2,arg3,arg4,arg5,arg6);
-  jresult = (jint)result; 
+  arg3 = (double)jarg3;
+  arg4 = (double)jarg4;
+  arg5 = (double)jarg5;
+  arg6 = (double)jarg6;
+  result = (int)(arg1)->set((char const *)arg2, arg3, arg4, arg5, arg6);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1rect(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1rect(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   mlt_rect result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (arg1)->get_rect((char const *)arg2);
-  *(mlt_rect **)&jresult = new mlt_rect((const mlt_rect &)result); 
+  *(mlt_rect **)&jresult = new mlt_rect((const mlt_rect &)result);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_111(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jint jarg5, jint jarg6) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  mlt_rect arg3 ;
-  int arg4 ;
-  int arg5 ;
-  mlt_keyframe_type arg6 ;
-  mlt_rect *argp3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_111(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jstring jarg2,
+																							   jlong jarg3,
+																							   jobject jarg3_,
+																							   jint jarg4,
+																							   jint jarg5,
+																							   jint jarg6) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  mlt_rect arg3;
+  int arg4;
+  int arg5;
+  mlt_keyframe_type arg6;
+  mlt_rect *argp3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  argp3 = *(mlt_rect **)&jarg3; 
+  argp3 = *(mlt_rect **)&jarg3;
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
-    return 0;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
+	return 0;
   }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  arg6 = (mlt_keyframe_type)jarg6; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4,arg5,arg6);
-  jresult = (jint)result; 
+  arg3 = *argp3;
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  arg6 = (mlt_keyframe_type)jarg6;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4, arg5, arg6);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_112(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jint jarg5) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  mlt_rect arg3 ;
-  int arg4 ;
-  int arg5 ;
-  mlt_rect *argp3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_112(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jstring jarg2,
+																							   jlong jarg3,
+																							   jobject jarg3_,
+																							   jint jarg4,
+																							   jint jarg5) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  mlt_rect arg3;
+  int arg4;
+  int arg5;
+  mlt_rect *argp3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  argp3 = *(mlt_rect **)&jarg3; 
+  argp3 = *(mlt_rect **)&jarg3;
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
-    return 0;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
+	return 0;
   }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4,arg5);
-  jresult = (jint)result; 
+  arg3 = *argp3;
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4, arg5);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1anim_1set_1_1SWIG_113(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  mlt_rect arg3 ;
-  int arg4 ;
-  mlt_rect *argp3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1set_1_1SWIG_113(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jstring jarg2,
+																							   jlong jarg3,
+																							   jobject jarg3_,
+																							   jint jarg4) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  mlt_rect arg3;
+  int arg4;
+  mlt_rect *argp3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  argp3 = *(mlt_rect **)&jarg3; 
+  argp3 = *(mlt_rect **)&jarg3;
   if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
-    return 0;
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Attempt to dereference null org.huihui.videoedit.mlt.mlt_rect");
+	return 0;
   }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->anim_set((char const *)arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg3 = *argp3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->anim_set((char const *)arg2, arg3, arg4);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1anim_1get_1rect_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1get_1rect_1_1SWIG_10(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_,
+																									 jstring jarg2,
+																									 jint jarg3,
+																									 jint jarg4) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
+  int arg4;
   mlt_rect result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (arg1)->anim_get_rect((char const *)arg2,arg3,arg4);
-  *(mlt_rect **)&jresult = new mlt_rect((const mlt_rect &)result); 
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (arg1)->anim_get_rect((char const *)arg2, arg3, arg4);
+  *(mlt_rect **)&jresult = new mlt_rect((const mlt_rect &)result);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1anim_1get_1rect_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int arg3 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1anim_1get_1rect_1_1SWIG_11(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_,
+																									 jstring jarg2,
+																									 jint jarg3) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  int arg3;
   mlt_rect result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  arg3 = (int)jarg3; 
-  result = (arg1)->anim_get_rect((char const *)arg2,arg3);
-  *(mlt_rect **)&jresult = new mlt_rect((const mlt_rect &)result); 
+  arg3 = (int)jarg3;
+  result = (arg1)->anim_get_rect((char const *)arg2, arg3);
+  *(mlt_rect **)&jresult = new mlt_rect((const mlt_rect &)result);
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1animation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1animation(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   mlt_animation result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (mlt_animation)(arg1)->get_animation((char const *)arg2);
-  *(mlt_animation *)&jresult = result; 
+  *(mlt_animation *)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1anim(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  Mlt::Animation *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1anim(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Animation *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (Mlt::Animation *)(arg1)->get_anim((char const *)arg2);
-  *(Mlt::Animation **)&jresult = result; 
+  *(Mlt::Animation **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Properties_1is_1anim(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jboolean jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1is_1anim(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jstring jarg2) {
+  jboolean jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (bool)(arg1)->is_anim((char const *)arg2);
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Properties_1set_1_1SWIG_111(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
-  jint jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Properties *arg3 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1set_1_1SWIG_111(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jstring jarg2,
+																						 jlong jarg3,
+																						 jobject jarg3_) {
+  jint jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  Mlt::Properties *arg3 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = *(Mlt::Properties **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
-    return 0;
-  } 
-  result = (int)(arg1)->set((char const *)arg2,*arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
+	return 0;
+  }
+  result = (int)(arg1)->set((char const *)arg2, *arg3);
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1props(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  char *arg2 = (char *)0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1props(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
+  arg1 = *(Mlt::Properties **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (Mlt::Properties *)(arg1)->get_props((char const *)arg2);
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Properties_1get_1props_1at(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jint jarg2) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = (Mlt::Properties *)0;
+  int arg2;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Properties_1get_1props_1at(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = (Mlt::Properties *) 0 ;
-  int arg2 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Properties **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Properties **)&jarg1;
+  arg2 = (int)jarg2;
   result = (Mlt::Properties *)(arg1)->get_props_at(arg2);
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Frame_1_1SWIG_10(JNIEnv *jenv,
+																					jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Frame *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Frame_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Frame *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Frame *)new Mlt::Frame();
-  *(Mlt::Frame **)&jresult = result; 
+  *(Mlt::Frame **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Frame_1_1SWIG_11(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1) {
+  jlong jresult = 0;
+  mlt_frame arg1 = (mlt_frame)0;
+  Mlt::Frame *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Frame_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_frame arg1 = (mlt_frame) 0 ;
-  Mlt::Frame *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_frame *)&jarg1; 
+  arg1 = *(mlt_frame *)&jarg1;
   result = (Mlt::Frame *)new Mlt::Frame(arg1);
-  *(Mlt::Frame **)&jresult = result; 
+  *(Mlt::Frame **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Frame_1_1SWIG_12(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = 0;
+  Mlt::Frame *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Frame_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = 0 ;
-  Mlt::Frame *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Frame **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
+	return 0;
+  }
   result = (Mlt::Frame *)new Mlt::Frame(*arg1);
-  *(Mlt::Frame **)&jresult = result; 
+  *(Mlt::Frame **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Frame(JNIEnv *jenv,
+																		   jclass jcls,
+																		   jlong jarg1) {
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Frame(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Frame **)&jarg1; 
+  arg1 = *(Mlt::Frame **)&jarg1;
   delete arg1;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1_1_1assign_1_1(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jlong jarg2,
+																					jobject jarg2_) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  Mlt::Frame *arg2 = 0;
+  Mlt::Frame *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1_1_1assign_1_1(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  Mlt::Frame *arg2 = 0 ;
-  Mlt::Frame *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
+  arg1 = *(Mlt::Frame **)&jarg1;
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame const & reference is null");
-    return 0;
-  } 
-  result = (Mlt::Frame *) &(arg1)->operator =((Mlt::Frame const &)*arg2);
-  *(Mlt::Frame **)&jresult = result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Frame const & reference is null");
+	return 0;
+  }
+  result = (Mlt::Frame *)&(arg1)->operator=((Mlt::Frame const &)*arg2);
+  *(Mlt::Frame **)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1get_1frame(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
   mlt_frame result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
+  arg1 = *(Mlt::Frame **)&jarg1;
   result = (mlt_frame)(arg1)->get_frame();
-  *(mlt_frame *)&jresult = result; 
+  *(mlt_frame *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1properties(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1get_1properties(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
   mlt_properties result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
+  arg1 = *(Mlt::Frame **)&jarg1;
   result = (mlt_properties)(arg1)->get_properties();
-  *(mlt_properties *)&jresult = result; 
+  *(mlt_properties *)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1get_1image_1_1SWIG_10(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jlong jarg2,
+																						   jlong jarg3,
+																						   jlong jarg4,
+																						   jint jarg5) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  mlt_image_format *arg2 = 0;
+  int *arg3 = 0;
+  int *arg4 = 0;
+  int arg5;
+  uint8_t *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1image_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jint jarg5) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  mlt_image_format *arg2 = 0 ;
-  int *arg3 = 0 ;
-  int *arg4 = 0 ;
-  int arg5 ;
-  uint8_t *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
+  arg1 = *(Mlt::Frame **)&jarg1;
   arg2 = *(mlt_image_format **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "org.huihui.videoedit.mlt.mlt_image_format & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"org.huihui.videoedit.mlt.mlt_image_format & reference is null");
+	return 0;
+  }
   arg3 = *(int **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
   arg4 = *(int **)&jarg4;
   if (!arg4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
-  arg5 = (int)jarg5; 
-  result = (uint8_t *)(arg1)->get_image(*arg2,*arg3,*arg4,arg5);
-  *(uint8_t **)&jresult = result; 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
+  arg5 = (int)jarg5;
+  result = (uint8_t *)(arg1)->get_image(*arg2, *arg3, *arg4, arg5);
+  *(uint8_t **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1get_1image_1_1SWIG_11(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jlong jarg2,
+																						   jlong jarg3,
+																						   jlong jarg4) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  mlt_image_format *arg2 = 0;
+  int *arg3 = 0;
+  int *arg4 = 0;
+  uint8_t *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1image_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  mlt_image_format *arg2 = 0 ;
-  int *arg3 = 0 ;
-  int *arg4 = 0 ;
-  uint8_t *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
+  arg1 = *(Mlt::Frame **)&jarg1;
   arg2 = *(mlt_image_format **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "org.huihui.videoedit.mlt.mlt_image_format & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"org.huihui.videoedit.mlt.mlt_image_format & reference is null");
+	return 0;
+  }
   arg3 = *(int **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
   arg4 = *(int **)&jarg4;
   if (!arg4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
-  result = (uint8_t *)(arg1)->get_image(*arg2,*arg3,*arg4);
-  *(uint8_t **)&jresult = result; 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
+  result = (uint8_t *)(arg1)->get_image(*arg2, *arg3, *arg4);
+  *(uint8_t **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1fetch_1image_1_1SWIG_10(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jint jarg2,
+																							 jint jarg3,
+																							 jint jarg4,
+																							 jint jarg5) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  mlt_image_format arg2;
+  int arg3;
+  int arg4;
+  int arg5;
+  unsigned char *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1fetch_1image_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jint jarg4, jint jarg5) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  mlt_image_format arg2 ;
-  int arg3 ;
-  int arg4 ;
-  int arg5 ;
-  unsigned char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
-  arg2 = (mlt_image_format)jarg2; 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  result = (unsigned char *)(arg1)->fetch_image(arg2,arg3,arg4,arg5);
-  *(unsigned char **)&jresult = result; 
+  arg1 = *(Mlt::Frame **)&jarg1;
+  arg2 = (mlt_image_format)jarg2;
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  result = (unsigned char *)(arg1)->fetch_image(arg2, arg3, arg4, arg5);
+  *(unsigned char **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1fetch_1image_1_1SWIG_11(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jint jarg2,
+																							 jint jarg3,
+																							 jint jarg4) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  mlt_image_format arg2;
+  int arg3;
+  int arg4;
+  unsigned char *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1fetch_1image_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jint jarg4) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  mlt_image_format arg2 ;
-  int arg3 ;
-  int arg4 ;
-  unsigned char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
-  arg2 = (mlt_image_format)jarg2; 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (unsigned char *)(arg1)->fetch_image(arg2,arg3,arg4);
-  *(unsigned char **)&jresult = result; 
+  arg1 = *(Mlt::Frame **)&jarg1;
+  arg2 = (mlt_image_format)jarg2;
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (unsigned char *)(arg1)->fetch_image(arg2, arg3, arg4);
+  *(unsigned char **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1get_1audio(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jlong jarg2,
+																				jlong jarg3,
+																				jlong jarg4,
+																				jlong jarg5) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  mlt_audio_format *arg2 = 0;
+  int *arg3 = 0;
+  int *arg4 = 0;
+  int *arg5 = 0;
+  void *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1audio(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  mlt_audio_format *arg2 = 0 ;
-  int *arg3 = 0 ;
-  int *arg4 = 0 ;
-  int *arg5 = 0 ;
-  void *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
+  arg1 = *(Mlt::Frame **)&jarg1;
   arg2 = *(mlt_audio_format **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "org.huihui.videoedit.mlt.mlt_audio_format & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"org.huihui.videoedit.mlt.mlt_audio_format & reference is null");
+	return 0;
+  }
   arg3 = *(int **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
   arg4 = *(int **)&jarg4;
   if (!arg4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
   arg5 = *(int **)&jarg5;
   if (!arg5) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
-  result = (void *)(arg1)->get_audio(*arg2,*arg3,*arg4,*arg5);
-  *(void **)&jresult = result; 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
+  result = (void *)(arg1)->get_audio(*arg2, *arg3, *arg4, *arg5);
+  *(void **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1get_1waveform(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_,
+																				   jint jarg2,
+																				   jint jarg3) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  int arg2;
+  int arg3;
+  unsigned char *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1waveform(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  unsigned char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (unsigned char *)(arg1)->get_waveform(arg2,arg3);
-  *(unsigned char **)&jresult = result; 
+  arg1 = *(Mlt::Frame **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (unsigned char *)(arg1)->get_waveform(arg2, arg3);
+  *(unsigned char **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1get_1original_1producer(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1original_1producer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
+  arg1 = *(Mlt::Frame **)&jarg1;
   result = (Mlt::Producer *)(arg1)->get_original_producer();
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Frame_1get_1position(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1get_1position(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
+  arg1 = *(Mlt::Frame **)&jarg1;
   result = (int)(arg1)->get_position();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1get_1unique_1properties(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jlong jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  Mlt::Service *arg2 = 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1get_1unique_1properties(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jlong jarg2,
+																							 jobject jarg2_) {
+  jlong jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  Mlt::Service *arg2 = 0;
   mlt_properties result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
+  arg1 = *(Mlt::Frame **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (mlt_properties)(arg1)->get_unique_properties(*arg2);
-  *(mlt_properties *)&jresult = result; 
+  *(mlt_properties *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Frame_1set_1image(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jint jarg3, jlong jarg4) {
-  jint jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  uint8_t *arg2 = (uint8_t *) 0 ;
-  int arg3 ;
-  mlt_destructor arg4 = (mlt_destructor) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1set_1image(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jlong jarg2,
+																			   jint jarg3,
+																			   jlong jarg4) {
+  jint jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  uint8_t *arg2 = (uint8_t *)0;
+  int arg3;
+  mlt_destructor arg4 = (mlt_destructor)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
-  arg2 = *(uint8_t **)&jarg2; 
-  arg3 = (int)jarg3; 
-  arg4 = *(mlt_destructor *)&jarg4; 
-  result = (int)(arg1)->set_image(arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Frame **)&jarg1;
+  arg2 = *(uint8_t **)&jarg2;
+  arg3 = (int)jarg3;
+  arg4 = *(mlt_destructor *)&jarg4;
+  result = (int)(arg1)->set_image(arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Frame_1set_1alpha(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jint jarg3, jlong jarg4) {
-  jint jresult = 0 ;
-  Mlt::Frame *arg1 = (Mlt::Frame *) 0 ;
-  uint8_t *arg2 = (uint8_t *) 0 ;
-  int arg3 ;
-  mlt_destructor arg4 = (mlt_destructor) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1set_1alpha(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jlong jarg2,
+																			   jint jarg3,
+																			   jlong jarg4) {
+  jint jresult = 0;
+  Mlt::Frame *arg1 = (Mlt::Frame *)0;
+  uint8_t *arg2 = (uint8_t *)0;
+  int arg3;
+  mlt_destructor arg4 = (mlt_destructor)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Frame **)&jarg1; 
-  arg2 = *(uint8_t **)&jarg2; 
-  arg3 = (int)jarg3; 
-  arg4 = *(mlt_destructor *)&jarg4; 
-  result = (int)(arg1)->set_alpha(arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Frame **)&jarg1;
+  arg2 = *(uint8_t **)&jarg2;
+  arg3 = (int)jarg3;
+  arg4 = *(mlt_destructor *)&jarg4;
+  result = (int)(arg1)->set_alpha(arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Service_1_1SWIG_10(JNIEnv *jenv,
+																					  jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Service *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Service_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Service *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Service *)new Mlt::Service();
-  *(Mlt::Service **)&jresult = result; 
+  *(Mlt::Service **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Service_1_1SWIG_11(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = 0;
+  Mlt::Service *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Service_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = 0 ;
-  Mlt::Service *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (Mlt::Service *)new Mlt::Service(*arg1);
-  *(Mlt::Service **)&jresult = result; 
+  *(Mlt::Service **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Service_1_1SWIG_13(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1) {
+  jlong jresult = 0;
+  mlt_service arg1 = (mlt_service)0;
+  Mlt::Service *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Service_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_service arg1 = (mlt_service) 0 ;
-  Mlt::Service *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_service *)&jarg1; 
+  arg1 = *(mlt_service *)&jarg1;
   result = (Mlt::Service *)new Mlt::Service(arg1);
-  *(Mlt::Service **)&jresult = result; 
+  *(Mlt::Service **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Service(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1) {
+  Mlt::Service *arg1 = (Mlt::Service *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Service(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Service_1get_1service(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1get_1service(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
   mlt_service result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (mlt_service)(arg1)->get_service();
-  *(mlt_service *)&jresult = result; 
+  *(mlt_service *)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1lock(JNIEnv *jenv,
+																		   jclass jcls,
+																		   jlong jarg1,
+																		   jobject jarg1_) {
+  Mlt::Service *arg1 = (Mlt::Service *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Service_1lock(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   (arg1)->lock();
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1unlock(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  Mlt::Service *arg1 = (Mlt::Service *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Service_1unlock(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   (arg1)->unlock();
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Service_1get_1properties(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1get_1properties(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
   mlt_properties result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (mlt_properties)(arg1)->get_properties();
-  *(mlt_properties *)&jresult = result; 
+  *(mlt_properties *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1connect_1producer_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Service *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1connect_1producer_1_1SWIG_10(JNIEnv *jenv,
+																								   jclass jcls,
+																								   jlong jarg1,
+																								   jobject jarg1_,
+																								   jlong jarg2,
+																								   jobject jarg2_,
+																								   jint jarg3) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Service *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->connect_producer(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->connect_producer(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1connect_1producer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Service *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1connect_1producer_1_1SWIG_11(JNIEnv *jenv,
+																								   jclass jcls,
+																								   jlong jarg1,
+																								   jobject jarg1_,
+																								   jlong jarg2,
+																								   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Service *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->connect_producer(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1insert_1producer_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Service *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1insert_1producer_1_1SWIG_10(JNIEnv *jenv,
+																								  jclass jcls,
+																								  jlong jarg1,
+																								  jobject jarg1_,
+																								  jlong jarg2,
+																								  jobject jarg2_,
+																								  jint jarg3) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Service *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->insert_producer(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->insert_producer(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1insert_1producer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Service *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1insert_1producer_1_1SWIG_11(JNIEnv *jenv,
+																								  jclass jcls,
+																								  jlong jarg1,
+																								  jobject jarg1_,
+																								  jlong jarg2,
+																								  jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Service *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->insert_producer(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1disconnect_1producer_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1disconnect_1producer_1_1SWIG_10(JNIEnv *jenv,
+																									  jclass jcls,
+																									  jlong jarg1,
+																									  jobject jarg1_,
+																									  jint jarg2) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Service **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->disconnect_producer(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1disconnect_1producer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1disconnect_1producer_1_1SWIG_11(JNIEnv *jenv,
+																									  jclass jcls,
+																									  jlong jarg1,
+																									  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (int)(arg1)->disconnect_producer();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1disconnect_1all_1producers(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1disconnect_1all_1producers(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (int)(arg1)->disconnect_all_producers();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1consumer(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Service *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Service_1consumer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Service *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (Mlt::Service *)(arg1)->consumer();
-  *(Mlt::Service **)&jresult = result; 
+  *(Mlt::Service **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1producer(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Service *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Service_1producer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Service *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (Mlt::Service *)(arg1)->producer();
-  *(Mlt::Service **)&jresult = result; 
+  *(Mlt::Service **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1profile(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Profile *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Service_1profile(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Profile *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (Mlt::Profile *)(arg1)->profile();
-  *(Mlt::Profile **)&jresult = result; 
+  *(Mlt::Profile **)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Service_1get_1profile(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1get_1profile(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
   mlt_profile result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (mlt_profile)(arg1)->get_profile();
-  *(mlt_profile *)&jresult = result; 
+  *(mlt_profile *)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1get_1frame_1_1SWIG_10(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jint jarg2) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  int arg2;
+  Mlt::Frame *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Service_1get_1frame_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  int arg2 ;
-  Mlt::Frame *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Service **)&jarg1;
+  arg2 = (int)jarg2;
   result = (Mlt::Frame *)(arg1)->get_frame(arg2);
-  *(Mlt::Frame **)&jresult = result; 
+  *(Mlt::Frame **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1get_1frame_1_1SWIG_11(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Frame *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Service_1get_1frame_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Frame *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (Mlt::Frame *)(arg1)->get_frame();
-  *(Mlt::Frame **)&jresult = result; 
+  *(Mlt::Frame **)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1type(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1type(JNIEnv *jenv,
+																		   jclass jcls,
+																		   jlong jarg1,
+																		   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
   mlt_service_type result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (mlt_service_type)(arg1)->type();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1attach(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Filter *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1attach(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_,
+																			 jlong jarg2,
+																			 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Filter *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->attach(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1detach(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Filter *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1detach(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_,
+																			 jlong jarg2,
+																			 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Filter *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->detach(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1filter_1count(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1filter_1count(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   result = (int)(arg1)->filter_count();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Service_1move_1filter(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1move_1filter(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_,
+																				   jint jarg2,
+																				   jint jarg3) {
+  jint jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->move_filter(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Service **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->move_filter(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1filter(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_,
+																			  jint jarg2) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  int arg2;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Service_1filter(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  int arg2 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Service **)&jarg1;
+  arg2 = (int)jarg2;
   result = (Mlt::Filter *)(arg1)->filter(arg2);
-  *(Mlt::Filter **)&jresult = result; 
+  *(Mlt::Filter **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1set_1profile_1_1SWIG_10(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jlong jarg2) {
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  mlt_profile arg2 = (mlt_profile)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Service_1set_1profile_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  mlt_profile arg2 = (mlt_profile) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Service **)&jarg1; 
-  arg2 = *(mlt_profile *)&jarg2; 
+  arg1 = *(Mlt::Service **)&jarg1;
+  arg2 = *(mlt_profile *)&jarg2;
   (arg1)->set_profile(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1set_1profile_1_1SWIG_11(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jlong jarg2,
+																							  jobject jarg2_) {
+  Mlt::Service *arg1 = (Mlt::Service *)0;
+  Mlt::Profile *arg2 = 0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Service_1set_1profile_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  Mlt::Service *arg1 = (Mlt::Service *) 0 ;
-  Mlt::Profile *arg2 = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Service **)&jarg1; 
+  arg1 = *(Mlt::Service **)&jarg1;
   arg2 = *(Mlt::Profile **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return ;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return;
+  }
   (arg1)->set_profile(*arg2);
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Producer_1_1SWIG_10(JNIEnv *jenv,
+																					   jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Producer *)new Mlt::Producer();
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Producer_1_1SWIG_11(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jstring jarg2,
+																					   jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Producer *)new Mlt::Producer(*arg1,(char const *)arg2,(char const *)arg3);
-  *(Mlt::Producer **)&jresult = result; 
+  result = (Mlt::Producer *)new Mlt::Producer(*arg1, (char const *)arg2, (char const *)arg3);
+  *(Mlt::Producer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Producer_1_1SWIG_12(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Producer *)new Mlt::Producer(*arg1,(char const *)arg2);
-  *(Mlt::Producer **)&jresult = result; 
+  result = (Mlt::Producer *)new Mlt::Producer(*arg1, (char const *)arg2);
+  *(Mlt::Producer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Producer_1_1SWIG_13(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jstring jarg2,
+																					   jstring jarg3) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Producer *)new Mlt::Producer(arg1,(char const *)arg2,(char const *)arg3);
-  *(Mlt::Producer **)&jresult = result; 
+  result = (Mlt::Producer *)new Mlt::Producer(arg1, (char const *)arg2, (char const *)arg3);
+  *(Mlt::Producer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Producer_1_1SWIG_14(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jstring jarg2) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Producer *)new Mlt::Producer(arg1,(char const *)arg2);
-  *(Mlt::Producer **)&jresult = result; 
+  result = (Mlt::Producer *)new Mlt::Producer(arg1, (char const *)arg2);
+  *(Mlt::Producer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Producer_1_1SWIG_15(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = 0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (Mlt::Producer *)new Mlt::Producer(*arg1);
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Producer_1_1SWIG_16(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1) {
+  jlong jresult = 0;
+  mlt_producer arg1 = (mlt_producer)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_producer arg1 = (mlt_producer) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_producer *)&jarg1; 
+  arg1 = *(mlt_producer *)&jarg1;
   result = (Mlt::Producer *)new Mlt::Producer(arg1);
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Producer_1_1SWIG_17(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Producer *arg1 = 0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Producer_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Producer *arg1 = 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Producer **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
   result = (Mlt::Producer *)new Mlt::Producer(*arg1);
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Producer(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1) {
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Producer(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Producer_1get_1producer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1producer(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   mlt_producer result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (mlt_producer)(arg1)->get_producer();
-  *(mlt_producer *)&jresult = result; 
+  *(mlt_producer *)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1parent(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Producer_1parent(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
-  result = (Mlt::Producer *) &(arg1)->parent();
-  *(Mlt::Producer **)&jresult = result; 
+  arg1 = *(Mlt::Producer **)&jarg1;
+  result = (Mlt::Producer *)&(arg1)->parent();
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Producer_1get_1parent(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1parent(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   mlt_producer result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (mlt_producer)(arg1)->get_parent();
-  *(mlt_producer *)&jresult = result; 
+  *(mlt_producer *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Producer_1get_1service(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1service(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   mlt_service result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (mlt_service)(arg1)->get_service();
-  *(mlt_service *)&jresult = result; 
+  *(mlt_service *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1seek_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1seek_1_1SWIG_10(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Producer **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->seek(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1seek_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1seek_1_1SWIG_11(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jstring jarg2) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  char *arg2 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (int)(arg1)->seek((char const *)arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1position(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1position(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (int)(arg1)->position();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1frame(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (int)(arg1)->frame();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1frame_1time_1_1SWIG_10(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jint jarg2) {
+  jstring jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  mlt_time_format arg2;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Producer_1frame_1time_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jstring jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  mlt_time_format arg2 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
-  arg2 = (mlt_time_format)jarg2; 
+  arg1 = *(Mlt::Producer **)&jarg1;
+  arg2 = (mlt_time_format)jarg2;
   result = (char *)(arg1)->frame_time(arg2);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1frame_1time_1_1SWIG_11(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_) {
+  jstring jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Producer_1frame_1time_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (char *)(arg1)->frame_time();
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1set_1speed(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  double arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1set_1speed(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_,
+																				  jdouble jarg2) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  double arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
-  arg2 = (double)jarg2; 
+  arg1 = *(Mlt::Producer **)&jarg1;
+  arg2 = (double)jarg2;
   result = (int)(arg1)->set_speed(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1pause(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1pause(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (int)(arg1)->pause();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Producer_1get_1speed(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jdouble jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1speed(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jdouble jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (double)(arg1)->get_speed();
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Producer_1get_1fps(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jdouble jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1fps(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_) {
+  jdouble jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (double)(arg1)->get_fps();
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1set_1in_1and_1out(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1set_1in_1and_1out(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jint jarg2,
+																						 jint jarg3) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->set_in_and_out(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Producer **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->set_in_and_out(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1get_1in(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1in(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (int)(arg1)->get_in();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1get_1out(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1out(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (int)(arg1)->get_out();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1get_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1length(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (int)(arg1)->get_length();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1length_1time_1_1SWIG_10(JNIEnv *jenv,
+																									   jclass jcls,
+																									   jlong jarg1,
+																									   jobject jarg1_,
+																									   jint jarg2) {
+  jstring jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  mlt_time_format arg2;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Producer_1get_1length_1time_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jstring jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  mlt_time_format arg2 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
-  arg2 = (mlt_time_format)jarg2; 
+  arg1 = *(Mlt::Producer **)&jarg1;
+  arg2 = (mlt_time_format)jarg2;
   result = (char *)(arg1)->get_length_time(arg2);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1length_1time_1_1SWIG_11(JNIEnv *jenv,
+																									   jclass jcls,
+																									   jlong jarg1,
+																									   jobject jarg1_) {
+  jstring jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Producer_1get_1length_1time_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (char *)(arg1)->get_length_time();
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1get_1playtime(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1playtime(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (int)(arg1)->get_playtime();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1cut_1_1SWIG_10(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2,
+																					   jint jarg3) {
+  jlong jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  int arg2;
+  int arg3;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Producer_1cut_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (Mlt::Producer *)(arg1)->cut(arg2,arg3);
-  *(Mlt::Producer **)&jresult = result; 
+  arg1 = *(Mlt::Producer **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (Mlt::Producer *)(arg1)->cut(arg2, arg3);
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1cut_1_1SWIG_11(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2) {
+  jlong jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  int arg2;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Producer_1cut_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  int arg2 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Producer **)&jarg1;
+  arg2 = (int)jarg2;
   result = (Mlt::Producer *)(arg1)->cut(arg2);
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1cut_1_1SWIG_12(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Producer_1cut_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (Mlt::Producer *)(arg1)->cut();
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Producer_1is_1cut(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1is_1cut(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_) {
+  jboolean jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (bool)(arg1)->is_cut();
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Producer_1is_1blank(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1is_1blank(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jboolean jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (bool)(arg1)->is_blank();
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Producer_1same_1clip(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jboolean jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1same_1clip(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jlong jarg2,
+																					  jobject jarg2_) {
+  jboolean jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  Mlt::Producer *arg2 = 0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
   result = (bool)(arg1)->same_clip(*arg2);
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Producer_1runs_1into(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jboolean jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1runs_1into(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jlong jarg2,
+																					  jobject jarg2_) {
+  jboolean jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  Mlt::Producer *arg2 = 0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
   result = (bool)(arg1)->runs_into(*arg2);
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1optimise(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Producer_1optimise(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   (arg1)->optimise();
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Producer_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1clear(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (int)(arg1)->clear();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Producer_1get_1creation_1time(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1get_1creation_1time(JNIEnv *jenv,
+																							jclass jcls,
+																							jlong jarg1,
+																							jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   int64_t result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (arg1)->get_creation_time();
-  *(int64_t **)&jresult = new int64_t((const int64_t &)result); 
+  *(int64_t **)&jresult = new int64_t((const int64_t &)result);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1set_1creation_1time(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jlong jarg2) {
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
+  int64_t arg2;
+  int64_t *argp2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Producer_1set_1creation_1time(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
-  int64_t arg2 ;
-  int64_t *argp2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
-  argp2 = *(int64_t **)&jarg2; 
+  arg1 = *(Mlt::Producer **)&jarg1;
+  argp2 = *(int64_t **)&jarg2;
   if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int64_t");
-    return ;
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int64_t");
+	return;
   }
-  arg2 = *argp2; 
+  arg2 = *argp2;
   (arg1)->set_creation_time(arg2);
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Producer_1probe(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  Mlt::Producer *arg1 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1probe(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  jboolean jresult = 0;
+  Mlt::Producer *arg1 = (Mlt::Producer *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Producer **)&jarg1; 
+  arg1 = *(Mlt::Producer **)&jarg1;
   result = (bool)(arg1)->probe();
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Profile_1_1SWIG_10(JNIEnv *jenv,
+																					  jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Profile *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Profile_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Profile *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Profile *)new Mlt::Profile();
-  *(Mlt::Profile **)&jresult = result; 
+  *(Mlt::Profile **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Profile_1_1SWIG_11(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jstring jarg1) {
+  jlong jresult = 0;
+  char *arg1 = (char *)0;
+  Mlt::Profile *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Profile_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jstring jarg1) {
-  jlong jresult = 0 ;
-  char *arg1 = (char *) 0 ;
-  Mlt::Profile *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   arg1 = 0;
   if (jarg1) {
-    arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
-    if (!arg1) return 0;
+	arg1 = (char *)jenv->GetStringUTFChars(jarg1, 0);
+	if (!arg1) return 0;
   }
   result = (Mlt::Profile *)new Mlt::Profile((char const *)arg1);
-  *(Mlt::Profile **)&jresult = result; 
+  *(Mlt::Profile **)&jresult = result;
   if (arg1) jenv->ReleaseStringUTFChars(jarg1, (const char *)arg1);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Profile_1_1SWIG_12(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Properties *arg1 = 0;
+  Mlt::Profile *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Profile_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Properties *arg1 = 0 ;
-  Mlt::Profile *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Properties **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Properties & reference is null");
+	return 0;
+  }
   result = (Mlt::Profile *)new Mlt::Profile(*arg1);
-  *(Mlt::Profile **)&jresult = result; 
+  *(Mlt::Profile **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Profile_1_1SWIG_13(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  Mlt::Profile *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Profile_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  Mlt::Profile *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   result = (Mlt::Profile *)new Mlt::Profile(arg1);
-  *(Mlt::Profile **)&jresult = result; 
+  *(Mlt::Profile **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Profile(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1) {
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Profile(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Profile_1is_1valid(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1is_1valid(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jboolean jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (bool)((Mlt::Profile const *)arg1)->is_valid();
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Profile_1get_1profile(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1get_1profile(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   mlt_profile result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (mlt_profile)((Mlt::Profile const *)arg1)->get_profile();
-  *(mlt_profile *)&jresult = result; 
+  *(mlt_profile *)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1description(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jstring jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Profile_1description(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (char *)((Mlt::Profile const *)arg1)->description();
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Profile_1frame_1rate_1num(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1frame_1rate_1num(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (int)((Mlt::Profile const *)arg1)->frame_rate_num();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Profile_1frame_1rate_1den(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1frame_1rate_1den(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (int)((Mlt::Profile const *)arg1)->frame_rate_den();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Profile_1fps(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jdouble jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1fps(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jdouble jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (double)((Mlt::Profile const *)arg1)->fps();
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Profile_1width(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1width(JNIEnv *jenv,
+																			jclass jcls,
+																			jlong jarg1,
+																			jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (int)((Mlt::Profile const *)arg1)->width();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Profile_1height(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1height(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (int)((Mlt::Profile const *)arg1)->height();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Profile_1progressive(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1progressive(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jboolean jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (bool)((Mlt::Profile const *)arg1)->progressive();
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Profile_1sample_1aspect_1num(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1sample_1aspect_1num(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (int)((Mlt::Profile const *)arg1)->sample_aspect_num();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Profile_1sample_1aspect_1den(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1sample_1aspect_1den(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (int)((Mlt::Profile const *)arg1)->sample_aspect_den();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Profile_1sar(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jdouble jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1sar(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jdouble jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (double)((Mlt::Profile const *)arg1)->sar();
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Profile_1display_1aspect_1num(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1display_1aspect_1num(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (int)((Mlt::Profile const *)arg1)->display_aspect_num();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Profile_1display_1aspect_1den(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1display_1aspect_1den(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (int)((Mlt::Profile const *)arg1)->display_aspect_den();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Profile_1dar(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jdouble jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1dar(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jdouble jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (double)((Mlt::Profile const *)arg1)->dar();
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Profile_1is_1explicit(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1is_1explicit(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (int)((Mlt::Profile const *)arg1)->is_explicit();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Profile_1colorspace(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1colorspace(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   result = (int)((Mlt::Profile const *)arg1)->colorspace();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1list(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Properties *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Profile_1list(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Properties *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Properties *)Mlt::Profile::list();
-  *(Mlt::Properties **)&jresult = result; 
+  *(Mlt::Properties **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1from_1producer(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jlong jarg2,
+																					 jobject jarg2_) {
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  Mlt::Producer *arg2 = 0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Profile_1from_1producer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
+  arg1 = *(Mlt::Profile **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return ;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return;
+  }
   (arg1)->from_producer(*arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1set_1width(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_,
+																				 jint jarg2) {
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Profile_1set_1width(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Profile **)&jarg1;
+  arg2 = (int)jarg2;
   (arg1)->set_width(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1set_1height(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_,
+																				  jint jarg2) {
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Profile_1set_1height(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Profile **)&jarg1;
+  arg2 = (int)jarg2;
   (arg1)->set_height(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1set_1sample_1aspect(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_,
+																						  jint jarg2,
+																						  jint jarg3) {
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  int arg2;
+  int arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Profile_1set_1sample_1aspect(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  (arg1)->set_sample_aspect(arg2,arg3);
+  arg1 = *(Mlt::Profile **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  (arg1)->set_sample_aspect(arg2, arg3);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1set_1display_1aspect(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jint jarg2,
+																						   jint jarg3) {
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  int arg2;
+  int arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Profile_1set_1display_1aspect(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  (arg1)->set_display_aspect(arg2,arg3);
+  arg1 = *(Mlt::Profile **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  (arg1)->set_display_aspect(arg2, arg3);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1set_1progressive(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2) {
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Profile_1set_1progressive(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Profile **)&jarg1;
+  arg2 = (int)jarg2;
   (arg1)->set_progressive(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1set_1colorspace(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jint jarg2) {
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Profile_1set_1colorspace(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Profile **)&jarg1;
+  arg2 = (int)jarg2;
   (arg1)->set_colorspace(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1set_1frame_1rate(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2,
+																					   jint jarg3) {
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  int arg2;
+  int arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Profile_1set_1frame_1rate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  (arg1)->set_frame_rate(arg2,arg3);
+  arg1 = *(Mlt::Profile **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  (arg1)->set_frame_rate(arg2, arg3);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1set_1explicit(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jint jarg2) {
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Profile_1set_1explicit(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Profile **)&jarg1;
+  arg2 = (int)jarg2;
   (arg1)->set_explicit(arg2);
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Profile_1scale_1width(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jdouble jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  int arg2 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1scale_1width(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jint jarg2) {
+  jdouble jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  int arg2;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Profile **)&jarg1;
+  arg2 = (int)jarg2;
   result = (double)(arg1)->scale_width(arg2);
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Profile_1scale_1height(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jdouble jresult = 0 ;
-  Mlt::Profile *arg1 = (Mlt::Profile *) 0 ;
-  int arg2 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Profile_1scale_1height(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2) {
+  jdouble jresult = 0;
+  Mlt::Profile *arg1 = (Mlt::Profile *)0;
+  int arg2;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Profile **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Profile **)&jarg1;
+  arg2 = (int)jarg2;
   result = (double)(arg1)->scale_height(arg2);
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1ClipInfo_1_1SWIG_10(JNIEnv *jenv,
+																					   jclass jcls) {
+  jlong jresult = 0;
+  Mlt::ClipInfo *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1ClipInfo_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::ClipInfo *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::ClipInfo *)new Mlt::ClipInfo();
-  *(Mlt::ClipInfo **)&jresult = result; 
+  *(Mlt::ClipInfo **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1ClipInfo_1_1SWIG_11(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1) {
+  jlong jresult = 0;
+  mlt_playlist_clip_info *arg1 = (mlt_playlist_clip_info *)0;
+  Mlt::ClipInfo *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1ClipInfo_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_playlist_clip_info *arg1 = (mlt_playlist_clip_info *) 0 ;
-  Mlt::ClipInfo *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_playlist_clip_info **)&jarg1; 
+  arg1 = *(mlt_playlist_clip_info **)&jarg1;
   result = (Mlt::ClipInfo *)new Mlt::ClipInfo(arg1);
-  *(Mlt::ClipInfo **)&jresult = result; 
+  *(Mlt::ClipInfo **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1ClipInfo(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1ClipInfo(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
   delete arg1;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1update(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_,
+																			  jlong jarg2) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  mlt_playlist_clip_info *arg2 = (mlt_playlist_clip_info *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1update(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  mlt_playlist_clip_info *arg2 = (mlt_playlist_clip_info *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = *(mlt_playlist_clip_info **)&jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = *(mlt_playlist_clip_info **)&jarg2;
   (arg1)->update(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1clip_1set(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_,
+																				 jint jarg2) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1clip_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = (int)jarg2;
   if (arg1) (arg1)->clip = arg2;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_ClipInfo_1clip_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1clip_1get(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (int) ((arg1)->clip);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (int)((arg1)->clip);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1producer_1set(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jlong jarg2,
+																					 jobject jarg2_) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  Mlt::Producer *arg2 = (Mlt::Producer *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1producer_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  Mlt::Producer *arg2 = (Mlt::Producer *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = *(Mlt::Producer **)&jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = *(Mlt::Producer **)&jarg2;
   if (arg1) (arg1)->producer = arg2;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1producer_1get(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_ClipInfo_1producer_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (Mlt::Producer *) ((arg1)->producer);
-  *(Mlt::Producer **)&jresult = result; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (Mlt::Producer *)((arg1)->producer);
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1cut_1set(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jlong jarg2,
+																				jobject jarg2_) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  Mlt::Producer *arg2 = (Mlt::Producer *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1cut_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  Mlt::Producer *arg2 = (Mlt::Producer *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = *(Mlt::Producer **)&jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = *(Mlt::Producer **)&jarg2;
   if (arg1) (arg1)->cut = arg2;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1cut_1get(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_ClipInfo_1cut_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (Mlt::Producer *) ((arg1)->cut);
-  *(Mlt::Producer **)&jresult = result; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (Mlt::Producer *)((arg1)->cut);
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1start_1set(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_,
+																				  jint jarg2) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1start_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = (int)jarg2;
   if (arg1) (arg1)->start = arg2;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_ClipInfo_1start_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1start_1get(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (int) ((arg1)->start);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (int)((arg1)->start);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1resource_1set(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jstring jarg2) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  char *arg2 = (char *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1resource_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  char *arg2 = (char *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return ;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return;
   }
   {
-    delete [] arg1->resource;
-    if (arg2) {
-      arg1->resource = (char *) (new char[strlen((const char *)arg2)+1]);
-      strcpy((char *)arg1->resource, (const char *)arg2);
-    } else {
-      arg1->resource = 0;
-    }
+	delete[] arg1->resource;
+	if (arg2) {
+	  arg1->resource = (char *)(new char[strlen((const char *)arg2) + 1]);
+	  strcpy((char *)arg1->resource, (const char *)arg2);
+	} else {
+	  arg1->resource = 0;
+	}
   }
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1resource_1get(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_) {
+  jstring jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_ClipInfo_1resource_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (char *) ((arg1)->resource);
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (char *)((arg1)->resource);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1frame_1in_1set(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jint jarg2) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1frame_1in_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = (int)jarg2;
   if (arg1) (arg1)->frame_in = arg2;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_ClipInfo_1frame_1in_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1frame_1in_1get(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (int) ((arg1)->frame_in);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (int)((arg1)->frame_in);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1frame_1out_1set(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1frame_1out_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = (int)jarg2;
   if (arg1) (arg1)->frame_out = arg2;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_ClipInfo_1frame_1out_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1frame_1out_1get(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (int) ((arg1)->frame_out);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (int)((arg1)->frame_out);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1frame_1count_1set(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jint jarg2) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1frame_1count_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = (int)jarg2;
   if (arg1) (arg1)->frame_count = arg2;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_ClipInfo_1frame_1count_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1frame_1count_1get(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (int) ((arg1)->frame_count);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (int)((arg1)->frame_count);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1length_1set(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_,
+																				   jint jarg2) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1length_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = (int)jarg2;
   if (arg1) (arg1)->length = arg2;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_ClipInfo_1length_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1length_1get(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (int) ((arg1)->length);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (int)((arg1)->length);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1fps_1set(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jfloat jarg2) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  float arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1fps_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jfloat jarg2) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  float arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = (float)jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = (float)jarg2;
   if (arg1) (arg1)->fps = arg2;
 }
 
-
-SWIGEXPORT jfloat JNICALL Java_mltJNI_ClipInfo_1fps_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jfloat jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
+SWIGEXPORT jfloat JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1fps_1get(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jfloat jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
   float result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (float) ((arg1)->fps);
-  jresult = (jfloat)result; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (float)((arg1)->fps);
+  jresult = (jfloat)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1repeat_1set(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_,
+																				   jint jarg2) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_ClipInfo_1repeat_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  arg2 = (int)jarg2;
   if (arg1) (arg1)->repeat = arg2;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_ClipInfo_1repeat_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_ClipInfo_1repeat_1get(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
-  result = (int) ((arg1)->repeat);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
+  result = (int)((arg1)->repeat);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Playlist_1_1SWIG_10(JNIEnv *jenv,
+																					   jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Playlist *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Playlist_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Playlist *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Playlist *)new Mlt::Playlist();
-  *(Mlt::Playlist **)&jresult = result; 
+  *(Mlt::Playlist **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Playlist_1_1SWIG_11(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  Mlt::Playlist *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Playlist_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  Mlt::Playlist *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   result = (Mlt::Playlist *)new Mlt::Playlist(*arg1);
-  *(Mlt::Playlist **)&jresult = result; 
+  *(Mlt::Playlist **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Playlist_1_1SWIG_12(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = 0;
+  Mlt::Playlist *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Playlist_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = 0 ;
-  Mlt::Playlist *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (Mlt::Playlist *)new Mlt::Playlist(*arg1);
-  *(Mlt::Playlist **)&jresult = result; 
+  *(Mlt::Playlist **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Playlist_1_1SWIG_13(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Playlist *arg1 = 0;
+  Mlt::Playlist *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Playlist_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Playlist *arg1 = 0 ;
-  Mlt::Playlist *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Playlist **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Playlist & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Playlist & reference is null");
+	return 0;
+  }
   result = (Mlt::Playlist *)new Mlt::Playlist(*arg1);
-  *(Mlt::Playlist **)&jresult = result; 
+  *(Mlt::Playlist **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Playlist_1_1SWIG_14(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1) {
+  jlong jresult = 0;
+  mlt_playlist arg1 = (mlt_playlist)0;
+  Mlt::Playlist *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Playlist_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_playlist arg1 = (mlt_playlist) 0 ;
-  Mlt::Playlist *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_playlist *)&jarg1; 
+  arg1 = *(mlt_playlist *)&jarg1;
   result = (Mlt::Playlist *)new Mlt::Playlist(arg1);
-  *(Mlt::Playlist **)&jresult = result; 
+  *(Mlt::Playlist **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Playlist(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1) {
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Playlist(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Playlist_1get_1playlist(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1get_1playlist(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
   mlt_playlist result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   result = (mlt_playlist)(arg1)->get_playlist();
-  *(mlt_playlist *)&jresult = result; 
+  *(mlt_playlist *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Playlist_1get_1producer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1get_1producer(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
   mlt_producer result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   result = (mlt_producer)(arg1)->get_producer();
-  *(mlt_producer *)&jresult = result; 
+  *(mlt_producer *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1count(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1count(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   result = (int)(arg1)->count();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1clear(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   result = (int)(arg1)->clear();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1append_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1append_1_1SWIG_10(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2,
+																						 jobject jarg2_,
+																						 jint jarg3,
+																						 jint jarg4) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  Mlt::Producer *arg2 = 0;
+  int arg3;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->append(*arg2,arg3,arg4);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->append(*arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1append_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1append_1_1SWIG_11(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2,
+																						 jobject jarg2_,
+																						 jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  Mlt::Producer *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->append(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->append(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1append_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1append_1_1SWIG_12(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2,
+																						 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  Mlt::Producer *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->append(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1blank_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1blank_1_1SWIG_10(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jint jarg2) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->blank(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1blank_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  char *arg2 = (char *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1blank_1_1SWIG_11(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jstring jarg2) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  char *arg2 = (char *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   result = (int)(arg1)->blank((char const *)arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1clip(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  mlt_whence arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1clip(JNIEnv *jenv,
+																			jclass jcls,
+																			jlong jarg1,
+																			jobject jarg1_,
+																			jint jarg2,
+																			jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  mlt_whence arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (mlt_whence)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->clip(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (mlt_whence)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->clip(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1current_1clip(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1current_1clip(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   result = (int)(arg1)->current_clip();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1current(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Playlist_1current(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   result = (Mlt::Producer *)(arg1)->current();
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1clip_1info_1_1SWIG_10(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jint jarg2,
+																							  jlong jarg3,
+																							  jobject jarg3_) {
+  jlong jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  Mlt::ClipInfo *arg3 = (Mlt::ClipInfo *)0;
+  Mlt::ClipInfo *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Playlist_1clip_1info_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  jlong jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  Mlt::ClipInfo *arg3 = (Mlt::ClipInfo *) 0 ;
-  Mlt::ClipInfo *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = *(Mlt::ClipInfo **)&jarg3; 
-  result = (Mlt::ClipInfo *)(arg1)->clip_info(arg2,arg3);
-  *(Mlt::ClipInfo **)&jresult = result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = *(Mlt::ClipInfo **)&jarg3;
+  result = (Mlt::ClipInfo *)(arg1)->clip_info(arg2, arg3);
+  *(Mlt::ClipInfo **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1clip_1info_1_1SWIG_11(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jint jarg2) {
+  jlong jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  Mlt::ClipInfo *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Playlist_1clip_1info_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  Mlt::ClipInfo *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (Mlt::ClipInfo *)(arg1)->clip_info(arg2);
-  *(Mlt::ClipInfo **)&jresult = result; 
+  *(Mlt::ClipInfo **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1delete_1clip_1info(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_) {
+  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Playlist_1delete_1clip_1info(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::ClipInfo *arg1 = (Mlt::ClipInfo *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::ClipInfo **)&jarg1; 
+  arg1 = *(Mlt::ClipInfo **)&jarg1;
   Mlt::Playlist::delete_clip_info(arg1);
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1insert_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3, jint jarg4, jint jarg5) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  int arg3 ;
-  int arg4 ;
-  int arg5 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1insert_1_1SWIG_10(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2,
+																						 jobject jarg2_,
+																						 jint jarg3,
+																						 jint jarg4,
+																						 jint jarg5) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  Mlt::Producer *arg2 = 0;
+  int arg3;
+  int arg4;
+  int arg5;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  arg5 = (int)jarg5; 
-  result = (int)(arg1)->insert(*arg2,arg3,arg4,arg5);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  arg5 = (int)jarg5;
+  result = (int)(arg1)->insert(*arg2, arg3, arg4, arg5);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1insert_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1insert_1_1SWIG_11(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2,
+																						 jobject jarg2_,
+																						 jint jarg3,
+																						 jint jarg4) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  Mlt::Producer *arg2 = 0;
+  int arg3;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->insert(*arg2,arg3,arg4);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->insert(*arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1insert_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1insert_1_1SWIG_12(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2,
+																						 jobject jarg2_,
+																						 jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  Mlt::Producer *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->insert(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->insert(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1remove(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1remove(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_,
+																			  jint jarg2) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->remove(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1move(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1move(JNIEnv *jenv,
+																			jclass jcls,
+																			jlong jarg1,
+																			jobject jarg1_,
+																			jint jarg2,
+																			jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->move(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->move(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1reorder(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int *arg2 = (int *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1reorder(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jlong jarg2) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int *arg2 = (int *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = *(int **)&jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = *(int **)&jarg2;
   result = (int)(arg1)->reorder((int const *)arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1resize_1clip(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1resize_1clip(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jint jarg2,
+																					jint jarg3,
+																					jint jarg4) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->resize_clip(arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->resize_clip(arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1split(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1split(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_,
+																			 jint jarg2,
+																			 jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->split(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->split(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1split_1at_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jboolean jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  bool arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1split_1at_1_1SWIG_10(JNIEnv *jenv,
+																							jclass jcls,
+																							jlong jarg1,
+																							jobject jarg1_,
+																							jint jarg2,
+																							jboolean jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  bool arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = jarg3 ? true : false; 
-  result = (int)(arg1)->split_at(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = jarg3 ? true : false;
+  result = (int)(arg1)->split_at(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1split_1at_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1split_1at_1_1SWIG_11(JNIEnv *jenv,
+																							jclass jcls,
+																							jlong jarg1,
+																							jobject jarg1_,
+																							jint jarg2) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->split_at(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1join_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1join_1_1SWIG_10(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2,
+																					   jint jarg3,
+																					   jint jarg4) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->join(arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->join(arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1join_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1join_1_1SWIG_11(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2,
+																					   jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->join(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->join(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1join_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1join_1_1SWIG_12(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->join(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1mix_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jlong jarg4, jobject jarg4_) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  Mlt::Transition *arg4 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1mix_1_1SWIG_10(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jint jarg2,
+																					  jint jarg3,
+																					  jlong jarg4,
+																					  jobject jarg4_) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
+  Mlt::Transition *arg4 = (Mlt::Transition *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg4_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  arg4 = *(Mlt::Transition **)&jarg4; 
-  result = (int)(arg1)->mix(arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  arg4 = *(Mlt::Transition **)&jarg4;
+  result = (int)(arg1)->mix(arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1mix_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1mix_1_1SWIG_11(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jint jarg2,
+																					  jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->mix(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->mix(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1mix_1in(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1mix_1in(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jint jarg2,
+																			   jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->mix_in(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->mix_in(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1mix_1out(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1mix_1out(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jint jarg2,
+																				jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->mix_out(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->mix_out(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1mix_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  Mlt::Transition *arg3 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1mix_1add(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jint jarg2,
+																				jlong jarg3,
+																				jobject jarg3_) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  Mlt::Transition *arg3 = (Mlt::Transition *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = *(Mlt::Transition **)&jarg3; 
-  result = (int)(arg1)->mix_add(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = *(Mlt::Transition **)&jarg3;
+  result = (int)(arg1)->mix_add(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1repeat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1repeat(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_,
+																			  jint jarg2,
+																			  jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->repeat(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->repeat(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1get_1clip(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_,
+																				  jint jarg2) {
+  jlong jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Playlist_1get_1clip(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (Mlt::Producer *)(arg1)->get_clip(arg2);
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1get_1clip_1at(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jint jarg2) {
+  jlong jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Playlist_1get_1clip_1at(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (Mlt::Producer *)(arg1)->get_clip_at(arg2);
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1get_1clip_1index_1at(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1get_1clip_1index_1at(JNIEnv *jenv,
+																							jclass jcls,
+																							jlong jarg1,
+																							jobject jarg1_,
+																							jint jarg2) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->get_clip_index_at(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Playlist_1is_1mix(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jboolean jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1is_1mix(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_,
+																				   jint jarg2) {
+  jboolean jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (bool)(arg1)->is_mix(arg2);
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Playlist_1is_1blank(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jboolean jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1is_1blank(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jint jarg2) {
+  jboolean jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (bool)(arg1)->is_blank(arg2);
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Playlist_1is_1blank_1at(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jboolean jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1is_1blank_1at(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jint jarg2) {
+  jboolean jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (bool)(arg1)->is_blank_at(arg2);
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1consolidate_1blanks_1_1SWIG_10(JNIEnv *jenv,
+																									  jclass jcls,
+																									  jlong jarg1,
+																									  jobject jarg1_,
+																									  jint jarg2) {
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Playlist_1consolidate_1blanks_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   (arg1)->consolidate_blanks(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1consolidate_1blanks_1_1SWIG_11(JNIEnv *jenv,
+																									  jclass jcls,
+																									  jlong jarg1,
+																									  jobject jarg1_) {
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Playlist_1consolidate_1blanks_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
   (arg1)->consolidate_blanks();
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1replace_1with_1blank(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jint jarg2) {
+  jlong jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Playlist_1replace_1with_1blank(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (Mlt::Producer *)(arg1)->replace_with_blank(arg2);
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1insert_1blank(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jint jarg2,
+																					 jint jarg3) {
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Playlist_1insert_1blank(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  (arg1)->insert_blank(arg2,arg3);
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  (arg1)->insert_blank(arg2, arg3);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1pad_1blanks_1_1SWIG_10(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jint jarg2,
+																							  jint jarg3,
+																							  jint jarg4) {
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
+  int arg4;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Playlist_1pad_1blanks_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jint jarg4) {
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  int arg4 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  (arg1)->pad_blanks(arg2,arg3,arg4);
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  (arg1)->pad_blanks(arg2, arg3, arg4);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1pad_1blanks_1_1SWIG_11(JNIEnv *jenv,
+																							  jclass jcls,
+																							  jlong jarg1,
+																							  jobject jarg1_,
+																							  jint jarg2,
+																							  jint jarg3) {
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Playlist_1pad_1blanks_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  (arg1)->pad_blanks(arg2,arg3);
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  (arg1)->pad_blanks(arg2, arg3);
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1insert_1at_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  Mlt::Producer *arg3 = (Mlt::Producer *) 0 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1insert_1at_1_1SWIG_10(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jint jarg2,
+																							 jlong jarg3,
+																							 jobject jarg3_,
+																							 jint jarg4) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  Mlt::Producer *arg3 = (Mlt::Producer *)0;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = *(Mlt::Producer **)&jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->insert_at(arg2,arg3,arg4);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = *(Mlt::Producer **)&jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->insert_at(arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1insert_1at_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  Mlt::Producer *arg3 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1insert_1at_1_1SWIG_11(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jint jarg2,
+																							 jlong jarg3,
+																							 jobject jarg3_) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  Mlt::Producer *arg3 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg3_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = *(Mlt::Producer **)&jarg3; 
-  result = (int)(arg1)->insert_at(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = *(Mlt::Producer **)&jarg3;
+  result = (int)(arg1)->insert_at(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1clip_1start(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1clip_1start(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_,
+																				   jint jarg2) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->clip_start(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1clip_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1clip_1length(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jint jarg2) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->clip_length(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1blanks_1from_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1blanks_1from_1_1SWIG_10(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jint jarg2,
+																							   jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->blanks_from(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->blanks_from(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1blanks_1from_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1blanks_1from_1_1SWIG_11(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jint jarg2) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->blanks_from(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Playlist_1remove_1region(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Playlist *arg1 = (Mlt::Playlist *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1remove_1region(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jint jarg2,
+																					  jint jarg3) {
+  jint jresult = 0;
+  Mlt::Playlist *arg1 = (Mlt::Playlist *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Playlist **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->remove_region(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Playlist **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->remove_region(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Consumer_1_1SWIG_10(JNIEnv *jenv,
+																					   jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Consumer *)new Mlt::Consumer();
-  *(Mlt::Consumer **)&jresult = result; 
+  *(Mlt::Consumer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Consumer_1_1SWIG_11(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   result = (Mlt::Consumer *)new Mlt::Consumer(*arg1);
-  *(Mlt::Consumer **)&jresult = result; 
+  *(Mlt::Consumer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Consumer_1_1SWIG_12(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jstring jarg2,
+																					   jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Consumer *)new Mlt::Consumer(*arg1,(char const *)arg2,(char const *)arg3);
-  *(Mlt::Consumer **)&jresult = result; 
+  result = (Mlt::Consumer *)new Mlt::Consumer(*arg1, (char const *)arg2, (char const *)arg3);
+  *(Mlt::Consumer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Consumer_1_1SWIG_13(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Consumer *)new Mlt::Consumer(*arg1,(char const *)arg2);
-  *(Mlt::Consumer **)&jresult = result; 
+  result = (Mlt::Consumer *)new Mlt::Consumer(*arg1, (char const *)arg2);
+  *(Mlt::Consumer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Consumer_1_1SWIG_14(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jstring jarg2,
+																					   jstring jarg3) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Consumer *)new Mlt::Consumer(arg1,(char const *)arg2,(char const *)arg3);
-  *(Mlt::Consumer **)&jresult = result; 
+  result = (Mlt::Consumer *)new Mlt::Consumer(arg1, (char const *)arg2, (char const *)arg3);
+  *(Mlt::Consumer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Consumer_1_1SWIG_15(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jstring jarg2) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Consumer *)new Mlt::Consumer(arg1,(char const *)arg2);
-  *(Mlt::Consumer **)&jresult = result; 
+  result = (Mlt::Consumer *)new Mlt::Consumer(arg1, (char const *)arg2);
+  *(Mlt::Consumer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Consumer_1_1SWIG_16(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = 0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (Mlt::Consumer *)new Mlt::Consumer(*arg1);
-  *(Mlt::Consumer **)&jresult = result; 
+  *(Mlt::Consumer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Consumer_1_1SWIG_17(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Consumer *arg1 = 0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Consumer *arg1 = 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Consumer **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Consumer & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Consumer & reference is null");
+	return 0;
+  }
   result = (Mlt::Consumer *)new Mlt::Consumer(*arg1);
-  *(Mlt::Consumer **)&jresult = result; 
+  *(Mlt::Consumer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Consumer_1_1SWIG_18(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1) {
+  jlong jresult = 0;
+  mlt_consumer arg1 = (mlt_consumer)0;
+  Mlt::Consumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Consumer_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_consumer arg1 = (mlt_consumer) 0 ;
-  Mlt::Consumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_consumer *)&jarg1; 
+  arg1 = *(mlt_consumer *)&jarg1;
   result = (Mlt::Consumer *)new Mlt::Consumer(arg1);
-  *(Mlt::Consumer **)&jresult = result; 
+  *(Mlt::Consumer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Consumer(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1) {
+  Mlt::Consumer *arg1 = (Mlt::Consumer *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Consumer(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Consumer *arg1 = (Mlt::Consumer *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Consumer **)&jarg1; 
+  arg1 = *(Mlt::Consumer **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Consumer_1get_1consumer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Consumer *arg1 = (Mlt::Consumer *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Consumer_1get_1consumer(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Consumer *arg1 = (Mlt::Consumer *)0;
   mlt_consumer result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Consumer **)&jarg1; 
+  arg1 = *(Mlt::Consumer **)&jarg1;
   result = (mlt_consumer)(arg1)->get_consumer();
-  *(mlt_consumer *)&jresult = result; 
+  *(mlt_consumer *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Consumer_1get_1service(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Consumer *arg1 = (Mlt::Consumer *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Consumer_1get_1service(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Consumer *arg1 = (Mlt::Consumer *)0;
   mlt_service result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Consumer **)&jarg1; 
+  arg1 = *(Mlt::Consumer **)&jarg1;
   result = (mlt_service)(arg1)->get_service();
-  *(mlt_service *)&jresult = result; 
+  *(mlt_service *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Consumer_1connect(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Consumer *arg1 = (Mlt::Consumer *) 0 ;
-  Mlt::Service *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Consumer_1connect(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jlong jarg2,
+																			   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Consumer *arg1 = (Mlt::Consumer *)0;
+  Mlt::Service *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Consumer **)&jarg1; 
+  arg1 = *(Mlt::Consumer **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->connect(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Consumer_1run(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Consumer *arg1 = (Mlt::Consumer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Consumer_1run(JNIEnv *jenv,
+																		   jclass jcls,
+																		   jlong jarg1,
+																		   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Consumer *arg1 = (Mlt::Consumer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Consumer **)&jarg1; 
+  arg1 = *(Mlt::Consumer **)&jarg1;
   result = (int)(arg1)->run();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Consumer_1start(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Consumer *arg1 = (Mlt::Consumer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Consumer_1start(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Consumer *arg1 = (Mlt::Consumer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Consumer **)&jarg1; 
+  arg1 = *(Mlt::Consumer **)&jarg1;
   result = (int)(arg1)->start();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Consumer_1purge(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  Mlt::Consumer *arg1 = (Mlt::Consumer *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Consumer_1purge(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Consumer *arg1 = (Mlt::Consumer *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Consumer **)&jarg1; 
+  arg1 = *(Mlt::Consumer **)&jarg1;
   (arg1)->purge();
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Consumer_1stop(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Consumer *arg1 = (Mlt::Consumer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Consumer_1stop(JNIEnv *jenv,
+																			jclass jcls,
+																			jlong jarg1,
+																			jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Consumer *arg1 = (Mlt::Consumer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Consumer **)&jarg1; 
+  arg1 = *(Mlt::Consumer **)&jarg1;
   result = (int)(arg1)->stop();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Consumer_1is_1stopped(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  Mlt::Consumer *arg1 = (Mlt::Consumer *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Consumer_1is_1stopped(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jboolean jresult = 0;
+  Mlt::Consumer *arg1 = (Mlt::Consumer *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Consumer **)&jarg1; 
+  arg1 = *(Mlt::Consumer **)&jarg1;
   result = (bool)(arg1)->is_stopped();
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Consumer_1position(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Consumer *arg1 = (Mlt::Consumer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Consumer_1position(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Consumer *arg1 = (Mlt::Consumer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Consumer **)&jarg1; 
+  arg1 = *(Mlt::Consumer **)&jarg1;
   result = (int)(arg1)->position();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Filter_1_1SWIG_10(JNIEnv *jenv,
+																					 jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Filter *)new Mlt::Filter();
-  *(Mlt::Filter **)&jresult = result; 
+  *(Mlt::Filter **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Filter_1_1SWIG_11(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jstring jarg2,
+																					 jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Filter *)new Mlt::Filter(*arg1,(char const *)arg2,(char const *)arg3);
-  *(Mlt::Filter **)&jresult = result; 
+  result = (Mlt::Filter *)new Mlt::Filter(*arg1, (char const *)arg2, (char const *)arg3);
+  *(Mlt::Filter **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Filter_1_1SWIG_12(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Filter *)new Mlt::Filter(*arg1,(char const *)arg2);
-  *(Mlt::Filter **)&jresult = result; 
+  result = (Mlt::Filter *)new Mlt::Filter(*arg1, (char const *)arg2);
+  *(Mlt::Filter **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Filter_1_1SWIG_13(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jstring jarg2,
+																					 jstring jarg3) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Filter *)new Mlt::Filter(arg1,(char const *)arg2,(char const *)arg3);
-  *(Mlt::Filter **)&jresult = result; 
+  result = (Mlt::Filter *)new Mlt::Filter(arg1, (char const *)arg2, (char const *)arg3);
+  *(Mlt::Filter **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Filter_1_1SWIG_14(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jstring jarg2) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Filter *)new Mlt::Filter(arg1,(char const *)arg2);
-  *(Mlt::Filter **)&jresult = result; 
+  result = (Mlt::Filter *)new Mlt::Filter(arg1, (char const *)arg2);
+  *(Mlt::Filter **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Filter_1_1SWIG_15(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = 0;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = 0 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (Mlt::Filter *)new Mlt::Filter(*arg1);
-  *(Mlt::Filter **)&jresult = result; 
+  *(Mlt::Filter **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Filter_1_1SWIG_16(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Filter *arg1 = 0;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Filter *arg1 = 0 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Filter **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
+	return 0;
+  }
   result = (Mlt::Filter *)new Mlt::Filter(*arg1);
-  *(Mlt::Filter **)&jresult = result; 
+  *(Mlt::Filter **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Filter_1_1SWIG_18(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1) {
+  jlong jresult = 0;
+  mlt_filter arg1 = (mlt_filter)0;
+  Mlt::Filter *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Filter_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_filter arg1 = (mlt_filter) 0 ;
-  Mlt::Filter *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_filter *)&jarg1; 
+  arg1 = *(mlt_filter *)&jarg1;
   result = (Mlt::Filter *)new Mlt::Filter(arg1);
-  *(Mlt::Filter **)&jresult = result; 
+  *(Mlt::Filter **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Filter(JNIEnv *jenv,
+																			jclass jcls,
+																			jlong jarg1) {
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Filter(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Filter_1get_1filter(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1get_1filter(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
   mlt_filter result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   result = (mlt_filter)(arg1)->get_filter();
-  *(mlt_filter *)&jresult = result; 
+  *(mlt_filter *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Filter_1get_1service(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1get_1service(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
   mlt_service result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   result = (mlt_service)(arg1)->get_service();
-  *(mlt_service *)&jresult = result; 
+  *(mlt_service *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1connect_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
-  Mlt::Service *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1connect_1_1SWIG_10(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jlong jarg2,
+																						jobject jarg2_,
+																						jint jarg3) {
+  jint jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
+  Mlt::Service *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->connect(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->connect(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1connect_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
-  Mlt::Service *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1connect_1_1SWIG_11(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jlong jarg2,
+																						jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
+  Mlt::Service *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->connect(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1set_1in_1and_1out(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2,
+																					   jint jarg3) {
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
+  int arg2;
+  int arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Filter_1set_1in_1and_1out(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  (arg1)->set_in_and_out(arg2,arg3);
+  arg1 = *(Mlt::Filter **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  (arg1)->set_in_and_out(arg2, arg3);
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1get_1in(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1get_1in(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   result = (int)(arg1)->get_in();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1get_1out(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1get_1out(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   result = (int)(arg1)->get_out();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1get_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1get_1length(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   result = (int)(arg1)->get_length();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1get_1length2(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
-  Mlt::Frame *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1get_1length2(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_,
+																				  jlong jarg2,
+																				  jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
+  Mlt::Frame *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->get_length2(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1get_1track(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1get_1track(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   result = (int)(arg1)->get_track();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Filter_1get_1position(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
-  Mlt::Frame *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1get_1position(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_,
+																				   jlong jarg2,
+																				   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
+  Mlt::Frame *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->get_position(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Filter_1get_1progress(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jdouble jresult = 0 ;
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
-  Mlt::Frame *arg2 = 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1get_1progress(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jlong jarg2,
+																					  jobject jarg2_) {
+  jdouble jresult = 0;
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
+  Mlt::Frame *arg2 = 0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
+	return 0;
+  }
   result = (double)(arg1)->get_progress(*arg2);
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1process(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_,
+																			 jlong jarg2,
+																			 jobject jarg2_) {
+  Mlt::Filter *arg1 = (Mlt::Filter *)0;
+  Mlt::Frame *arg2 = 0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Filter_1process(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  Mlt::Filter *arg1 = (Mlt::Filter *) 0 ;
-  Mlt::Frame *arg2 = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Filter **)&jarg1; 
+  arg1 = *(Mlt::Filter **)&jarg1;
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
-    return ;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
+	return;
+  }
   (arg1)->process(*arg2);
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Transition_1_1SWIG_10(JNIEnv *jenv,
+																						 jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Transition *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Transition *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Transition *)new Mlt::Transition();
-  *(Mlt::Transition **)&jresult = result; 
+  *(Mlt::Transition **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Transition_1_1SWIG_11(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jstring jarg2,
+																						 jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Transition *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Transition *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Transition *)new Mlt::Transition(*arg1,(char const *)arg2,(char const *)arg3);
-  *(Mlt::Transition **)&jresult = result; 
+  result = (Mlt::Transition *)new Mlt::Transition(*arg1, (char const *)arg2, (char const *)arg3);
+  *(Mlt::Transition **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Transition_1_1SWIG_12(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  Mlt::Transition *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Transition *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Transition *)new Mlt::Transition(*arg1,(char const *)arg2);
-  *(Mlt::Transition **)&jresult = result; 
+  result = (Mlt::Transition *)new Mlt::Transition(*arg1, (char const *)arg2);
+  *(Mlt::Transition **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Transition_1_1SWIG_13(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jstring jarg2,
+																						 jstring jarg3) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Transition *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Transition *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Transition *)new Mlt::Transition(arg1,(char const *)arg2,(char const *)arg3);
-  *(Mlt::Transition **)&jresult = result; 
+  result = (Mlt::Transition *)new Mlt::Transition(arg1, (char const *)arg2, (char const *)arg3);
+  *(Mlt::Transition **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Transition_1_1SWIG_14(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jstring jarg2) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  Mlt::Transition *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Transition *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Transition *)new Mlt::Transition(arg1,(char const *)arg2);
-  *(Mlt::Transition **)&jresult = result; 
+  result = (Mlt::Transition *)new Mlt::Transition(arg1, (char const *)arg2);
+  *(Mlt::Transition **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Transition_1_1SWIG_15(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = 0;
+  Mlt::Transition *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = 0 ;
-  Mlt::Transition *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (Mlt::Transition *)new Mlt::Transition(*arg1);
-  *(Mlt::Transition **)&jresult = result; 
+  *(Mlt::Transition **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Transition_1_1SWIG_16(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Transition *arg1 = 0;
+  Mlt::Transition *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Transition *arg1 = 0 ;
-  Mlt::Transition *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Transition **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
+	return 0;
+  }
   result = (Mlt::Transition *)new Mlt::Transition(*arg1);
-  *(Mlt::Transition **)&jresult = result; 
+  *(Mlt::Transition **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Transition_1_1SWIG_18(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1) {
+  jlong jresult = 0;
+  mlt_transition arg1 = (mlt_transition)0;
+  Mlt::Transition *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Transition_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_transition arg1 = (mlt_transition) 0 ;
-  Mlt::Transition *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_transition *)&jarg1; 
+  arg1 = *(mlt_transition *)&jarg1;
   result = (Mlt::Transition *)new Mlt::Transition(arg1);
-  *(Mlt::Transition **)&jresult = result; 
+  *(Mlt::Transition **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Transition(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1) {
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Transition(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Transition_1get_1transition(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1get_1transition(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
   mlt_transition result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   result = (mlt_transition)(arg1)->get_transition();
-  *(mlt_transition *)&jresult = result; 
+  *(mlt_transition *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Transition_1get_1service(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1get_1service(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
   mlt_service result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   result = (mlt_service)(arg1)->get_service();
-  *(mlt_service *)&jresult = result; 
+  *(mlt_service *)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1set_1in_1and_1out(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jint jarg2,
+																						   jint jarg3) {
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
+  int arg2;
+  int arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Transition_1set_1in_1and_1out(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  (arg1)->set_in_and_out(arg2,arg3);
+  arg1 = *(Mlt::Transition **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  (arg1)->set_in_and_out(arg2, arg3);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1set_1tracks(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jint jarg2,
+																					 jint jarg3) {
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
+  int arg2;
+  int arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Transition_1set_1tracks(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  (arg1)->set_tracks(arg2,arg3);
+  arg1 = *(Mlt::Transition **)&jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  (arg1)->set_tracks(arg2, arg3);
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1connect_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1connect_1_1SWIG_10(JNIEnv *jenv,
+																							jclass jcls,
+																							jlong jarg1,
+																							jobject jarg1_,
+																							jlong jarg2,
+																							jobject jarg2_,
+																							jint jarg3,
+																							jint jarg4) {
+  jint jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
+  Mlt::Producer *arg2 = 0;
+  int arg3;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->connect(*arg2,arg3,arg4);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->connect(*arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1connect_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
-  Mlt::Service *arg2 = 0 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1connect_1_1SWIG_11(JNIEnv *jenv,
+																							jclass jcls,
+																							jlong jarg1,
+																							jobject jarg1_,
+																							jlong jarg2,
+																							jobject jarg2_,
+																							jint jarg3,
+																							jint jarg4) {
+  jint jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
+  Mlt::Service *arg2 = 0;
+  int arg3;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->connect(*arg2,arg3,arg4);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->connect(*arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1get_1a_1track(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1get_1a_1track(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   result = (int)(arg1)->get_a_track();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1get_1b_1track(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1get_1b_1track(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   result = (int)(arg1)->get_b_track();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1get_1in(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1get_1in(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   result = (int)(arg1)->get_in();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1get_1out(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1get_1out(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   result = (int)(arg1)->get_out();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1get_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1get_1length(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   result = (int)(arg1)->get_length();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Transition_1get_1position(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
-  Mlt::Frame *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1get_1position(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jlong jarg2,
+																					   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
+  Mlt::Frame *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->get_position(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Transition_1get_1progress(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jdouble jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
-  Mlt::Frame *arg2 = 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1get_1progress(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_,
+																						  jlong jarg2,
+																						  jobject jarg2_) {
+  jdouble jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
+  Mlt::Frame *arg2 = 0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
+	return 0;
+  }
   result = (double)(arg1)->get_progress(*arg2);
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   return jresult;
 }
 
-
-SWIGEXPORT jdouble JNICALL Java_mltJNI_Transition_1get_1progress_1delta(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jdouble jresult = 0 ;
-  Mlt::Transition *arg1 = (Mlt::Transition *) 0 ;
-  Mlt::Frame *arg2 = 0 ;
+SWIGEXPORT jdouble JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1get_1progress_1delta(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jlong jarg2,
+																								 jobject jarg2_) {
+  jdouble jresult = 0;
+  Mlt::Transition *arg1 = (Mlt::Transition *)0;
+  Mlt::Frame *arg2 = 0;
   double result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Transition **)&jarg1; 
+  arg1 = *(Mlt::Transition **)&jarg1;
   arg2 = *(Mlt::Frame **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Frame & reference is null");
+	return 0;
+  }
   result = (double)(arg1)->get_progress_delta(*arg2);
-  jresult = (jdouble)result; 
+  jresult = (jdouble)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Multitrack_1_1SWIG_10(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1) {
+  jlong jresult = 0;
+  mlt_multitrack arg1 = (mlt_multitrack)0;
+  Mlt::Multitrack *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Multitrack_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_multitrack arg1 = (mlt_multitrack) 0 ;
-  Mlt::Multitrack *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_multitrack *)&jarg1; 
+  arg1 = *(mlt_multitrack *)&jarg1;
   result = (Mlt::Multitrack *)new Mlt::Multitrack(arg1);
-  *(Mlt::Multitrack **)&jresult = result; 
+  *(Mlt::Multitrack **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Multitrack_1_1SWIG_11(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = 0;
+  Mlt::Multitrack *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Multitrack_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = 0 ;
-  Mlt::Multitrack *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (Mlt::Multitrack *)new Mlt::Multitrack(*arg1);
-  *(Mlt::Multitrack **)&jresult = result; 
+  *(Mlt::Multitrack **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Multitrack_1_1SWIG_12(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Multitrack *arg1 = 0;
+  Mlt::Multitrack *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Multitrack_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Multitrack *arg1 = 0 ;
-  Mlt::Multitrack *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Multitrack **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Multitrack & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Multitrack & reference is null");
+	return 0;
+  }
   result = (Mlt::Multitrack *)new Mlt::Multitrack(*arg1);
-  *(Mlt::Multitrack **)&jresult = result; 
+  *(Mlt::Multitrack **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Multitrack(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1) {
+  Mlt::Multitrack *arg1 = (Mlt::Multitrack *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Multitrack(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Multitrack *arg1 = (Mlt::Multitrack *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Multitrack **)&jarg1; 
+  arg1 = *(Mlt::Multitrack **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Multitrack_1get_1multitrack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Multitrack *arg1 = (Mlt::Multitrack *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Multitrack_1get_1multitrack(JNIEnv *jenv,
+																						  jclass jcls,
+																						  jlong jarg1,
+																						  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Multitrack *arg1 = (Mlt::Multitrack *)0;
   mlt_multitrack result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Multitrack **)&jarg1; 
+  arg1 = *(Mlt::Multitrack **)&jarg1;
   result = (mlt_multitrack)(arg1)->get_multitrack();
-  *(mlt_multitrack *)&jresult = result; 
+  *(mlt_multitrack *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Multitrack_1get_1producer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Multitrack *arg1 = (Mlt::Multitrack *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Multitrack_1get_1producer(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Multitrack *arg1 = (Mlt::Multitrack *)0;
   mlt_producer result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Multitrack **)&jarg1; 
+  arg1 = *(Mlt::Multitrack **)&jarg1;
   result = (mlt_producer)(arg1)->get_producer();
-  *(mlt_producer *)&jresult = result; 
+  *(mlt_producer *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Multitrack_1connect(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Multitrack *arg1 = (Mlt::Multitrack *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Multitrack_1connect(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_,
+																				 jlong jarg2,
+																				 jobject jarg2_,
+																				 jint jarg3) {
+  jint jresult = 0;
+  Mlt::Multitrack *arg1 = (Mlt::Multitrack *)0;
+  Mlt::Producer *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Multitrack **)&jarg1; 
+  arg1 = *(Mlt::Multitrack **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->connect(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->connect(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Multitrack_1insert(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Multitrack *arg1 = (Mlt::Multitrack *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Multitrack_1insert(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jlong jarg2,
+																				jobject jarg2_,
+																				jint jarg3) {
+  jint jresult = 0;
+  Mlt::Multitrack *arg1 = (Mlt::Multitrack *)0;
+  Mlt::Producer *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Multitrack **)&jarg1; 
+  arg1 = *(Mlt::Multitrack **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->insert(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->insert(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Multitrack_1disconnect(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Multitrack *arg1 = (Mlt::Multitrack *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Multitrack_1disconnect(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jint jarg2) {
+  jint jresult = 0;
+  Mlt::Multitrack *arg1 = (Mlt::Multitrack *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Multitrack **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Multitrack **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->disconnect(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Multitrack_1clip(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Multitrack *arg1 = (Mlt::Multitrack *) 0 ;
-  mlt_whence arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Multitrack_1clip(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_,
+																			  jint jarg2,
+																			  jint jarg3) {
+  jint jresult = 0;
+  Mlt::Multitrack *arg1 = (Mlt::Multitrack *)0;
+  mlt_whence arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Multitrack **)&jarg1; 
-  arg2 = (mlt_whence)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->clip(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Multitrack **)&jarg1;
+  arg2 = (mlt_whence)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->clip(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Multitrack_1count(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Multitrack *arg1 = (Mlt::Multitrack *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Multitrack_1count(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Multitrack *arg1 = (Mlt::Multitrack *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Multitrack **)&jarg1; 
+  arg1 = *(Mlt::Multitrack **)&jarg1;
   result = (int)(arg1)->count();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Multitrack_1track(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_,
+																				jint jarg2) {
+  jlong jresult = 0;
+  Mlt::Multitrack *arg1 = (Mlt::Multitrack *)0;
+  int arg2;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Multitrack_1track(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Multitrack *arg1 = (Mlt::Multitrack *) 0 ;
-  int arg2 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Multitrack **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Multitrack **)&jarg1;
+  arg2 = (int)jarg2;
   result = (Mlt::Producer *)(arg1)->track(arg2);
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Multitrack_1refresh(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_) {
+  Mlt::Multitrack *arg1 = (Mlt::Multitrack *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Multitrack_1refresh(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Multitrack *arg1 = (Mlt::Multitrack *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Multitrack **)&jarg1; 
+  arg1 = *(Mlt::Multitrack **)&jarg1;
   (arg1)->refresh();
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Field_1_1SWIG_10(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1) {
+  jlong jresult = 0;
+  mlt_field arg1 = (mlt_field)0;
+  Mlt::Field *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Field_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_field arg1 = (mlt_field) 0 ;
-  Mlt::Field *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_field *)&jarg1; 
+  arg1 = *(mlt_field *)&jarg1;
   result = (Mlt::Field *)new Mlt::Field(arg1);
-  *(Mlt::Field **)&jresult = result; 
+  *(Mlt::Field **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Field_1_1SWIG_11(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Field *arg1 = 0;
+  Mlt::Field *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Field_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Field *arg1 = 0 ;
-  Mlt::Field *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Field **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Field & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Field & reference is null");
+	return 0;
+  }
   result = (Mlt::Field *)new Mlt::Field(*arg1);
-  *(Mlt::Field **)&jresult = result; 
+  *(Mlt::Field **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Field(JNIEnv *jenv,
+																		   jclass jcls,
+																		   jlong jarg1) {
+  Mlt::Field *arg1 = (Mlt::Field *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Field(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Field *arg1 = (Mlt::Field *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Field **)&jarg1; 
+  arg1 = *(Mlt::Field **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Field_1get_1field(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Field *arg1 = (Mlt::Field *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Field_1get_1field(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1,
+																				jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Field *arg1 = (Mlt::Field *)0;
   mlt_field result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Field **)&jarg1; 
+  arg1 = *(Mlt::Field **)&jarg1;
   result = (mlt_field)(arg1)->get_field();
-  *(mlt_field *)&jresult = result; 
+  *(mlt_field *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Field_1get_1service(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Field *arg1 = (Mlt::Field *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Field_1get_1service(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Field *arg1 = (Mlt::Field *)0;
   mlt_service result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Field **)&jarg1; 
+  arg1 = *(Mlt::Field **)&jarg1;
   result = (mlt_service)(arg1)->get_service();
-  *(mlt_service *)&jresult = result; 
+  *(mlt_service *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Field_1plant_1filter_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Field *arg1 = (Mlt::Field *) 0 ;
-  Mlt::Filter *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Field_1plant_1filter_1_1SWIG_10(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jlong jarg2,
+																							 jobject jarg2_,
+																							 jint jarg3) {
+  jint jresult = 0;
+  Mlt::Field *arg1 = (Mlt::Field *)0;
+  Mlt::Filter *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Field **)&jarg1; 
+  arg1 = *(Mlt::Field **)&jarg1;
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->plant_filter(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->plant_filter(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Field_1plant_1filter_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Field *arg1 = (Mlt::Field *) 0 ;
-  Mlt::Filter *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Field_1plant_1filter_1_1SWIG_11(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jlong jarg2,
+																							 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Field *arg1 = (Mlt::Field *)0;
+  Mlt::Filter *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Field **)&jarg1; 
+  arg1 = *(Mlt::Field **)&jarg1;
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->plant_filter(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Field_1plant_1transition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3, jint jarg4) {
-  jint jresult = 0 ;
-  Mlt::Field *arg1 = (Mlt::Field *) 0 ;
-  Mlt::Transition *arg2 = 0 ;
-  int arg3 ;
-  int arg4 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Field_1plant_1transition_1_1SWIG_10(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jlong jarg2,
+																								 jobject jarg2_,
+																								 jint jarg3,
+																								 jint jarg4) {
+  jint jresult = 0;
+  Mlt::Field *arg1 = (Mlt::Field *)0;
+  Mlt::Transition *arg2 = 0;
+  int arg3;
+  int arg4;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Field **)&jarg1; 
+  arg1 = *(Mlt::Field **)&jarg1;
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (int)(arg1)->plant_transition(*arg2,arg3,arg4);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (int)(arg1)->plant_transition(*arg2, arg3, arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Field_1plant_1transition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Field *arg1 = (Mlt::Field *) 0 ;
-  Mlt::Transition *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Field_1plant_1transition_1_1SWIG_11(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jlong jarg2,
+																								 jobject jarg2_,
+																								 jint jarg3) {
+  jint jresult = 0;
+  Mlt::Field *arg1 = (Mlt::Field *)0;
+  Mlt::Transition *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Field **)&jarg1; 
+  arg1 = *(Mlt::Field **)&jarg1;
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->plant_transition(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->plant_transition(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Field_1plant_1transition_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Field *arg1 = (Mlt::Field *) 0 ;
-  Mlt::Transition *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Field_1plant_1transition_1_1SWIG_12(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jlong jarg2,
+																								 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Field *arg1 = (Mlt::Field *)0;
+  Mlt::Transition *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Field **)&jarg1; 
+  arg1 = *(Mlt::Field **)&jarg1;
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->plant_transition(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Field_1disconnect_1service(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jlong jarg2,
+																						jobject jarg2_) {
+  Mlt::Field *arg1 = (Mlt::Field *)0;
+  Mlt::Service *arg2 = 0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Field_1disconnect_1service(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  Mlt::Field *arg1 = (Mlt::Field *) 0 ;
-  Mlt::Service *arg2 = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Field **)&jarg1; 
+  arg1 = *(Mlt::Field **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return ;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return;
+  }
   (arg1)->disconnect_service(*arg2);
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Tractor_1_1SWIG_10(JNIEnv *jenv,
+																					  jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Tractor *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Tractor *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Tractor *)new Mlt::Tractor();
-  *(Mlt::Tractor **)&jresult = result; 
+  *(Mlt::Tractor **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Tractor_1_1SWIG_11(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  Mlt::Tractor *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  Mlt::Tractor *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   result = (Mlt::Tractor *)new Mlt::Tractor(*arg1);
-  *(Mlt::Tractor **)&jresult = result; 
+  *(Mlt::Tractor **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Tractor_1_1SWIG_12(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Service *arg1 = 0;
+  Mlt::Tractor *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Service *arg1 = 0 ;
-  Mlt::Tractor *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Service **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (Mlt::Tractor *)new Mlt::Tractor(*arg1);
-  *(Mlt::Tractor **)&jresult = result; 
+  *(Mlt::Tractor **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Tractor_1_1SWIG_13(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1) {
+  jlong jresult = 0;
+  mlt_tractor arg1 = (mlt_tractor)0;
+  Mlt::Tractor *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_tractor arg1 = (mlt_tractor) 0 ;
-  Mlt::Tractor *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_tractor *)&jarg1; 
+  arg1 = *(mlt_tractor *)&jarg1;
   result = (Mlt::Tractor *)new Mlt::Tractor(arg1);
-  *(Mlt::Tractor **)&jresult = result; 
+  *(Mlt::Tractor **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Tractor_1_1SWIG_14(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Tractor *arg1 = 0;
+  Mlt::Tractor *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Tractor *arg1 = 0 ;
-  Mlt::Tractor *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Tractor **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Tractor & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Tractor & reference is null");
+	return 0;
+  }
   result = (Mlt::Tractor *)new Mlt::Tractor(*arg1);
-  *(Mlt::Tractor **)&jresult = result; 
+  *(Mlt::Tractor **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Tractor_1_1SWIG_15(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jstring jarg2,
+																					  jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Tractor *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Tractor *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Tractor *)new Mlt::Tractor(*arg1,arg2,arg3);
-  *(Mlt::Tractor **)&jresult = result; 
+  result = (Mlt::Tractor *)new Mlt::Tractor(*arg1, arg2, arg3);
+  *(Mlt::Tractor **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Tractor_1_1SWIG_16(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  Mlt::Tractor *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Tractor *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Tractor *)new Mlt::Tractor(*arg1,arg2);
-  *(Mlt::Tractor **)&jresult = result; 
+  result = (Mlt::Tractor *)new Mlt::Tractor(*arg1, arg2);
+  *(Mlt::Tractor **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Tractor_1_1SWIG_17(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jstring jarg2,
+																					  jstring jarg3) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::Tractor *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::Tractor *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::Tractor *)new Mlt::Tractor(arg1,arg2,arg3);
-  *(Mlt::Tractor **)&jresult = result; 
+  result = (Mlt::Tractor *)new Mlt::Tractor(arg1, arg2, arg3);
+  *(Mlt::Tractor **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Tractor_1_1SWIG_18(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jstring jarg2) {
+  jlong jresult = 0;
+  mlt_profile arg1 = (mlt_profile)0;
+  char *arg2 = (char *)0;
+  Mlt::Tractor *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Tractor_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jstring jarg2) {
-  jlong jresult = 0 ;
-  mlt_profile arg1 = (mlt_profile) 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::Tractor *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_profile *)&jarg1; 
+  arg1 = *(mlt_profile *)&jarg1;
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::Tractor *)new Mlt::Tractor(arg1,arg2);
-  *(Mlt::Tractor **)&jresult = result; 
+  result = (Mlt::Tractor *)new Mlt::Tractor(arg1, arg2);
+  *(Mlt::Tractor **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Tractor(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1) {
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Tractor(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Tractor_1get_1tractor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1get_1tractor(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
   mlt_tractor result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   result = (mlt_tractor)(arg1)->get_tractor();
-  *(mlt_tractor *)&jresult = result; 
+  *(mlt_tractor *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Tractor_1get_1producer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1get_1producer(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
   mlt_producer result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   result = (mlt_producer)(arg1)->get_producer();
-  *(mlt_producer *)&jresult = result; 
+  *(mlt_producer *)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1multitrack(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Multitrack *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Tractor_1multitrack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Multitrack *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   result = (Mlt::Multitrack *)(arg1)->multitrack();
-  *(Mlt::Multitrack **)&jresult = result; 
+  *(Mlt::Multitrack **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1field(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Field *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Tractor_1field(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Field *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   result = (Mlt::Field *)(arg1)->field();
-  *(Mlt::Field **)&jresult = result; 
+  *(Mlt::Field **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1refresh(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_) {
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1refresh(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   (arg1)->refresh();
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Tractor_1set_1track(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1set_1track(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_,
+																				 jlong jarg2,
+																				 jobject jarg2_,
+																				 jint jarg3) {
+  jint jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Producer *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->set_track(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->set_track(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Tractor_1insert_1track(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1insert_1track(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jlong jarg2,
+																					jobject jarg2_,
+																					jint jarg3) {
+  jint jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Producer *arg2 = 0;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->insert_track(*arg2,arg3);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->insert_track(*arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Tractor_1remove_1track(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1remove_1track(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jint jarg2) {
+  jint jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->remove_track(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1track(JNIEnv *jenv,
+																			 jclass jcls,
+																			 jlong jarg1,
+																			 jobject jarg1_,
+																			 jint jarg2) {
+  jlong jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  int arg2;
+  Mlt::Producer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Tractor_1track(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  int arg2 ;
-  Mlt::Producer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
+  arg2 = (int)jarg2;
   result = (Mlt::Producer *)(arg1)->track(arg2);
-  *(Mlt::Producer **)&jresult = result; 
+  *(Mlt::Producer **)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Tractor_1count(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1count(JNIEnv *jenv,
+																			jclass jcls,
+																			jlong jarg1,
+																			jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   result = (int)(arg1)->count();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1plant_1transition_1_1SWIG_10(JNIEnv *jenv,
+																								   jclass jcls,
+																								   jlong jarg1,
+																								   jobject jarg1_,
+																								   jlong jarg2,
+																								   jobject jarg2_,
+																								   jint jarg3,
+																								   jint jarg4) {
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Transition *arg2 = 0;
+  int arg3;
+  int arg4;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1plant_1transition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3, jint jarg4) {
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Transition *arg2 = 0 ;
-  int arg3 ;
-  int arg4 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
-    return ;
-  } 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  (arg1)->plant_transition(*arg2,arg3,arg4);
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
+	return;
+  }
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  (arg1)->plant_transition(*arg2, arg3, arg4);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1plant_1transition_1_1SWIG_11(JNIEnv *jenv,
+																								   jclass jcls,
+																								   jlong jarg1,
+																								   jobject jarg1_,
+																								   jlong jarg2,
+																								   jobject jarg2_,
+																								   jint jarg3) {
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Transition *arg2 = 0;
+  int arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1plant_1transition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Transition *arg2 = 0 ;
-  int arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
-    return ;
-  } 
-  arg3 = (int)jarg3; 
-  (arg1)->plant_transition(*arg2,arg3);
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
+	return;
+  }
+  arg3 = (int)jarg3;
+  (arg1)->plant_transition(*arg2, arg3);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1plant_1transition_1_1SWIG_12(JNIEnv *jenv,
+																								   jclass jcls,
+																								   jlong jarg1,
+																								   jobject jarg1_,
+																								   jlong jarg2,
+																								   jobject jarg2_) {
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Transition *arg2 = 0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1plant_1transition_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Transition *arg2 = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   arg2 = *(Mlt::Transition **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
-    return ;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Transition & reference is null");
+	return;
+  }
   (arg1)->plant_transition(*arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1plant_1filter_1_1SWIG_10(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jlong jarg2,
+																							   jobject jarg2_,
+																							   jint jarg3) {
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Filter *arg2 = 0;
+  int arg3;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1plant_1filter_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jint jarg3) {
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Filter *arg2 = 0 ;
-  int arg3 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
-    return ;
-  } 
-  arg3 = (int)jarg3; 
-  (arg1)->plant_filter(*arg2,arg3);
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
+	return;
+  }
+  arg3 = (int)jarg3;
+  (arg1)->plant_filter(*arg2, arg3);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1plant_1filter_1_1SWIG_11(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jlong jarg2,
+																							   jobject jarg2_) {
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Filter *arg2 = 0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Tractor_1plant_1filter_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Filter *arg2 = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
-    return ;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
+	return;
+  }
   (arg1)->plant_filter(*arg2);
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Tractor_1locate_1cut(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4) {
-  jboolean jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Producer *arg2 = (Mlt::Producer *) 0 ;
-  int *arg3 = 0 ;
-  int *arg4 = 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1locate_1cut(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jlong jarg2,
+																					  jobject jarg2_,
+																					  jlong jarg3,
+																					  jlong jarg4) {
+  jboolean jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Producer *arg2 = (Mlt::Producer *)0;
+  int *arg3 = 0;
+  int *arg4 = 0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
-  arg2 = *(Mlt::Producer **)&jarg2; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
+  arg2 = *(Mlt::Producer **)&jarg2;
   arg3 = *(int **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
   arg4 = *(int **)&jarg4;
   if (!arg4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
-  result = (bool)(arg1)->locate_cut(arg2,*arg3,*arg4);
-  jresult = (jboolean)result; 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
+  result = (bool)(arg1)->locate_cut(arg2, *arg3, *arg4);
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Tractor_1connect(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Tractor *arg1 = (Mlt::Tractor *) 0 ;
-  Mlt::Producer *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1connect(JNIEnv *jenv,
+																			  jclass jcls,
+																			  jlong jarg1,
+																			  jobject jarg1_,
+																			  jlong jarg2,
+																			  jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Tractor *arg1 = (Mlt::Tractor *)0;
+  Mlt::Producer *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Tractor **)&jarg1; 
+  arg1 = *(Mlt::Tractor **)&jarg1;
   arg2 = *(Mlt::Producer **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Producer & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->connect(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Parser(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Parser *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Parser(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Parser *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Parser *)new Mlt::Parser();
-  *(Mlt::Parser **)&jresult = result; 
+  *(Mlt::Parser **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Parser(JNIEnv *jenv,
+																			jclass jcls,
+																			jlong jarg1) {
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Parser(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Parser **)&jarg1; 
+  arg1 = *(Mlt::Parser **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1start(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Service *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1start(JNIEnv *jenv,
+																		   jclass jcls,
+																		   jlong jarg1,
+																		   jobject jarg1_,
+																		   jlong jarg2,
+																		   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Service *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
+  arg1 = *(Mlt::Parser **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->start(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Parser_1get_1properties(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1get_1properties(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
   mlt_properties result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
+  arg1 = *(Mlt::Parser **)&jarg1;
   result = (mlt_properties)(arg1)->get_properties();
-  *(mlt_properties *)&jresult = result; 
+  *(mlt_properties *)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1invalid(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Service *arg2 = (Mlt::Service *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1invalid(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_,
+																				 jlong jarg2,
+																				 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Service *arg2 = (Mlt::Service *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Service **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Service **)&jarg2;
   result = (int)(arg1)->on_invalid(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1unknown(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Service *arg2 = (Mlt::Service *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1unknown(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_,
+																				 jlong jarg2,
+																				 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Service *arg2 = (Mlt::Service *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Service **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Service **)&jarg2;
   result = (int)(arg1)->on_unknown(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1start_1producer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Producer *arg2 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1start_1producer(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2,
+																						 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Producer *arg2 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Producer **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Producer **)&jarg2;
   result = (int)(arg1)->on_start_producer(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1end_1producer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Producer *arg2 = (Mlt::Producer *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1end_1producer(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jlong jarg2,
+																					   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Producer *arg2 = (Mlt::Producer *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Producer **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Producer **)&jarg2;
   result = (int)(arg1)->on_end_producer(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1start_1playlist(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Playlist *arg2 = (Mlt::Playlist *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1start_1playlist(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2,
+																						 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Playlist *arg2 = (Mlt::Playlist *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Playlist **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Playlist **)&jarg2;
   result = (int)(arg1)->on_start_playlist(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1end_1playlist(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Playlist *arg2 = (Mlt::Playlist *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1end_1playlist(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jlong jarg2,
+																					   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Playlist *arg2 = (Mlt::Playlist *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Playlist **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Playlist **)&jarg2;
   result = (int)(arg1)->on_end_playlist(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1start_1tractor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Tractor *arg2 = (Mlt::Tractor *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1start_1tractor(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jlong jarg2,
+																						jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Tractor *arg2 = (Mlt::Tractor *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Tractor **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Tractor **)&jarg2;
   result = (int)(arg1)->on_start_tractor(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1end_1tractor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Tractor *arg2 = (Mlt::Tractor *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1end_1tractor(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jlong jarg2,
+																					  jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Tractor *arg2 = (Mlt::Tractor *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Tractor **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Tractor **)&jarg2;
   result = (int)(arg1)->on_end_tractor(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1start_1multitrack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Multitrack *arg2 = (Mlt::Multitrack *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1start_1multitrack(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jlong jarg2,
+																						   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Multitrack *arg2 = (Mlt::Multitrack *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Multitrack **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Multitrack **)&jarg2;
   result = (int)(arg1)->on_start_multitrack(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1end_1multitrack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Multitrack *arg2 = (Mlt::Multitrack *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1end_1multitrack(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2,
+																						 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Multitrack *arg2 = (Mlt::Multitrack *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Multitrack **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Multitrack **)&jarg2;
   result = (int)(arg1)->on_end_multitrack(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1start_1track(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1start_1track(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
+  arg1 = *(Mlt::Parser **)&jarg1;
   result = (int)(arg1)->on_start_track();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1end_1track(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1end_1track(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
+  arg1 = *(Mlt::Parser **)&jarg1;
   result = (int)(arg1)->on_end_track();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1start_1filter(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Filter *arg2 = (Mlt::Filter *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1start_1filter(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jlong jarg2,
+																					   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Filter *arg2 = (Mlt::Filter *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Filter **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Filter **)&jarg2;
   result = (int)(arg1)->on_start_filter(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1end_1filter(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Filter *arg2 = (Mlt::Filter *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1end_1filter(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jlong jarg2,
+																					 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Filter *arg2 = (Mlt::Filter *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Filter **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Filter **)&jarg2;
   result = (int)(arg1)->on_end_filter(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1start_1transition(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Transition *arg2 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1start_1transition(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1,
+																						   jobject jarg1_,
+																						   jlong jarg2,
+																						   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Transition *arg2 = (Mlt::Transition *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Transition **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Transition **)&jarg2;
   result = (int)(arg1)->on_start_transition(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1end_1transition(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Transition *arg2 = (Mlt::Transition *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1end_1transition(JNIEnv *jenv,
+																						 jclass jcls,
+																						 jlong jarg1,
+																						 jobject jarg1_,
+																						 jlong jarg2,
+																						 jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Transition *arg2 = (Mlt::Transition *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Transition **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Transition **)&jarg2;
   result = (int)(arg1)->on_end_transition(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1start_1chain(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Chain *arg2 = (Mlt::Chain *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1start_1chain(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jlong jarg2) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Chain *arg2 = (Mlt::Chain *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Chain **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Chain **)&jarg2;
   result = (int)(arg1)->on_start_chain(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1end_1chain(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Chain *arg2 = (Mlt::Chain *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1end_1chain(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jlong jarg2) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Chain *arg2 = (Mlt::Chain *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Chain **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Chain **)&jarg2;
   result = (int)(arg1)->on_end_chain(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1start_1link(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Link *arg2 = (Mlt::Link *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1start_1link(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1,
+																					 jobject jarg1_,
+																					 jlong jarg2) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Link *arg2 = (Mlt::Link *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Link **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Link **)&jarg2;
   result = (int)(arg1)->on_start_link(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Parser_1on_1end_1link(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  jint jresult = 0 ;
-  Mlt::Parser *arg1 = (Mlt::Parser *) 0 ;
-  Mlt::Link *arg2 = (Mlt::Link *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1on_1end_1link(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_,
+																				   jlong jarg2) {
+  jint jresult = 0;
+  Mlt::Parser *arg1 = (Mlt::Parser *)0;
+  Mlt::Link *arg2 = (Mlt::Link *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Parser **)&jarg1; 
-  arg2 = *(Mlt::Link **)&jarg2; 
+  arg1 = *(Mlt::Parser **)&jarg1;
+  arg2 = *(Mlt::Link **)&jarg2;
   result = (int)(arg1)->on_end_link(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1FilteredConsumer_1_1SWIG_10(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jstring jarg2,
+																							   jstring jarg3) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  char *arg3 = (char *)0;
+  Mlt::FilteredConsumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1FilteredConsumer_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  char *arg3 = (char *) 0 ;
-  Mlt::FilteredConsumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
   arg3 = 0;
   if (jarg3) {
-    arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
-    if (!arg3) return 0;
+	arg3 = (char *)jenv->GetStringUTFChars(jarg3, 0);
+	if (!arg3) return 0;
   }
-  result = (Mlt::FilteredConsumer *)new Mlt::FilteredConsumer(*arg1,(char const *)arg2,(char const *)arg3);
-  *(Mlt::FilteredConsumer **)&jresult = result; 
+  result = (Mlt::FilteredConsumer *)new Mlt::FilteredConsumer(*arg1, (char const *)arg2, (char const *)arg3);
+  *(Mlt::FilteredConsumer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   if (arg3) jenv->ReleaseStringUTFChars(jarg3, (const char *)arg3);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1FilteredConsumer_1_1SWIG_11(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_,
+																							   jstring jarg2) {
+  jlong jresult = 0;
+  Mlt::Profile *arg1 = 0;
+  char *arg2 = (char *)0;
+  Mlt::FilteredConsumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1FilteredConsumer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
-  jlong jresult = 0 ;
-  Mlt::Profile *arg1 = 0 ;
-  char *arg2 = (char *) 0 ;
-  Mlt::FilteredConsumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Profile **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Profile & reference is null");
+	return 0;
+  }
   arg2 = 0;
   if (jarg2) {
-    arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
-    if (!arg2) return 0;
+	arg2 = (char *)jenv->GetStringUTFChars(jarg2, 0);
+	if (!arg2) return 0;
   }
-  result = (Mlt::FilteredConsumer *)new Mlt::FilteredConsumer(*arg1,(char const *)arg2);
-  *(Mlt::FilteredConsumer **)&jresult = result; 
+  result = (Mlt::FilteredConsumer *)new Mlt::FilteredConsumer(*arg1, (char const *)arg2);
+  *(Mlt::FilteredConsumer **)&jresult = result;
   if (arg2) jenv->ReleaseStringUTFChars(jarg2, (const char *)arg2);
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1FilteredConsumer_1_1SWIG_12(JNIEnv *jenv,
+																							   jclass jcls,
+																							   jlong jarg1,
+																							   jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Consumer *arg1 = 0;
+  Mlt::FilteredConsumer *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1FilteredConsumer_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Consumer *arg1 = 0 ;
-  Mlt::FilteredConsumer *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Consumer **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Consumer & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Consumer & reference is null");
+	return 0;
+  }
   result = (Mlt::FilteredConsumer *)new Mlt::FilteredConsumer(*arg1);
-  *(Mlt::FilteredConsumer **)&jresult = result; 
+  *(Mlt::FilteredConsumer **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1FilteredConsumer(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1) {
+  Mlt::FilteredConsumer *arg1 = (Mlt::FilteredConsumer *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1FilteredConsumer(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::FilteredConsumer *arg1 = (Mlt::FilteredConsumer *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::FilteredConsumer **)&jarg1; 
+  arg1 = *(Mlt::FilteredConsumer **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_FilteredConsumer_1connect(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::FilteredConsumer *arg1 = (Mlt::FilteredConsumer *) 0 ;
-  Mlt::Service *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_FilteredConsumer_1connect(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jlong jarg2,
+																					   jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::FilteredConsumer *arg1 = (Mlt::FilteredConsumer *)0;
+  Mlt::Service *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::FilteredConsumer **)&jarg1; 
+  arg1 = *(Mlt::FilteredConsumer **)&jarg1;
   arg2 = *(Mlt::Service **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Service & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Service & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->connect(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_FilteredConsumer_1attach(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::FilteredConsumer *arg1 = (Mlt::FilteredConsumer *) 0 ;
-  Mlt::Filter *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_FilteredConsumer_1attach(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jlong jarg2,
+																					  jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::FilteredConsumer *arg1 = (Mlt::FilteredConsumer *)0;
+  Mlt::Filter *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::FilteredConsumer **)&jarg1; 
+  arg1 = *(Mlt::FilteredConsumer **)&jarg1;
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->attach(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_FilteredConsumer_1last(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::FilteredConsumer *arg1 = (Mlt::FilteredConsumer *) 0 ;
-  Mlt::Filter *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_FilteredConsumer_1last(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jlong jarg2,
+																					jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::FilteredConsumer *arg1 = (Mlt::FilteredConsumer *)0;
+  Mlt::Filter *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::FilteredConsumer **)&jarg1; 
+  arg1 = *(Mlt::FilteredConsumer **)&jarg1;
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->last(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_FilteredConsumer_1detach(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  Mlt::FilteredConsumer *arg1 = (Mlt::FilteredConsumer *) 0 ;
-  Mlt::Filter *arg2 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_FilteredConsumer_1detach(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jlong jarg2,
+																					  jobject jarg2_) {
+  jint jresult = 0;
+  Mlt::FilteredConsumer *arg1 = (Mlt::FilteredConsumer *)0;
+  Mlt::Filter *arg2 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::FilteredConsumer **)&jarg1; 
+  arg1 = *(Mlt::FilteredConsumer **)&jarg1;
   arg2 = *(Mlt::Filter **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Filter & reference is null");
+	return 0;
+  }
   result = (int)(arg1)->detach(*arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Animation_1_1SWIG_10(JNIEnv *jenv,
+																						jclass jcls) {
+  jlong jresult = 0;
+  Mlt::Animation *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Animation_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  Mlt::Animation *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   result = (Mlt::Animation *)new Mlt::Animation();
-  *(Mlt::Animation **)&jresult = result; 
+  *(Mlt::Animation **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Animation_1_1SWIG_11(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1) {
+  jlong jresult = 0;
+  mlt_animation arg1 = (mlt_animation)0;
+  Mlt::Animation *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Animation_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  mlt_animation arg1 = (mlt_animation) 0 ;
-  Mlt::Animation *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(mlt_animation *)&jarg1; 
+  arg1 = *(mlt_animation *)&jarg1;
   result = (Mlt::Animation *)new Mlt::Animation(arg1);
-  *(Mlt::Animation **)&jresult = result; 
+  *(Mlt::Animation **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_new_1Animation_1_1SWIG_12(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Animation *arg1 = 0;
+  Mlt::Animation *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_new_1Animation_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Animation *arg1 = 0 ;
-  Mlt::Animation *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(Mlt::Animation **)&jarg1;
   if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Animation const & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Animation const & reference is null");
+	return 0;
+  }
   result = (Mlt::Animation *)new Mlt::Animation((Mlt::Animation const &)*arg1);
-  *(Mlt::Animation **)&jresult = result; 
+  *(Mlt::Animation **)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_delete_1Animation(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1) {
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_delete_1Animation(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  
   (void)jenv;
   (void)jcls;
-  arg1 = *(Mlt::Animation **)&jarg1; 
+  arg1 = *(Mlt::Animation **)&jarg1;
   delete arg1;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Animation_1is_1valid(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1is_1valid(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_) {
+  jboolean jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
+  arg1 = *(Mlt::Animation **)&jarg1;
   result = (bool)((Mlt::Animation const *)arg1)->is_valid();
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Animation_1get_1animation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1get_1animation(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_) {
+  jlong jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
   mlt_animation result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
+  arg1 = *(Mlt::Animation **)&jarg1;
   result = (mlt_animation)((Mlt::Animation const *)arg1)->get_animation();
-  *(mlt_animation *)&jresult = result; 
+  *(mlt_animation *)&jresult = result;
   return jresult;
 }
 
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1_1_1assign_1_1(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jlong jarg2,
+																						jobject jarg2_) {
+  jlong jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  Mlt::Animation *arg2 = 0;
+  Mlt::Animation *result = 0;
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Animation_1_1_1assign_1_1(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jlong jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  Mlt::Animation *arg2 = 0 ;
-  Mlt::Animation *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
+  arg1 = *(Mlt::Animation **)&jarg1;
   arg2 = *(Mlt::Animation **)&jarg2;
   if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Mlt::org.huihui.videoedit.mlt.Animation const & reference is null");
-    return 0;
-  } 
-  result = (Mlt::Animation *) &(arg1)->operator =((Mlt::Animation const &)*arg2);
-  *(Mlt::Animation **)&jresult = result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"Mlt::org.huihui.videoedit.mlt.Animation const & reference is null");
+	return 0;
+  }
+  result = (Mlt::Animation *)&(arg1)->operator=((Mlt::Animation const &)*arg2);
+  *(Mlt::Animation **)&jresult = result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1length(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
+  arg1 = *(Mlt::Animation **)&jarg1;
   result = (int)(arg1)->length();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1get_1item(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jlong jarg4) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
-  bool *arg3 = 0 ;
-  mlt_keyframe_type *arg4 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1get_1item(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1,
+																				  jobject jarg1_,
+																				  jint jarg2,
+																				  jlong jarg3,
+																				  jlong jarg4) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
+  bool *arg3 = 0;
+  mlt_keyframe_type *arg4 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation **)&jarg1;
+  arg2 = (int)jarg2;
   arg3 = *(bool **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "bool & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "bool & reference is null");
+	return 0;
+  }
   arg4 = *(mlt_keyframe_type **)&jarg4;
   if (!arg4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "org.huihui.videoedit.mlt.mlt_keyframe_type & reference is null");
-    return 0;
-  } 
-  result = (int)(arg1)->get_item(arg2,*arg3,*arg4);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"org.huihui.videoedit.mlt.mlt_keyframe_type & reference is null");
+	return 0;
+  }
+  result = (int)(arg1)->get_item(arg2, *arg3, *arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Animation_1is_1key(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jboolean jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1is_1key(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jint jarg2) {
+  jboolean jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation **)&jarg1;
+  arg2 = (int)jarg2;
   result = (bool)(arg1)->is_key(arg2);
-  jresult = (jboolean)result; 
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1keyframe_1type(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1keyframe_1type(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
   mlt_keyframe_type result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation **)&jarg1;
+  arg2 = (int)jarg2;
   result = (mlt_keyframe_type)(arg1)->keyframe_type(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1next_1key_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1next_1key_1_1SWIG_10(JNIEnv *jenv,
+																							 jclass jcls,
+																							 jlong jarg1,
+																							 jobject jarg1_,
+																							 jint jarg2) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->next_key(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Animation_1next_1key_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
-  jboolean jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
-  int *arg3 = 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1next_1key_1_1SWIG_11(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jint jarg2,
+																								 jlong jarg3) {
+  jboolean jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
+  int *arg3 = 0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation **)&jarg1;
+  arg2 = (int)jarg2;
   arg3 = *(int **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
-  result = (bool)(arg1)->next_key(arg2,*arg3);
-  jresult = (jboolean)result; 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
+  result = (bool)(arg1)->next_key(arg2, *arg3);
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1previous_1key_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1previous_1key_1_1SWIG_10(JNIEnv *jenv,
+																								 jclass jcls,
+																								 jlong jarg1,
+																								 jobject jarg1_,
+																								 jint jarg2) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation **)&jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->previous_key(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jboolean JNICALL Java_mltJNI_Animation_1previous_1key_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
-  jboolean jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
-  int *arg3 = 0 ;
+SWIGEXPORT jboolean JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1previous_1key_1_1SWIG_11(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_,
+																									 jint jarg2,
+																									 jlong jarg3) {
+  jboolean jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
+  int *arg3 = 0;
   bool result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation **)&jarg1;
+  arg2 = (int)jarg2;
   arg3 = *(int **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
-  result = (bool)(arg1)->previous_key(arg2,*arg3);
-  jresult = (jboolean)result; 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
+  result = (bool)(arg1)->previous_key(arg2, *arg3);
+  jresult = (jboolean)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1key_1count(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1key_1count(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1,
+																				   jobject jarg1_) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
+  arg1 = *(Mlt::Animation **)&jarg1;
   result = (int)(arg1)->key_count();
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1key_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jlong jarg4) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
-  int *arg3 = 0 ;
-  mlt_keyframe_type *arg4 = 0 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1key_1get(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1,
+																				 jobject jarg1_,
+																				 jint jarg2,
+																				 jlong jarg3,
+																				 jlong jarg4) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
+  int *arg3 = 0;
+  mlt_keyframe_type *arg4 = 0;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation **)&jarg1;
+  arg2 = (int)jarg2;
   arg3 = *(int **)&jarg3;
   if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
-    return 0;
-  } 
+	SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "int & reference is null");
+	return 0;
+  }
   arg4 = *(mlt_keyframe_type **)&jarg4;
   if (!arg4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "org.huihui.videoedit.mlt.mlt_keyframe_type & reference is null");
-    return 0;
-  } 
-  result = (int)(arg1)->key_get(arg2,*arg3,*arg4);
-  jresult = (jint)result; 
+	SWIG_JavaThrowException(jenv,
+							SWIG_JavaNullPointerException,
+							"org.huihui.videoedit.mlt.mlt_keyframe_type & reference is null");
+	return 0;
+  }
+  result = (int)(arg1)->key_get(arg2, *arg3, *arg4);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1key_1get_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1key_1get_1frame(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jint jarg2) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->key_get_frame(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1key_1get_1type(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1key_1get_1type(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
   mlt_keyframe_type result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (int)jarg2;
   result = (mlt_keyframe_type)(arg1)->key_get_type(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1key_1set_1type(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
-  mlt_keyframe_type arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1key_1set_1type(JNIEnv *jenv,
+																					   jclass jcls,
+																					   jlong jarg1,
+																					   jobject jarg1_,
+																					   jint jarg2,
+																					   jint jarg3) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
+  mlt_keyframe_type arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (mlt_keyframe_type)jarg3; 
-  result = (int)(arg1)->key_set_type(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (mlt_keyframe_type)jarg3;
+  result = (int)(arg1)->key_set_type(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1key_1set_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
-  int arg3 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1key_1set_1frame(JNIEnv *jenv,
+																						jclass jcls,
+																						jlong jarg1,
+																						jobject jarg1_,
+																						jint jarg2,
+																						jint jarg3) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
+  int arg3;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (int)(arg1)->key_set_frame(arg2,arg3);
-  jresult = (jint)result; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (int)(arg1)->key_set_frame(arg2, arg3);
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1shift_1frames(JNIEnv *jenv,
+																					  jclass jcls,
+																					  jlong jarg1,
+																					  jobject jarg1_,
+																					  jint jarg2) {
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Animation_1shift_1frames(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (int)jarg2;
   (arg1)->shift_frames(arg2);
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1set_1length(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_,
+																					jint jarg2) {
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Animation_1set_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (int)jarg2;
   (arg1)->set_length(arg2);
 }
 
-
-SWIGEXPORT jint JNICALL Java_mltJNI_Animation_1remove(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
+SWIGEXPORT jint JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1remove(JNIEnv *jenv,
+																			   jclass jcls,
+																			   jlong jarg1,
+																			   jobject jarg1_,
+																			   jint jarg2) {
+  jint jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
   int result;
-  
+
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (int)jarg2;
   result = (int)(arg1)->remove(arg2);
-  jresult = (jint)result; 
+  jresult = (jint)result;
   return jresult;
 }
 
+SWIGEXPORT void JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1interpolate(JNIEnv *jenv,
+																					jclass jcls,
+																					jlong jarg1,
+																					jobject jarg1_) {
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
 
-SWIGEXPORT void JNICALL Java_mltJNI_Animation_1interpolate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
   (arg1)->interpolate();
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1serialize_1cut_1_1SWIG_10(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_,
+																									 jint jarg2,
+																									 jint jarg3) {
+  jstring jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
+  int arg3;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Animation_1serialize_1cut_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jstring jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (char *)(arg1)->serialize_cut(arg2,arg3);
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (int)jarg2;
+  arg3 = (int)jarg3;
+  result = (char *)(arg1)->serialize_cut(arg2, arg3);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1serialize_1cut_1_1SWIG_11(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_,
+																									 jint jarg2) {
+  jstring jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  int arg2;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Animation_1serialize_1cut_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jstring jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  int arg2 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (int)jarg2; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (int)jarg2;
   result = (char *)(arg1)->serialize_cut(arg2);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1serialize_1cut_1_1SWIG_12(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_) {
+  jstring jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Animation_1serialize_1cut_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
   result = (char *)(arg1)->serialize_cut();
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1serialize_1cut_1_1SWIG_13(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_,
+																									 jint jarg2,
+																									 jint jarg3,
+																									 jint jarg4) {
+  jstring jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  mlt_time_format arg2;
+  int arg3;
+  int arg4;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Animation_1serialize_1cut_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jint jarg4) {
-  jstring jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  mlt_time_format arg2 ;
-  int arg3 ;
-  int arg4 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (mlt_time_format)jarg2; 
-  arg3 = (int)jarg3; 
-  arg4 = (int)jarg4; 
-  result = (char *)(arg1)->serialize_cut(arg2,arg3,arg4);
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (mlt_time_format)jarg2;
+  arg3 = (int)jarg3;
+  arg4 = (int)jarg4;
+  result = (char *)(arg1)->serialize_cut(arg2, arg3, arg4);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1serialize_1cut_1_1SWIG_14(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_,
+																									 jint jarg2,
+																									 jint jarg3) {
+  jstring jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  mlt_time_format arg2;
+  int arg3;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Animation_1serialize_1cut_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  jstring jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  mlt_time_format arg2 ;
-  int arg3 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (mlt_time_format)jarg2; 
-  arg3 = (int)jarg3; 
-  result = (char *)(arg1)->serialize_cut(arg2,arg3);
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (mlt_time_format)jarg2;
+  arg3 = (int)jarg3;
+  result = (char *)(arg1)->serialize_cut(arg2, arg3);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
+SWIGEXPORT jstring JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Animation_1serialize_1cut_1_1SWIG_15(JNIEnv *jenv,
+																									 jclass jcls,
+																									 jlong jarg1,
+																									 jobject jarg1_,
+																									 jint jarg2) {
+  jstring jresult = 0;
+  Mlt::Animation *arg1 = (Mlt::Animation *)0;
+  mlt_time_format arg2;
+  char *result = 0;
 
-SWIGEXPORT jstring JNICALL Java_mltJNI_Animation_1serialize_1cut_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jstring jresult = 0 ;
-  Mlt::Animation *arg1 = (Mlt::Animation *) 0 ;
-  mlt_time_format arg2 ;
-  char *result = 0 ;
-  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(Mlt::Animation **)&jarg1; 
-  arg2 = (mlt_time_format)jarg2; 
+  arg1 = *(Mlt::Animation * *) & jarg1;
+  arg2 = (mlt_time_format)jarg2;
   result = (char *)(arg1)->serialize_cut(arg2);
   if (result) jresult = jenv->NewStringUTF((const char *)result);
   return jresult;
 }
 
-
-SWIGEXPORT jlong JNICALL Java_mltJNI_Frame_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Properties **)&baseptr = *(Mlt::Frame **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Frame_1SWIGUpcast(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Properties * *) & baseptr = *(Mlt::Frame * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Service_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Properties **)&baseptr = *(Mlt::Service **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Service_1SWIGUpcast(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Properties * *) & baseptr = *(Mlt::Service * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Producer_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Service **)&baseptr = *(Mlt::Producer **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Producer_1SWIGUpcast(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Service * *) & baseptr = *(Mlt::Producer * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Playlist_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Producer **)&baseptr = *(Mlt::Playlist **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Playlist_1SWIGUpcast(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Producer * *) & baseptr = *(Mlt::Playlist * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Consumer_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Service **)&baseptr = *(Mlt::Consumer **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Consumer_1SWIGUpcast(JNIEnv *jenv,
+																				   jclass jcls,
+																				   jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Service * *) & baseptr = *(Mlt::Consumer * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Filter_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Service **)&baseptr = *(Mlt::Filter **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Filter_1SWIGUpcast(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Service * *) & baseptr = *(Mlt::Filter * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Transition_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Service **)&baseptr = *(Mlt::Transition **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Transition_1SWIGUpcast(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Service * *) & baseptr = *(Mlt::Transition * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Multitrack_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Producer **)&baseptr = *(Mlt::Multitrack **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Multitrack_1SWIGUpcast(JNIEnv *jenv,
+																					 jclass jcls,
+																					 jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Producer * *) & baseptr = *(Mlt::Multitrack * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Field_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Service **)&baseptr = *(Mlt::Field **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Field_1SWIGUpcast(JNIEnv *jenv,
+																				jclass jcls,
+																				jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Service * *) & baseptr = *(Mlt::Field * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Tractor_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Producer **)&baseptr = *(Mlt::Tractor **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Tractor_1SWIGUpcast(JNIEnv *jenv,
+																				  jclass jcls,
+																				  jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Producer * *) & baseptr = *(Mlt::Tractor * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_Parser_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Properties **)&baseptr = *(Mlt::Parser **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_Parser_1SWIGUpcast(JNIEnv *jenv,
+																				 jclass jcls,
+																				 jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Properties * *) & baseptr = *(Mlt::Parser * *) & jarg1;
+  return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_mltJNI_FilteredConsumer_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-    jlong baseptr = 0;
-    (void)jenv;
-    (void)jcls;
-    *(Mlt::Consumer **)&baseptr = *(Mlt::FilteredConsumer **)&jarg1;
-    return baseptr;
+SWIGEXPORT jlong JNICALL Java_org_huihui_videoedit_mlt_mltJNI_FilteredConsumer_1SWIGUpcast(JNIEnv *jenv,
+																						   jclass jcls,
+																						   jlong jarg1) {
+  jlong baseptr = 0;
+  (void)jenv;
+  (void)jcls;
+  *(Mlt::Consumer * *) & baseptr = *(Mlt::FilteredConsumer * *) & jarg1;
+  return baseptr;
 }
 
 #ifdef __cplusplus

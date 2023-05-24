@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 package org.huihui.videoedit.mlt;
-import mltJNI;
+
 public class Animation {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
