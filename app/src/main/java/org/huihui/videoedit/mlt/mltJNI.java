@@ -17,13 +17,13 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 public class mltJNI {
 
-    static final int MLT_LOG_QUIET = -8;
-    static final int MLT_LOG_FATAL = 0;
-    static final int MLT_LOG_ERROR = 16;
-    static final int MLT_LOG_WARNING = 24;
-    static final int MLT_LOG_INFO = 32;
-    static final int MLT_LOG_DEBUG = 44;
-    static final int MLT_LOG_VERBOSE = 48;
+    public static final int MLT_LOG_QUIET = -8;
+    public static final int MLT_LOG_FATAL = 0;
+    public static final int MLT_LOG_ERROR = 16;
+    public static final int MLT_LOG_WARNING = 24;
+    public static final int MLT_LOG_INFO = 32;
+    public static final int MLT_LOG_DEBUG = 44;
+    public static final int MLT_LOG_VERBOSE = 48;
 
     @Retention(SOURCE)
 //@Target 这个注解需要使用的地方 PARAMETER=注解将被使用到方法的参数中
@@ -207,8 +207,6 @@ public class mltJNI {
     public static native int mlt_log_get_level();
 
     public static native void mlt_log_set_level(@LogLevel int jarg1);
-
-    public static native void initLog(@LogLevel int logLevel);
 
     public static native long Factory_init__SWIG_0(String jarg1);
 

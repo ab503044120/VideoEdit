@@ -15,25 +15,22 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/ThirdPart/CMakeLists.txt)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 add_subdirectory(utils)
-
+add_subdirectory(videoedit)
 add_library( # Sets the name of the library.
-        videoedit
+        videoeditJNI
 
         # Sets the library as a shared library.
         SHARED
-
         # Provides a relative path to your source file(s).
-        native-lib.cpp
         mltJAVA_wrap.cpp
+        VideoEditJNI.cpp
         )
 
 message(WARNING hahha${Mlt7_FOUND})
 
 target_link_libraries( # Specifies the target library.
-        videoedit
+        videoeditJNI
         PUBLIC
-        ${FFMPEG_LIBRARY}
-        Mlt7::mlt
-        Mlt7::mlt++
-            utils
+        utils
+        videoedit
         )

@@ -2,12 +2,13 @@
 set -o errexit
 ndk=~/Android-env/android_sdk/ndk/23.1.7779620
 pwd=$PWD
-prefix=$pwd/prebuild/mlt/
-outdir=$prefix/arm64-v8a
+prefix=$pwd/prebuild/mlt
+abi=arm64-v8a
 #export PKG_CONFIG_PATH=$pwd/prebuild/ffmpeg/arm64-v8a/lib/pkgconfig
 export PKG_CONFIG_LIBDIR=$pwd/prebuild/ffmpeg/arm64-v8a/lib/pkgconfig
 echo $PKG_CONFIG_LIBDIR
-rm -rf $outdir
+rm -rf $prefix/$abi
+rm -rf $prefix/share
 
 cd mlt
 
@@ -22,7 +23,11 @@ cmake -DANDROID_ABI=arm64-v8a \
   -DANDROID=1 \
   -D__GLIBC__=1 \
   -DHAVE_LOCALE_H=ON \
-  -DCMAKE_INSTALL_PREFIX=$outdir \
+  -DCMAKE_INSTALL_PREFIX=$prefix \
+  -DCMAKE_INSTALL_LIBDIR=$abi/lib \
+  -DCMAKE_INSTALL_BINDIR=$abi/bin \
+  -DCMAKE_INSTALL_INCLUDEDIR=$abi/include \
+  -DCMAKE_INSTALL_DATADIR=share \
   -DGPL=OFF \
   -DGPL3=OFF \
   -DBUILD_TESTING=OFF \
@@ -69,13 +74,13 @@ cmake -DANDROID_ABI=arm64-v8a \
 cd build
 cmake --build .
 cmake --install .
+assetsDir=${prefix}/assets
+rm -rf $assetsDir/share
+mkdir -p $assetsDir/share
 
-rm -rf ${prefix}/assets/share
-mkdir -p ${prefix}/assets/share
+rm -rf $assetsDir/$abi/lib
+mkdir -p $assetsDir/$abi/lib
 
-rm -rf ${prefix}/assets/lib
-mkdir -p ${prefix}/assets/lib
-
-cp -r ${outdir}/lib/mlt-7 ${prefix}/assets/lib/
-cp -r ${outdir}/share/mlt-7 ${prefix}/assets/share/
+cp -r ${prefix}/$abi/lib/mlt-7 $assetsDir/$abi/lib
+cp -r ${prefix}/share/mlt-7 $assetsDir/share/
 exit 1

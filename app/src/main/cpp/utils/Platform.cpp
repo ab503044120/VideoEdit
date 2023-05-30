@@ -39,7 +39,7 @@ void Logger::logf(const char *format, ...) {
   va_list arglist;
   va_start(arglist, format);
   log(ANDROID_LOG_FATAL, format, arglist);
-  va_end(arglist)
+  va_end(arglist);
 }
 
 void Logger::loge(const char *format, ...) {

@@ -51,6 +51,7 @@ get_filename_component(_IMPORT_PREFIX "${CMAKE_CURRENT_LIST_FILE}" PATH)
 get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
 get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
 get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
+get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
 if(_IMPORT_PREFIX STREQUAL "/")
   set(_IMPORT_PREFIX "")
 endif()
@@ -59,14 +60,14 @@ endif()
 add_library(Mlt7::mlt SHARED IMPORTED)
 
 set_target_properties(Mlt7::mlt PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/mlt-7"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/arm64-v8a/include/mlt-7"
 )
 
 # Create imported target Mlt7::mlt++
 add_library(Mlt7::mlt++ SHARED IMPORTED)
 
 set_target_properties(Mlt7::mlt++ PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/mlt-7/mlt++"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/arm64-v8a/include/mlt-7/mlt++"
   INTERFACE_LINK_LIBRARIES "Mlt7::mlt"
 )
 
