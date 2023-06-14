@@ -44,17 +44,6 @@ android {
     buildFeatures {
         viewBinding true
     }
-    sourceSets {
-        main {
-            assets {
-                srcDirs = ['src/main/assets', 'src/main/cpp/ThirdPart/prebuild/mlt/assets'
-                           ] // , 'src/main/cpp/ThirdPart/prebuild/mlt/assets' , 'src/main/cpp/assets'
-            }
-            jni {
-                srcDirs = ['src/main/cpp']
-            }
-        }
-    }
 }
 
 dependencies {

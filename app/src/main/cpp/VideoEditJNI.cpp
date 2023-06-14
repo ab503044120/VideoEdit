@@ -68,6 +68,7 @@ Java_org_huihui_videoedit_VideoEditJNI_nInitLog(JNIEnv *env, jclass clazz, jint 
     mlt_log_level = log_level;
     mlt_log_set_callback(mlt_log_callback);
 }
+
 extern "C"
 JNIEXPORT void JNICALL
 Java_org_huihui_videoedit_VideoEditJNI_nInit(JNIEnv *env,
@@ -80,6 +81,7 @@ Java_org_huihui_videoedit_VideoEditJNI_nInit(JNIEnv *env,
     env->ReleaseStringUTFChars(pluginPath, plugin);
     env->ReleaseStringUTFChars(metaPath, meta);
 }
+
 extern "C"
 JNIEXPORT void JNICALL
 Java_org_huihui_videoedit_VideoEditJNI_nRelease(JNIEnv *env, jclass clazz, jstring path) {

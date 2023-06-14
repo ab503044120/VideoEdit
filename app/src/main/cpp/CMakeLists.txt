@@ -15,6 +15,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/ThirdPart/CMakeLists.txt)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 add_subdirectory(utils)
+add_subdirectory(renderengine)
 add_subdirectory(videoedit)
 add_library( # Sets the name of the library.
         videoeditJNI

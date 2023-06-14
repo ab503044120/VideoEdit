@@ -74,13 +74,13 @@ cmake -DANDROID_ABI=arm64-v8a \
 cd build
 cmake --build .
 cmake --install .
-assetsDir=${prefix}/assets
+assetsDir=${pwd}/../../assets
 rm -rf $assetsDir/share
 mkdir -p $assetsDir/share
 
-rm -rf $assetsDir/$abi/lib
-mkdir -p $assetsDir/$abi/lib
+rm -rf $assetsDir/lib/mlt-7/$abi
+mkdir -p $assetsDir/lib/mlt-7/$abi
 
-cp -r ${prefix}/$abi/lib/mlt-7 $assetsDir/$abi/lib
+cp -r ${prefix}/$abi/lib/mlt-7/* $assetsDir/lib/mlt-7/$abi
 cp -r ${prefix}/share/mlt-7 $assetsDir/share/
 exit 1
