@@ -6,7 +6,7 @@ import org.huihui.videoedit.mlt.mltJNI;
 /*
  * @Description:
  * @version 1.0
- * @author 陈松辉
+ * @author huihui
  * @date 2023/5/25 23:43
  */
 public class VideoEditJNI {

@@ -3,3 +3,21 @@
 //
 
 #include "RenderEngine.h"
+namespace RenderEngine {
+
+void RenderEngine::start() {
+
+}
+
+void RenderEngine::stop() {
+
+}
+
+void RenderEngine::setSurface(ANativeWindow *window) {
+
+}
+
+void RenderEngine::updateSurfaceSize(uint32_t width, uint32_t height) {
+
+}
+}

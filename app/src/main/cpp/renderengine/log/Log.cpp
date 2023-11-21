@@ -38,7 +38,7 @@ void Logger::log(int32_t level, const char *format, ...) {
 void Logger::loge(const char *format, ...) {
   va_list arglist;
   va_start(arglist, format);
-  log(ANDROID_LOG_ERROR, format, arglist);
+  log(ANDROID_LOG_ERROR, tag.c_str(), format, arglist);
   va_end(arglist);
 }
 

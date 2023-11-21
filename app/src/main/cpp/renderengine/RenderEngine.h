@@ -2,15 +2,25 @@
 // Created by huihui on 2023/6/14.
 //
 
-#ifndef VIDEOEDIT_APP_SRC_MAIN_CPP_RENDERENGINE_RENDERENGINE_H_
-#define VIDEOEDIT_APP_SRC_MAIN_CPP_RENDERENGINE_RENDERENGINE_H_
-
-
-
+#ifndef RENDERENGINE_RENDERENGINE_H_
+#define RENDERENGINE_RENDERENGINE_H_
+#include <android/native_window.h>
+#include <vector>
+namespace RenderEngine {
 class RenderEngine {
+private:
+  uint32_t mWindowWidth{};
+  uint32_t mWindowHeight{};
+
+public:
+  void start();
+
+  void stop();
+
+  void setSurface(ANativeWindow *window);
+
+  void updateSurfaceSize(uint32_t width, uint32_t height);
 
 };
-
-
-
-#endif //VIDEOEDIT_APP_SRC_MAIN_CPP_RENDERENGINE_RENDERENGINE_H_
+}
+#endif //RENDERENGINE_RENDERENGINE_H_

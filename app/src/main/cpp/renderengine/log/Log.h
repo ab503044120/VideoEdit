@@ -5,7 +5,7 @@
 
 #ifndef LOG_LIB_H
 #define LOG_LIB_H
-#include "android/log.h"
+#include <android/log.h>
 #include <string>
 #include <chrono>
 
@@ -48,14 +48,21 @@ bool negativeValueCheck(int32_t value);
 
 class Logger {
   std::string tag;
- public:
+public:
   Logger(std::string tag);
+
   static void log(int32_t level, const char *tag, const char *format, va_list vaList);
+
   static void log(int32_t level, const char *tag, const char *format, ...);
+
   void log(int32_t level, const char *format, ...);
+
   void loge(const char *format, ...);
+
   void logd(const char *format, ...);
+
   void logw(const char *format, ...);
+
   void logi(const char *format, ...);
 };
 #endif

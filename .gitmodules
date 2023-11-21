@@ -1,6 +1,6 @@
-[submodule "app/src/main/cpp/ThirdPart/org.huihui.videoedit.mlt.mlt"]
-	path = app/src/main/cpp/ThirdPart/org.huihui.videoedit.mlt.mlt
-	url = https://github.com/ab503044120/org.huihui.videoedit.mlt.mlt.git
+[submodule "app/src/main/cpp/ThirdPart/mlt"]
+	path = app/src/main/cpp/ThirdPart/mlt
+	url = https://github.com/ab503044120/mlt.git
 	branch = android
 [submodule "app/src/main/cpp/ThirdPart/FFmpeg"]
 	path = app/src/main/cpp/ThirdPart/FFmpeg

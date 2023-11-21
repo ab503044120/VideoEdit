@@ -2,8 +2,8 @@
 // Created by huihui on 2023/5/25.
 //
 
-#ifndef VIDEOEDIT_APP_SRC_MAIN_CPP_VIDEOEDIT_H_
-#define VIDEOEDIT_APP_SRC_MAIN_CPP_VIDEOEDIT_H_
+#ifndef VIDEOEDIT_H_
+#define VIDEOEDIT_H_
 
 #include <mutex>
 #include <memory>
@@ -25,4 +25,4 @@ class VideoEdit {
     void init(const char *pluginPath, const char *metaPath);
 };
 
-#endif //VIDEOEDIT_APP_SRC_MAIN_CPP_VIDEOEDIT_H_
+#endif //VIDEOEDIT_H_

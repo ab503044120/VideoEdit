@@ -27,8 +27,6 @@ add_library( # Sets the name of the library.
         VideoEditJNI.cpp
         )
 
-message(WARNING hahha${Mlt7_FOUND})
-
 target_link_libraries( # Specifies the target library.
         videoeditJNI
         PUBLIC
